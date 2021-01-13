@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Singleton.dir/test/Singleton_test.cpp.o -o bin/Singleton   -L/home/cxf/Desktop/WebServer/base/lib  -L/usr/local/lib  -Wl,-rpath,/home/cxf/Desktop/WebServer/base/lib:/usr/local/lib -lpthread 
