@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 11:47:23
- * @LastEditTime: 2021-01-14 15:15:39
+ * @LastEditTime: 2021-01-14 18:08:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/LogFile.cpp
@@ -25,7 +25,7 @@ LogFile::LogFile(const std::string& basename)
       lastRoll_(0),
       lastFlush_(0) 
 { 
-
+    rollFile();
 }
 
 LogFile::~LogFile() {
@@ -34,7 +34,11 @@ LogFile::~LogFile() {
 
 void LogFile::append(const std::string& logline, size_t len) {
     std::string fileName = getLogFileName(basename_);
-    FILE* fd = fopen(fileName.c_str(), "ae");
+    file_->append(logline, len);
+    if () {
+        
+    }
+
     
 }
 
@@ -54,4 +58,19 @@ std::string LogFile::getLogFileName(const std::string& basename) {
     fileName += ".log";
 
     return fileName;
+}
+
+bool LogFile::rollFile() {
+    std::string fileName = getLogFileName(basename_);
+    time_t now;
+    time_t start = now / kRollPerSeconds_ * kRollPerSeconds_;
+    if (now > lastRoll_) { /*usually, now > lastRoll_ , but if error, is not*/
+        startOfPeriod_ = start;
+        lastRoll_ = now;
+        lastFlush_ = now;
+        // create new log file
+        file_.reset(new AppendFile(fileName));
+        return true;
+    }
+    return false;
 }

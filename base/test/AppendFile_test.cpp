@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 15:56:18
- * @LastEditTime: 2021-01-14 17:00:10
+ * @LastEditTime: 2021-01-14 17:41:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/AppendFile_test.cpp
@@ -10,19 +10,24 @@
 
 using namespace std;
 
-int main() {
-    AppendFile file("./test.txt");
-    const string name("CXF\n");
-    const char *firstLine = "My name is CXF\n";
-    char *twiceLine = "for two line\n";
-    char thirdLine[] = "for third line\n";
-    file.append(name, name.size());
-    file.append(firstLine, strlen(firstLine));
-    cout << "after append first line:" << file.writtenBytes() << endl;
-    file.append(twiceLine, strlen(twiceLine));
-    file.append(thirdLine, sizeof(thirdLine));
-    // file.append();
-    file.flush();
-
-    return 0;
+int main()
+{
+	AppendFile write("./test.log");
+	
+	string str;
+	for (int i = 0; i < 26; ++i)
+	{
+		str.push_back('a' + i);
+	}
+	
+	for (int i = 0; i < 100000; ++i)
+	{
+		string sId = to_string(i);
+		write.append(sId.c_str(), sId.size());
+		write.append(" : ", 3);
+		write.append(str, str.size());
+		write.append("\n", 1);
+	}
+	
+	// write.flush();
 }

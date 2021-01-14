@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 11:47:11
- * @LastEditTime: 2021-01-14 15:09:47
+ * @LastEditTime: 2021-01-14 18:04:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/LogFile.h
@@ -12,6 +12,7 @@
 #include "Mutex.h"
 #include <string>
 #include <memory>
+#include "AppendFile.h"
 
 class Helper{
 public:
@@ -25,7 +26,7 @@ public:
     ~LogFile();
     void append(const std::string& basename, size_t len);
     void flush();
-    void rollFile();
+    bool rollFile();
 
 private:
     static std::string getLogFileName(const std::string& basename);
@@ -37,6 +38,7 @@ private:
     time_t startOfPeriod_;
     time_t lastRoll_;
     time_t lastFlush_;
+    std::unique_ptr<AppendFile> file_; // for log file
 
     const static int rollSize_ = 64 * 1024;
     const static int flushInterval_ = 3;
