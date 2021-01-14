@@ -53,3 +53,7 @@ target_link_libraries(Singleton -lpthread)
 # FixedBuffer
 add_executable(FixedBuffer Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp test/FixedBuffer_test.cpp)
 target_link_libraries(FixedBuffer -lpthread)
+
+# AppendFile
+add_executable(AppendFile AppendFile.cpp test/AppendFile_test.cpp)
+target_link_libraries(AppendFile -lpthread)

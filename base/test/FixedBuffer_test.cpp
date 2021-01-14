@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-13 11:39:06
- * @LastEditTime: 2021-01-13 17:45:38
+ * @LastEditTime: 2021-01-14 10:43:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/FixBuffer.h
@@ -21,7 +21,7 @@ void runInThread() {
 
 int main() {
     Threadpool pool(5); // task nums = 5;
-    // pool.start(5);      // thread nums = 5;
+    pool.start(5);      // thread nums = 5;
     // pool.add(runInThread);
 
     // pool.stop();

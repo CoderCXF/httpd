@@ -72,6 +72,7 @@ CMAKE_BINARY_DIR = /home/cxf/Desktop/WebServer/base/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/AppendFile.dir/all
 all: CMakeFiles/FixedBuffer.dir/all
 all: CMakeFiles/Singleton.dir/all
 all: CMakeFiles/Mutex.dir/all
@@ -87,6 +88,7 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/AppendFile.dir/clean
 clean: CMakeFiles/FixedBuffer.dir/clean
 clean: CMakeFiles/Singleton.dir/clean
 clean: CMakeFiles/Mutex.dir/clean
@@ -97,13 +99,40 @@ clean: CMakeFiles/Thread.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/AppendFile.dir
+
+# All Build rule for target.
+CMakeFiles/AppendFile.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AppendFile.dir/build.make CMakeFiles/AppendFile.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AppendFile.dir/build.make CMakeFiles/AppendFile.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=1,2,3 "Built target AppendFile"
+.PHONY : CMakeFiles/AppendFile.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/AppendFile.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cxf/Desktop/WebServer/base/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/AppendFile.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cxf/Desktop/WebServer/base/build/CMakeFiles 0
+.PHONY : CMakeFiles/AppendFile.dir/rule
+
+# Convenience name for target.
+AppendFile: CMakeFiles/AppendFile.dir/rule
+
+.PHONY : AppendFile
+
+# clean rule for target.
+CMakeFiles/AppendFile.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AppendFile.dir/build.make CMakeFiles/AppendFile.dir/clean
+.PHONY : CMakeFiles/AppendFile.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/FixedBuffer.dir
 
 # All Build rule for target.
 CMakeFiles/FixedBuffer.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=6,7,8,9,10,11 "Built target FixedBuffer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=9,10,11,12,13,14 "Built target FixedBuffer"
 .PHONY : CMakeFiles/FixedBuffer.dir/all
 
 # Build rule for subdir invocation for target.
@@ -130,7 +159,7 @@ CMakeFiles/FixedBuffer.dir/clean:
 CMakeFiles/Singleton.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Singleton.dir/build.make CMakeFiles/Singleton.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Singleton.dir/build.make CMakeFiles/Singleton.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=15,16 "Built target Singleton"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=18,19 "Built target Singleton"
 .PHONY : CMakeFiles/Singleton.dir/all
 
 # Build rule for subdir invocation for target.
@@ -157,7 +186,7 @@ CMakeFiles/Singleton.dir/clean:
 CMakeFiles/Mutex.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mutex.dir/build.make CMakeFiles/Mutex.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mutex.dir/build.make CMakeFiles/Mutex.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=12,13,14 "Built target Mutex"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=15,16,17 "Built target Mutex"
 .PHONY : CMakeFiles/Mutex.dir/all
 
 # Build rule for subdir invocation for target.
@@ -184,7 +213,7 @@ CMakeFiles/Mutex.dir/clean:
 CMakeFiles/Condition.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target Condition"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=4,5,6,7,8 "Built target Condition"
 .PHONY : CMakeFiles/Condition.dir/all
 
 # Build rule for subdir invocation for target.
@@ -211,7 +240,7 @@ CMakeFiles/Condition.dir/clean:
 CMakeFiles/Threadpool.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=21,22,23,24,25,26,27 "Built target Threadpool"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=24,25,26,27,28,29,30 "Built target Threadpool"
 .PHONY : CMakeFiles/Threadpool.dir/all
 
 # Build rule for subdir invocation for target.
@@ -238,7 +267,7 @@ CMakeFiles/Threadpool.dir/clean:
 CMakeFiles/Thread.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Thread.dir/build.make CMakeFiles/Thread.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Thread.dir/build.make CMakeFiles/Thread.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=17,18,19,20 "Built target Thread"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=20,21,22,23 "Built target Thread"
 .PHONY : CMakeFiles/Thread.dir/all
 
 # Build rule for subdir invocation for target.
