@@ -18,12 +18,6 @@ error.h
 errno.h
 -
 
-/home/cxf/Desktop/WebServer/base/Condition.cpp
-Condition.h
-/home/cxf/Desktop/WebServer/base/Condition.h
-sys/time.h
--
-
 /home/cxf/Desktop/WebServer/base/Condition.h
 pthread.h
 -
@@ -31,34 +25,12 @@ Base.h
 /home/cxf/Desktop/WebServer/base/Base.h
 Mutex.h
 /home/cxf/Desktop/WebServer/base/Mutex.h
-
-/home/cxf/Desktop/WebServer/base/ConditionLatch.cpp
-ConditionLatch.h
-/home/cxf/Desktop/WebServer/base/ConditionLatch.h
-
-/home/cxf/Desktop/WebServer/base/ConditionLatch.h
-Base.h
-/home/cxf/Desktop/WebServer/base/Base.h
-Condition.h
-/home/cxf/Desktop/WebServer/base/Condition.h
-Mutex.h
-/home/cxf/Desktop/WebServer/base/Mutex.h
-
-/home/cxf/Desktop/WebServer/base/Mutex.cpp
-Mutex.h
-/home/cxf/Desktop/WebServer/base/Mutex.h
-iostream
--
 
 /home/cxf/Desktop/WebServer/base/Mutex.h
 unistd.h
 -
 pthread.h
 -
-
-/home/cxf/Desktop/WebServer/base/Thread.cpp
-Thread.h
-/home/cxf/Desktop/WebServer/base/Thread.h
 
 /home/cxf/Desktop/WebServer/base/Thread.h
 Base.h
@@ -97,10 +69,4 @@ memory.h
 -
 deque
 -
-
-/home/cxf/Desktop/WebServer/base/test/Threadpool_test.cpp
-../Threadpool.h
-/home/cxf/Desktop/WebServer/base/Threadpool.h
-../ConditionLatch.h
-/home/cxf/Desktop/WebServer/base/ConditionLatch.h
 

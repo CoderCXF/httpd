@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 15:13:40
- * @LastEditTime: 2021-01-14 17:42:41
+ * @LastEditTime: 2021-01-15 15:22:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/WriteUtil.cpp
@@ -12,13 +12,13 @@ AppendFile::AppendFile(const std::string& fileName)
     : fp_(fopen(fileName.c_str(), "a+t")),
       writtenBytes_(0) {
     // set buffer(64k Bytes)
-    setbuffer(fp_, buf_, sizeof buf_);
+    ::setbuffer(fp_, buf_, sizeof buf_);
 }
 
 AppendFile::AppendFile(const char* fileName)
     : fp_(fopen(fileName, "a+t")),
       writtenBytes_(0) {
-
+    ::setbuffer(fp_, buf_, sizeof buf_);
 }
 
 AppendFile::~AppendFile() {

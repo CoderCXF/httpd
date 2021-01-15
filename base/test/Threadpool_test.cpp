@@ -1,13 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2021-01-12 16:22:53
- * @LastEditTime: 2021-01-13 16:30:00
+ * @LastEditTime: 2021-01-14 21:58:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/Threadpool_test.cpp
  */
 #include "../Threadpool.h"
 #include "../ConditionLatch.h"
+
 void print() {
     printf("thread tid = %d\n", CurrentThread::tid());
 }
@@ -17,7 +18,7 @@ void printi(int i) {
 }
 
 int main() {
-    ConditionLatch latch(1);
+    // ConditionLatch latch(1);
     // latch.Wait();
 
     Threadpool pool(100);
@@ -28,9 +29,11 @@ int main() {
     for (int i = 0; i < 100; ++i) {
         pool.add(std::bind(printi, i));
     }
+    // pool.add(std::bind(&ConditionLatch::CountDown, &latch));
     printf("-----main thread\n");
-    // sleep(5);
-    pool.add(std::bind(&ConditionLatch::CountDown, &latch));
+    sleep(5);
     pool.stop();
+    pool.add(std::bind(printi, 1000));
+    
     return 0;
 }

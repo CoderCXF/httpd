@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-12 14:32:31
- * @LastEditTime: 2021-01-12 17:23:10
+ * @LastEditTime: 2021-01-15 09:08:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Threadpool.cpp
@@ -16,7 +16,7 @@ Threadpool::Threadpool(int numTasks)
       notEmpty_(mutex_),
       notFull_(mutex_)
 {
-
+    // std::cout << "constructor" << std::endl;
 }
 
 Threadpool::~Threadpool() {
@@ -35,22 +35,23 @@ void Threadpool::start(int numThreads) {
 }
 
 void Threadpool::stop() {
-    while (running_) {
-        running_ = false;
-        notEmpty_.NotifyAll();
-        for (std::unique_ptr<Thread> & item : threads_)
-        {
-            item->Join();
-        }
-        
-        std::vector<std::unique_ptr<Thread>> temp;
-        threads_.swap(temp);
+    running_ = false;
+    notEmpty_.NotifyAll();
+    notFull_.NotifyAll();
+    for (std::unique_ptr<Thread> & item : threads_)
+    {
+        item->Join();
     }
+    
+    std::vector<std::unique_ptr<Thread>> temp;
+    threads_.swap(temp);
 }
 
 
 bool Threadpool::isFull() {
-    return task_queue_.size() == maxQueueSize_;
+    // dead mutex
+    // MutexGuard lock(mutex_);
+    return task_queue_.size() >= maxQueueSize_;
 }
 
 void Threadpool::add(TaskFunc task) {
@@ -71,7 +72,8 @@ void Threadpool::add(TaskFunc task) {
 Threadpool::TaskFunc Threadpool::take() {
     MutexGuard lock(mutex_);
     while (task_queue_.empty() && running_) {
-        notEmpty_.Wait();  // wait for not empty
+        // wait for not empty
+        notEmpty_.Wait();  
     }
     TaskFunc task;
     if (!task_queue_.empty()) {

@@ -130,6 +130,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named LogFile
+
+# Build rule for target.
+LogFile: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LogFile
+.PHONY : LogFile
+
+# fast build rule for target.
+LogFile/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/build
+.PHONY : LogFile/fast
+
+#=============================================================================
 # Target rules for targets named AppendFile
 
 # Build rule for target.
@@ -226,6 +239,7 @@ AppendFile.o: AppendFile.cpp.o
 
 # target to build an object file
 AppendFile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/AppendFile.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AppendFile.dir/build.make CMakeFiles/AppendFile.dir/AppendFile.cpp.o
 .PHONY : AppendFile.cpp.o
 
@@ -235,6 +249,7 @@ AppendFile.i: AppendFile.cpp.i
 
 # target to preprocess a source file
 AppendFile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/AppendFile.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AppendFile.dir/build.make CMakeFiles/AppendFile.dir/AppendFile.cpp.i
 .PHONY : AppendFile.cpp.i
 
@@ -244,6 +259,7 @@ AppendFile.s: AppendFile.cpp.s
 
 # target to generate assembly for a file
 AppendFile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/AppendFile.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AppendFile.dir/build.make CMakeFiles/AppendFile.dir/AppendFile.cpp.s
 .PHONY : AppendFile.cpp.s
 
@@ -253,6 +269,7 @@ Condition.o: Condition.cpp.o
 
 # target to build an object file
 Condition.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Condition.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Condition.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Condition.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Condition.cpp.o
@@ -264,6 +281,7 @@ Condition.i: Condition.cpp.i
 
 # target to preprocess a source file
 Condition.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Condition.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Condition.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Condition.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Condition.cpp.i
@@ -275,6 +293,7 @@ Condition.s: Condition.cpp.s
 
 # target to generate assembly for a file
 Condition.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Condition.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Condition.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Condition.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Condition.cpp.s
@@ -307,12 +326,40 @@ ConditionLatch.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/ConditionLatch.cpp.s
 .PHONY : ConditionLatch.cpp.s
 
+LogFile.o: LogFile.cpp.o
+
+.PHONY : LogFile.o
+
+# target to build an object file
+LogFile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/LogFile.cpp.o
+.PHONY : LogFile.cpp.o
+
+LogFile.i: LogFile.cpp.i
+
+.PHONY : LogFile.i
+
+# target to preprocess a source file
+LogFile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/LogFile.cpp.i
+.PHONY : LogFile.cpp.i
+
+LogFile.s: LogFile.cpp.s
+
+.PHONY : LogFile.s
+
+# target to generate assembly for a file
+LogFile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/LogFile.cpp.s
+.PHONY : LogFile.cpp.s
+
 Mutex.o: Mutex.cpp.o
 
 .PHONY : Mutex.o
 
 # target to build an object file
 Mutex.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Mutex.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Mutex.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mutex.dir/build.make CMakeFiles/Mutex.dir/Mutex.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Mutex.cpp.o
@@ -326,6 +373,7 @@ Mutex.i: Mutex.cpp.i
 
 # target to preprocess a source file
 Mutex.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Mutex.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Mutex.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mutex.dir/build.make CMakeFiles/Mutex.dir/Mutex.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Mutex.cpp.i
@@ -339,6 +387,7 @@ Mutex.s: Mutex.cpp.s
 
 # target to generate assembly for a file
 Mutex.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Mutex.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Mutex.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mutex.dir/build.make CMakeFiles/Mutex.dir/Mutex.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Mutex.cpp.s
@@ -352,6 +401,7 @@ Thread.o: Thread.cpp.o
 
 # target to build an object file
 Thread.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Thread.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Thread.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Thread.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Thread.cpp.o
@@ -364,6 +414,7 @@ Thread.i: Thread.cpp.i
 
 # target to preprocess a source file
 Thread.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Thread.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Thread.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Thread.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Thread.cpp.i
@@ -376,6 +427,7 @@ Thread.s: Thread.cpp.s
 
 # target to generate assembly for a file
 Thread.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Thread.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Thread.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Thread.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Thread.cpp.s
@@ -388,6 +440,7 @@ Threadpool.o: Threadpool.cpp.o
 
 # target to build an object file
 Threadpool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Threadpool.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Threadpool.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Threadpool.cpp.o
 .PHONY : Threadpool.cpp.o
@@ -398,6 +451,7 @@ Threadpool.i: Threadpool.cpp.i
 
 # target to preprocess a source file
 Threadpool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Threadpool.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Threadpool.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Threadpool.cpp.i
 .PHONY : Threadpool.cpp.i
@@ -408,6 +462,7 @@ Threadpool.s: Threadpool.cpp.s
 
 # target to generate assembly for a file
 Threadpool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Threadpool.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Threadpool.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Threadpool.cpp.s
 .PHONY : Threadpool.cpp.s
@@ -492,6 +547,33 @@ test/FixedBuffer_test.s: test/FixedBuffer_test.cpp.s
 test/FixedBuffer_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/test/FixedBuffer_test.cpp.s
 .PHONY : test/FixedBuffer_test.cpp.s
+
+test/LogFile_test.o: test/LogFile_test.cpp.o
+
+.PHONY : test/LogFile_test.o
+
+# target to build an object file
+test/LogFile_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/test/LogFile_test.cpp.o
+.PHONY : test/LogFile_test.cpp.o
+
+test/LogFile_test.i: test/LogFile_test.cpp.i
+
+.PHONY : test/LogFile_test.i
+
+# target to preprocess a source file
+test/LogFile_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/test/LogFile_test.cpp.i
+.PHONY : test/LogFile_test.cpp.i
+
+test/LogFile_test.s: test/LogFile_test.cpp.s
+
+.PHONY : test/LogFile_test.s
+
+# target to generate assembly for a file
+test/LogFile_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/test/LogFile_test.cpp.s
+.PHONY : test/LogFile_test.cpp.s
 
 test/Mutex_test.o: test/Mutex_test.cpp.o
 
@@ -612,6 +694,7 @@ help:
 	@echo "... AppendFile"
 	@echo "... Condition"
 	@echo "... FixedBuffer"
+	@echo "... LogFile"
 	@echo "... Mutex"
 	@echo "... Singleton"
 	@echo "... Thread"
@@ -625,6 +708,9 @@ help:
 	@echo "... ConditionLatch.o"
 	@echo "... ConditionLatch.i"
 	@echo "... ConditionLatch.s"
+	@echo "... LogFile.o"
+	@echo "... LogFile.i"
+	@echo "... LogFile.s"
 	@echo "... Mutex.o"
 	@echo "... Mutex.i"
 	@echo "... Mutex.s"
@@ -643,6 +729,9 @@ help:
 	@echo "... test/FixedBuffer_test.o"
 	@echo "... test/FixedBuffer_test.i"
 	@echo "... test/FixedBuffer_test.s"
+	@echo "... test/LogFile_test.o"
+	@echo "... test/LogFile_test.i"
+	@echo "... test/LogFile_test.s"
 	@echo "... test/Mutex_test.o"
 	@echo "... test/Mutex_test.i"
 	@echo "... test/Mutex_test.s"

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 11:47:11
- * @LastEditTime: 2021-01-14 18:04:12
+ * @LastEditTime: 2021-01-15 15:51:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/LogFile.h
@@ -21,18 +21,20 @@ public:
 };
 
 class LogFile{
-public:
+public:      
     explicit LogFile(const std::string& basename);
     ~LogFile();
-    void append(const std::string& basename, size_t len);
-    void flush();
-    bool rollFile();
 
+    void append(const std::string& basename, size_t len);
+    /*public for test conveniently*/
+    static std::string getLogFileName(const std::string& basename, time_t &now);
 private:
-    static std::string getLogFileName(const std::string& basename);
+    bool rollFile();
+    
     const std::string basename_;
     
     int count_;
+    size_t writedSize_;
 
     std::unique_ptr<Mutex> mutex_;
     time_t startOfPeriod_;
@@ -40,7 +42,8 @@ private:
     time_t lastFlush_;
     std::unique_ptr<AppendFile> file_; // for log file
 
-    const static int rollSize_ = 64 * 1024;
-    const static int flushInterval_ = 3;
+    const static int kRollSize_ = 64 * 1024;
+    const static int kFlushInterval_ = 3;
+    const static int kCheckSteps = 1024;
     const static int kRollPerSeconds_ = 60 * 60 * 24;
 };

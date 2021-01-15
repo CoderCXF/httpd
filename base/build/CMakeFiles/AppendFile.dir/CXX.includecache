@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/cxf/Desktop/WebServer/base/AppendFile.cpp
+AppendFile.h
+/home/cxf/Desktop/WebServer/base/AppendFile.h
+
 /home/cxf/Desktop/WebServer/base/AppendFile.h
 Base.h
 /home/cxf/Desktop/WebServer/base/Base.h
@@ -23,8 +27,4 @@ error.h
 -
 errno.h
 -
-
-/home/cxf/Desktop/WebServer/base/test/AppendFile_test.cpp
-../AppendFile.h
-/home/cxf/Desktop/WebServer/base/AppendFile.h
 
