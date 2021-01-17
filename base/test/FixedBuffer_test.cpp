@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-13 11:39:06
- * @LastEditTime: 2021-01-14 10:43:42
+ * @LastEditTime: 2021-01-17 16:59:56
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/FixBuffer.h
@@ -11,18 +11,56 @@
 
 using namespace std;
 
-// There can only be one thread at a time access to buffer 
-FixedBuffer<4096> buf;
-Mutex mutex;
-void runInThread() {
-    MutexGuard lock(mutex);
-    printf("tid = %d\n", CurrentThread::tid());
+const int kFixedBufferSize = 4096;
+typedef FixedBuffer<kFixedBufferSize> Buffer;
+
+void printBuffer(Buffer &buf) {
+    int cnt = 0;
+    for (int i = 0; i < buf.size(); ++i) {
+        std::cout << buf[i] << " ";
+        cnt++;
+        if (!(cnt % 7)) {
+            printf("\n");
+        }
+    }
+    printf("\n");
 }
 
 int main() {
-    Threadpool pool(5); // task nums = 5;
-    pool.start(5);      // thread nums = 5;
-    // pool.add(runInThread);
+    FixedBuffer<kFixedBufferSize> buf;
+    srand(time(NULL));
+    char alpha[27];
+    char ch = 'a';
+    for (int i = 0; i < 26; i++) {
+        alpha[i] = ch++;
+    }
+    alpha[sizeof(alpha) - 1] = '\0';
+    
+    // for (int i = 0; i < sizeof(alpha); ++i) {
+    //     cout << alpha[i] << endl;
+    // }
+    
+    // append
+    buf.append(alpha, sizeof alpha);
+    printBuffer(buf);
 
-    // pool.stop();
+    // size()
+    cout << "buf.size: " << buf.size() << endl;
+    
+    // avail()
+    cout << "buf.avail: " << buf.avail() << endl;
+
+    // data()
+    cout << "buf.data: " << buf.data() << endl;
+
+    // zero
+    buf.bzero();
+    printBuffer(buf);
+    cout << "buf.size: " << buf.size() << endl;
+
+    // add
+    buf.add(1);
+    cout << "buf.size: " << buf.size() << endl;
+
+    return 0;
 }

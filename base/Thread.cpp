@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-07 20:00:52
- * @LastEditTime: 2021-01-17 12:22:00
+ * @LastEditTime: 2021-01-17 15:03:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Thread.cpp
@@ -72,7 +72,6 @@ void Thread::Start()
 {
 	if (!m_bStarted)
 	{
-		std::cout << "into Thread::Start()" << std::endl;
 		ThreadData * ptData = new ThreadData(func_, &tid_);
 		pthread_create(&m_pthreadId, NULL, thread_adapter, static_cast<void *> (ptData)); // ThreadData is an object
 																						  // if ThreadData is not exist, ptData == NULL

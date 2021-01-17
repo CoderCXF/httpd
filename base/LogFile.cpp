@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 11:47:23
- * @LastEditTime: 2021-01-16 15:46:52
+ * @LastEditTime: 2021-01-17 17:01:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/LogFile.cpp
@@ -49,7 +49,7 @@ void LogFile::append(const std::string& logline, size_t len) {
                 rollFile();
             } else if ((now - lastFlush_) >= kFlushInterval_) {
                 file_->flush();
-                flush();
+                lastFlush_ = now;
             }
         }
     }

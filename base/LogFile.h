@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 11:47:11
- * @LastEditTime: 2021-01-16 15:09:00
+ * @LastEditTime: 2021-01-17 17:05:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/LogFile.h
@@ -27,12 +27,18 @@ public:
 
     void append(const std::string& basename, size_t len);
     void flush();
+    // overload
+    const std::string getLogFileName() {
+        time_t now;
+        now = time(NULL);
+        return getLogFileName(basename_, now);
+    }
     /*public for test conveniently*/
-    static std::string getLogFileName(const std::string& basename, time_t &now);
 private:
+    static std::string getLogFileName(const std::string& basename, time_t &now);
     bool rollFile();
     
-    const std::string basename_;
+    std::string basename_;
     
     int count_;
     size_t writedSize_;

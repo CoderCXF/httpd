@@ -49,5 +49,6 @@ CMakeFiles/AsyncLog.dir/test/AsyncLog_test.cpp.o: ../FixedBuffer.h
 CMakeFiles/AsyncLog.dir/test/AsyncLog_test.cpp.o: ../LogFile.h
 CMakeFiles/AsyncLog.dir/test/AsyncLog_test.cpp.o: ../Mutex.h
 CMakeFiles/AsyncLog.dir/test/AsyncLog_test.cpp.o: ../Thread.h
+CMakeFiles/AsyncLog.dir/test/AsyncLog_test.cpp.o: ../Threadpool.h
 CMakeFiles/AsyncLog.dir/test/AsyncLog_test.cpp.o: ../test/AsyncLog_test.cpp
 

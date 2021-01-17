@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 20:01:11
- * @LastEditTime: 2021-01-15 16:02:16
+ * @LastEditTime: 2021-01-17 16:59:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/LogFile_test.cpp
@@ -20,7 +20,7 @@ void outputFunc(std::shared_ptr<LogFile> g_file,const char *msg, int len) {
     }
 }
 
-void outputFunc(std::shared_ptr<LogFile> g_file,const string& msg, int len) {
+void outputFunc(std::shared_ptr<LogFile> g_file, const string& msg, int len) {
     for (int i = 0; i < 100000; i++) {
         g_file->append(msg, len);
     }

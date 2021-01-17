@@ -1,26 +1,29 @@
 /*
  * @Author: your name
  * @Date: 2021-01-13 10:20:19
- * @LastEditTime: 2021-01-17 12:41:59
+ * @LastEditTime: 2021-01-17 15:46:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: /WebServer/base/FixedBuffer.h
+ * @FilePath: /WebServer/base/Fixedbuf_fer.h
  */
-#ifndef _FixedBuffer_H_
-#define _FixedBuffer_H_
+#ifndef _Fixedbuf_fer_H_
+#define _Fixedbuf_fer_H_
 
 #include "Base.h"
 #include "string.h"
 // #include <types.h>
 #include <string.h>
+#include <assert.h>
 
 template <int SIZE>
 class FixedBuffer{
 public:
-    FixedBuffer() : cur_(buf) {}
-    FixedBuffer(const FixedBuffer& ) = delete;
-    FixedBuffer& operator=(const FixedBuffer& ) = delete;
+    FixedBuffer() : cur_(buf_) {}
+    ~FixedBuffer() = default;
+    // FixedBuffer(const Fixedbuf_fer& ) = delete;
+    // FixedBuffer& operator=(const Fixedbuf_fer& ) = delete;
     void append(const char* buf, size_t len) {
+        std::cout << "FixedBuffer::append()" << std::endl;
         if (avail() >= len) {
             memcpy(cur_, buf, len);
             cur_ += len;
@@ -36,28 +39,30 @@ public:
 
     inline char* curr() { return cur_; }
 
-    inline int size() { return static_cast<int>(cur_ - buf); }
+    inline int size() { return static_cast<int>(cur_ - buf_); }
 
-    inline void reset() { cur_ = buf; }
+    inline void reset() { cur_ = buf_; }
 
     void bzero() { 
-        std::cout << "bzero" << std::endl;
-        std::cout << sizeof(buf) << std::endl;
-        // ::bzero(buf, sizeof(buf)); 
-        memset(buf, 0, sizeof buf);
-        std::cout << "bzero end" << std::endl;
-
+        // ::bzero(buf_, sizeof(buf_)); 
+        memset(buf_, 0, sizeof buf_);
     }
 
-    inline char* data() { return buf; }
+    inline char* data() { return buf_; }
 
-    inline size_t avail() { return static_cast<size_t>(end() - buf); }
+    inline size_t avail() { return static_cast<size_t>(end() - cur_); }
+
+    // for Debug
+    char& operator[](int i) {
+        assert(i >= 0 && i < sizeof(buf_));
+        return buf_[i];
+    }
     
 private:
     const char* end() const {
-        return buf + sizeof(buf);
+        return buf_ + sizeof(buf_);
     }
-    char buf[SIZE];
+    char buf_[SIZE];
     char *cur_;
 };
 
