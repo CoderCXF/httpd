@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-07 20:00:52
- * @LastEditTime: 2021-01-12 11:33:14
+ * @LastEditTime: 2021-01-17 12:22:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Thread.cpp
@@ -62,16 +62,17 @@ public:
 
 void* thread_adapter(void* obj)
 {
-  ThreadData* data = static_cast<ThreadData*>(obj);
-  data->runInThread();
-  delete data;
-  return NULL;
+	ThreadData* data = static_cast<ThreadData*>(obj);
+	data->runInThread();
+	delete data;
+	return NULL;
 }
 
 void Thread::Start()
 {
 	if (!m_bStarted)
 	{
+		std::cout << "into Thread::Start()" << std::endl;
 		ThreadData * ptData = new ThreadData(func_, &tid_);
 		pthread_create(&m_pthreadId, NULL, thread_adapter, static_cast<void *> (ptData)); // ThreadData is an object
 																						  // if ThreadData is not exist, ptData == NULL

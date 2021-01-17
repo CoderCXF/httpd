@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 11:47:23
- * @LastEditTime: 2021-01-15 16:02:05
+ * @LastEditTime: 2021-01-16 15:46:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/LogFile.cpp
@@ -49,7 +49,7 @@ void LogFile::append(const std::string& logline, size_t len) {
                 rollFile();
             } else if ((now - lastFlush_) >= kFlushInterval_) {
                 file_->flush();
-                lastFlush_ = now;
+                flush();
             }
         }
     }
@@ -68,11 +68,11 @@ std::string LogFile::getLogFileName(const std::string& basename, time_t &now) {
     fileName += Helper::hostname();
     char pidbuf[32];
     snprintf(pidbuf, sizeof(pidbuf), ".%d.", getpid());
-    char tidbuf[64];
-    sprintf(tidbuf, "%d.", CurrentThread::tid());
+    // char tidbuf[64];
+    // sprintf(tidbuf, "%d.", CurrentThread::tid());
+    // fileName += tidbuf;
     fileName += pidbuf;
-    fileName += tidbuf;
-    fileName += ".log";
+    fileName += "log";
 
     return fileName;
 }
@@ -93,5 +93,9 @@ bool LogFile::rollFile() {
         return true;
     // }
     return false;
+}
+
+void LogFile::flush() {
+    file_->flush();
 }
 

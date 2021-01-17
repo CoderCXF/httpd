@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-07 20:00:52
- * @LastEditTime: 2021-01-12 09:49:34
+ * @LastEditTime: 2021-01-17 09:55:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Thread.h
@@ -40,8 +40,8 @@ public:
 	explicit Thread(ThreadFunc func);
 	~Thread();
 	
-	Thread(const Thread &) = delete;
-	Thread & operator= (const Thread &) = delete;
+	// Thread(const Thread &) = delete;
+	// Thread & operator= (const Thread &) = delete;
 	
 	void Start();
 	void Join();

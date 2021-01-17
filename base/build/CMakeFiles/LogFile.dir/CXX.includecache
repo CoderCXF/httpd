@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/cxf/Desktop/WebServer/base/AppendFile.h
-Base.h
-/home/cxf/Desktop/WebServer/base/Base.h
-string.h
--
-
 /home/cxf/Desktop/WebServer/base/Base.h
 stdio.h
 -
@@ -24,33 +18,9 @@ error.h
 errno.h
 -
 
-/home/cxf/Desktop/WebServer/base/LogFile.cpp
-LogFile.h
-/home/cxf/Desktop/WebServer/base/LogFile.h
+/home/cxf/Desktop/WebServer/base/Thread.cpp
 Thread.h
 /home/cxf/Desktop/WebServer/base/Thread.h
-
-/home/cxf/Desktop/WebServer/base/LogFile.h
-Base.h
-/home/cxf/Desktop/WebServer/base/Base.h
-pthread.h
-/home/cxf/Desktop/WebServer/base/pthread.h
-time.h
--
-Mutex.h
-/home/cxf/Desktop/WebServer/base/Mutex.h
-string
--
-memory
--
-AppendFile.h
-/home/cxf/Desktop/WebServer/base/AppendFile.h
-
-/home/cxf/Desktop/WebServer/base/Mutex.h
-unistd.h
--
-pthread.h
--
 
 /home/cxf/Desktop/WebServer/base/Thread.h
 Base.h

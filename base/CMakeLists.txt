@@ -61,3 +61,7 @@ target_link_libraries(AppendFile -lpthread)
 # AppendFile
 add_executable(LogFile LogFile.cpp Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp AppendFile.cpp test/LogFile_test.cpp)
 target_link_libraries(LogFile -lpthread)
+
+# AsyncLog
+add_executable(AsyncLog AsyncLog.cpp LogFile.cpp Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp AppendFile.cpp test/AsyncLog_test.cpp)
+target_link_libraries(AsyncLog -lpthread)

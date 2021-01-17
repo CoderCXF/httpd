@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-13 10:20:19
- * @LastEditTime: 2021-01-13 16:33:14
+ * @LastEditTime: 2021-01-17 12:41:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/FixedBuffer.h
@@ -11,6 +11,8 @@
 
 #include "Base.h"
 #include "string.h"
+// #include <types.h>
+#include <string.h>
 
 template <int SIZE>
 class FixedBuffer{
@@ -38,7 +40,16 @@ public:
 
     inline void reset() { cur_ = buf; }
 
-    inline void bzero() { memset(buf, sizeof(buf), 0); }
+    void bzero() { 
+        std::cout << "bzero" << std::endl;
+        std::cout << sizeof(buf) << std::endl;
+        // ::bzero(buf, sizeof(buf)); 
+        memset(buf, 0, sizeof buf);
+        std::cout << "bzero end" << std::endl;
+
+    }
+
+    inline char* data() { return buf; }
 
     inline size_t avail() { return static_cast<size_t>(end() - buf); }
     

@@ -18,18 +18,6 @@ error.h
 errno.h
 -
 
-/home/cxf/Desktop/WebServer/base/Mutex.cpp
-Mutex.h
-/home/cxf/Desktop/WebServer/base/Mutex.h
-iostream
--
-
-/home/cxf/Desktop/WebServer/base/Mutex.h
-unistd.h
--
-pthread.h
--
-
 /home/cxf/Desktop/WebServer/base/Thread.cpp
 Thread.h
 /home/cxf/Desktop/WebServer/base/Thread.h
@@ -47,8 +35,4 @@ sys/prctl.h
 -
 sys/syscall.h
 -
-
-/home/cxf/Desktop/WebServer/base/test/Thread_test.cpp
-../Thread.h
-/home/cxf/Desktop/WebServer/base/Thread.h
 

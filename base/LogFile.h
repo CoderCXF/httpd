@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 11:47:11
- * @LastEditTime: 2021-01-15 15:51:15
+ * @LastEditTime: 2021-01-16 15:09:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/LogFile.h
@@ -26,6 +26,7 @@ public:
     ~LogFile();
 
     void append(const std::string& basename, size_t len);
+    void flush();
     /*public for test conveniently*/
     static std::string getLogFileName(const std::string& basename, time_t &now);
 private:
