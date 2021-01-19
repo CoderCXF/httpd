@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-16 11:52:08
- * @LastEditTime: 2021-01-17 16:56:29
+ * @LastEditTime: 2021-01-19 15:28:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/AsyncLog.cpp
@@ -34,7 +34,6 @@ void AsyncLog::stop() {
 }
 
 void AsyncLog::append(const char* logline, size_t len) {
-    std::cout << "enter append" << std::endl;
     MutexGuard lock(mutex_);
     if (currentBuffer_->avail() > len) {
         currentBuffer_->append(logline, len);
@@ -47,8 +46,6 @@ void AsyncLog::append(const char* logline, size_t len) {
         }
         currentBuffer_->append(logline, len);
         cond_.Notify();
-        std::cout << "cond_.Notify()" << std::endl;
-        std::cout << "buffers_.size:" << buffers_.size() << std::endl;
     }
 }
 
@@ -61,12 +58,13 @@ void AsyncLog::writeLogFileThread() {
     BufferVec bufsToWrite;
     while (running_) {
         if (buffers_.empty()) {
-            // cond_.WaitForSeconds(kFlushInterval);
-            cond_.Wait();
+            cond_.WaitForSeconds(kFlushInterval);
+            // cond_.Wait();
         }
+        
         {
-            // FIXME: dead lock?
-            // MutexGuard lock(mutex_);
+            // TODO: dead lock?
+            MutexGuard lock(mutex_);
             buffers_.push_back(std::move(currentBuffer_));
             currentBuffer_ = std::move(newBuffer1);
             bufsToWrite.swap(buffers_);
@@ -74,12 +72,12 @@ void AsyncLog::writeLogFileThread() {
             if (!nextBuffer_) {
                 nextBuffer_ = std::move(newBuffer2);
             }
-            std::cout << "bufsToWrite.size:" << bufsToWrite.size() << std::endl;
-            std::cout << "g_log name: " << g_logfile_->getLogFileName() << std::endl;
+            
             // Start logfile
-            for (const auto& buffer : bufsToWrite)
+            for (auto &buffer : bufsToWrite)
             {
                 g_logfile_->append(buffer->data(), buffer->size());
+
             }
         } // ~MutexGuard
         if (!newBuffer1) {

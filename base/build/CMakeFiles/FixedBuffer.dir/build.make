@@ -128,9 +128,35 @@ CMakeFiles/FixedBuffer.dir/Threadpool.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FixedBuffer.dir/Threadpool.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/Threadpool.cpp -o CMakeFiles/FixedBuffer.dir/Threadpool.cpp.s
 
+CMakeFiles/FixedBuffer.dir/AppendFile.cpp.o: CMakeFiles/FixedBuffer.dir/flags.make
+CMakeFiles/FixedBuffer.dir/AppendFile.cpp.o: ../AppendFile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/FixedBuffer.dir/AppendFile.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FixedBuffer.dir/AppendFile.cpp.o -c /home/cxf/Desktop/WebServer/base/AppendFile.cpp
+
+CMakeFiles/FixedBuffer.dir/AppendFile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FixedBuffer.dir/AppendFile.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/base/AppendFile.cpp > CMakeFiles/FixedBuffer.dir/AppendFile.cpp.i
+
+CMakeFiles/FixedBuffer.dir/AppendFile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FixedBuffer.dir/AppendFile.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/AppendFile.cpp -o CMakeFiles/FixedBuffer.dir/AppendFile.cpp.s
+
+CMakeFiles/FixedBuffer.dir/LogFile.cpp.o: CMakeFiles/FixedBuffer.dir/flags.make
+CMakeFiles/FixedBuffer.dir/LogFile.cpp.o: ../LogFile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/FixedBuffer.dir/LogFile.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FixedBuffer.dir/LogFile.cpp.o -c /home/cxf/Desktop/WebServer/base/LogFile.cpp
+
+CMakeFiles/FixedBuffer.dir/LogFile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FixedBuffer.dir/LogFile.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/base/LogFile.cpp > CMakeFiles/FixedBuffer.dir/LogFile.cpp.i
+
+CMakeFiles/FixedBuffer.dir/LogFile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FixedBuffer.dir/LogFile.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/LogFile.cpp -o CMakeFiles/FixedBuffer.dir/LogFile.cpp.s
+
 CMakeFiles/FixedBuffer.dir/test/FixedBuffer_test.cpp.o: CMakeFiles/FixedBuffer.dir/flags.make
 CMakeFiles/FixedBuffer.dir/test/FixedBuffer_test.cpp.o: ../test/FixedBuffer_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/FixedBuffer.dir/test/FixedBuffer_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/FixedBuffer.dir/test/FixedBuffer_test.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FixedBuffer.dir/test/FixedBuffer_test.cpp.o -c /home/cxf/Desktop/WebServer/base/test/FixedBuffer_test.cpp
 
 CMakeFiles/FixedBuffer.dir/test/FixedBuffer_test.cpp.i: cmake_force
@@ -147,6 +173,8 @@ FixedBuffer_OBJECTS = \
 "CMakeFiles/FixedBuffer.dir/Condition.cpp.o" \
 "CMakeFiles/FixedBuffer.dir/Thread.cpp.o" \
 "CMakeFiles/FixedBuffer.dir/Threadpool.cpp.o" \
+"CMakeFiles/FixedBuffer.dir/AppendFile.cpp.o" \
+"CMakeFiles/FixedBuffer.dir/LogFile.cpp.o" \
 "CMakeFiles/FixedBuffer.dir/test/FixedBuffer_test.cpp.o"
 
 # External object files for target FixedBuffer
@@ -156,10 +184,12 @@ bin/FixedBuffer: CMakeFiles/FixedBuffer.dir/Mutex.cpp.o
 bin/FixedBuffer: CMakeFiles/FixedBuffer.dir/Condition.cpp.o
 bin/FixedBuffer: CMakeFiles/FixedBuffer.dir/Thread.cpp.o
 bin/FixedBuffer: CMakeFiles/FixedBuffer.dir/Threadpool.cpp.o
+bin/FixedBuffer: CMakeFiles/FixedBuffer.dir/AppendFile.cpp.o
+bin/FixedBuffer: CMakeFiles/FixedBuffer.dir/LogFile.cpp.o
 bin/FixedBuffer: CMakeFiles/FixedBuffer.dir/test/FixedBuffer_test.cpp.o
 bin/FixedBuffer: CMakeFiles/FixedBuffer.dir/build.make
 bin/FixedBuffer: CMakeFiles/FixedBuffer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable bin/FixedBuffer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable bin/FixedBuffer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FixedBuffer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

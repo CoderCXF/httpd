@@ -50,17 +50,17 @@ target_link_libraries(Threadpool -lpthread)
 add_executable(Singleton test/Singleton_test.cpp)
 target_link_libraries(Singleton -lpthread)
 
-# FixedBuffer
-add_executable(FixedBuffer Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp test/FixedBuffer_test.cpp)
-target_link_libraries(FixedBuffer -lpthread)
-
 # AppendFile
 add_executable(AppendFile AppendFile.cpp test/AppendFile_test.cpp)
 target_link_libraries(AppendFile -lpthread)
 
-# AppendFile
+# LogFile
 add_executable(LogFile LogFile.cpp Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp AppendFile.cpp test/LogFile_test.cpp)
 target_link_libraries(LogFile -lpthread)
+
+# FixedBuffer
+add_executable(FixedBuffer Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp AppendFile.cpp LogFile.cpp test/FixedBuffer_test.cpp)
+target_link_libraries(FixedBuffer -lpthread)
 
 # AsyncLog
 add_executable(AsyncLog AsyncLog.cpp LogFile.cpp Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp AppendFile.cpp test/AsyncLog_test.cpp)

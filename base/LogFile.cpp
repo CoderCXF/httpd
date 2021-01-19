@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 11:47:23
- * @LastEditTime: 2021-01-17 17:01:39
+ * @LastEditTime: 2021-01-19 15:18:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/LogFile.cpp
@@ -29,9 +29,7 @@ LogFile::LogFile(const std::string& basename)
     rollFile();
 }
 
-LogFile::~LogFile() {
-    
-}
+LogFile::~LogFile() = default;
 
 void LogFile::append(const std::string& logline, size_t len) {
     // shared_ptr and unique_ptr has */-> operator
@@ -42,6 +40,7 @@ void LogFile::append(const std::string& logline, size_t len) {
     } else {
         count_++;
         if (count_ >= kCheckSteps) {
+            count_ = 0;
             time_t now;
             now = time(NULL);
             time_t start = now / kRollPerSeconds_ * kRollPerSeconds_;
@@ -82,16 +81,15 @@ bool LogFile::rollFile() {
     time_t now = 0;
     std::string fileName = getLogFileName(basename_, now);
     time_t start = now / kRollPerSeconds_ * kRollPerSeconds_;
-    // if (now > lastRoll_) { 
+    if (now > lastRoll_) { 
         startOfPeriod_ = start;
         lastRoll_ = now;
         lastFlush_ = now;
         writedSize_ = 0;
-        count_ = 0;
         // create new log file
         file_.reset(new AppendFile(fileName));
         return true;
-    // }
+    }
     return false;
 }
 

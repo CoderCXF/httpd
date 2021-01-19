@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-16 11:51:59
- * @LastEditTime: 2021-01-17 11:30:56
+ * @LastEditTime: 2021-01-19 15:25:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/AsyncLog.h
@@ -18,7 +18,7 @@
 #include <vector>
 #include <memory>
 
-const static int kFixedBufferSize = 4096; // 4K Bytes
+const static int kFixedBufferSize = 4096 * 1024; // 4M Bytes
 
 class AsyncLog{
     typedef FixedBuffer<kFixedBufferSize> Buffer;

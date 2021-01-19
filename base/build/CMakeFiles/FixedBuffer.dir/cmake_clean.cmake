@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/FixedBuffer.dir/AppendFile.cpp.o"
   "CMakeFiles/FixedBuffer.dir/Condition.cpp.o"
+  "CMakeFiles/FixedBuffer.dir/LogFile.cpp.o"
   "CMakeFiles/FixedBuffer.dir/Mutex.cpp.o"
   "CMakeFiles/FixedBuffer.dir/Thread.cpp.o"
   "CMakeFiles/FixedBuffer.dir/Threadpool.cpp.o"

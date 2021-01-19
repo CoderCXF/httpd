@@ -1,13 +1,15 @@
 /*
  * @Author: your name
  * @Date: 2021-01-13 11:39:06
- * @LastEditTime: 2021-01-17 16:59:56
+ * @LastEditTime: 2021-01-19 15:10:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/FixBuffer.h
  */
 #include "../FixedBuffer.h"
 #include "../Threadpool.h"
+#include "../LogFile.h"
+#include <memory>
 
 using namespace std;
 
@@ -60,6 +62,10 @@ int main() {
 
     // add
     buf.add(1);
+    cout << "buf.size: " << buf.size() << endl;
+
+    //reset
+    buf.reset();
     cout << "buf.size: " << buf.size() << endl;
 
     return 0;

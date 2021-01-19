@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 11:47:11
- * @LastEditTime: 2021-01-17 17:05:12
+ * @LastEditTime: 2021-01-19 15:21:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/LogFile.h
@@ -22,12 +22,12 @@ public:
 
 class LogFile{
 public:      
-    explicit LogFile(const std::string& basename);
+    /*explicit*/ LogFile(const std::string& basename);
     ~LogFile();
 
     void append(const std::string& basename, size_t len);
     void flush();
-    // overload
+    
     const std::string getLogFileName() {
         time_t now;
         now = time(NULL);
@@ -49,7 +49,7 @@ private:
     time_t lastFlush_;
     std::unique_ptr<AppendFile> file_; // for log file
 
-    const static int kRollSize_ = 64 * 1024;
+    const static int kRollSize_ = 64 * 1024 ;
     const static int kFlushInterval_ = 3;
     const static int kCheckSteps = 1024;
     const static int kRollPerSeconds_ = 60 * 60 * 24;

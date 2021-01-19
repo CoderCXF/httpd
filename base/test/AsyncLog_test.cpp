@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-16 15:23:14
- * @LastEditTime: 2021-01-17 16:01:27
+ * @LastEditTime: 2021-01-19 15:27:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/AsyncLog_test.cpp
@@ -37,7 +37,7 @@ void WriteLog()
 int main()
 {
 	asynclog.start();
-	for(int n = 1; n < 1000; ++n)
+	for(int n = 1; n < 1024; ++n)
 	{
 		for (int i = 0; i < 26; ++i)
 		{
@@ -46,16 +46,6 @@ int main()
 		}
 	}
 	str.push_back('\n');
-    asynclog.append(str.c_str(), str.size());
-    // int tasknums = 10;
-	// Threadpool pool(tasknums);
-    // pool.start(10);
-    // for (int i = 0; i < tasknums; ++i) {
-    //     pool.add(WriteLog);
-    // }
-    // printf("---main thread---");
-    // sleep(10);
-	// pool.stop();
-    // asynclog.stop();
+    
     asynclog.stop();
 }
