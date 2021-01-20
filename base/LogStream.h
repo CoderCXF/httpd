@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-20 08:59:11
- * @LastEditTime: 2021-01-20 09:52:59
+ * @LastEditTime: 2021-01-20 15:23:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/LogStream.h
@@ -28,7 +28,9 @@ class LogStream{
     typedef LogStream self;
 public:
     typedef FixedBuffer<kSmallBuffer> Buffer;
-
+    LogStream() {
+        buffer_.reset();
+    }
   self& operator<<(bool v)
   {
     buffer_.append(v ? "1" : "0", 1);

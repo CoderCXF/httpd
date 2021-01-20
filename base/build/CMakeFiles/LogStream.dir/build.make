@@ -203,6 +203,7 @@ bin/LogStream: CMakeFiles/LogStream.dir/LogFile.cpp.o
 bin/LogStream: CMakeFiles/LogStream.dir/LogStream.cpp.o
 bin/LogStream: CMakeFiles/LogStream.dir/test/LogStream_test.cpp.o
 bin/LogStream: CMakeFiles/LogStream.dir/build.make
+bin/LogStream: /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so
 bin/LogStream: CMakeFiles/LogStream.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable bin/LogStream"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LogStream.dir/link.txt --verbose=$(VERBOSE)

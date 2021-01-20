@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-13 10:20:19
- * @LastEditTime: 2021-01-20 10:00:26
+ * @LastEditTime: 2021-01-20 15:51:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Fixedbuf_fer.h
@@ -10,9 +10,9 @@
 #define _Fixedbuf_fer_H_
 
 #include "Base.h"
-#include "string.h"
 // #include <types.h>
 #include <string.h>
+#include <string>
 #include <assert.h>
 
 template <int SIZE>
@@ -23,34 +23,32 @@ public:
     // FixedBuffer(const Fixedbuf_fer& ) = delete;
     // FixedBuffer& operator=(const Fixedbuf_fer& ) = delete;
     void append(const char* buf, size_t len) {
-        // FIXME: error?
         if (static_cast<size_t>(avail()) >= len) {
             memcpy(cur_, buf, len);
             cur_ += len;
         }
     }
-
-    void append(const std::string& str) {
-        size_t len = str.size();
-        append(str.c_str(), len);
-    }
+    // FIXME:
+    // void append(const std::string& str) {
+    //     size_t len = str.size();
+    //     append(str.c_str(), len);
+    // }
 
     inline void add(size_t len) { cur_ += len; }
 
     inline char* curr() { return cur_; }
 
-    inline int size() { return static_cast<int>(cur_ - buf_); }
+    inline int size() const { return static_cast<int>(cur_ - buf_); }
 
     inline void reset() { cur_ = buf_; }
 
     void bzero() { 
-        // ::bzero(buf_, sizeof(buf_)); 
         memset(buf_, 0, sizeof buf_);
     }
 
     inline char* data() { return buf_; }
 
-    inline size_t avail() { return static_cast<size_t>(end() - cur_); }
+    inline size_t avail() const { return static_cast<size_t>(end() - cur_); }
 
     // for Debug
     char& operator[](int i) {
@@ -58,8 +56,14 @@ public:
         return buf_[i];
     }
 
-    std::string toString() const { return std::string(buf_); }
-
+    // FIXME: copy is slow! other method?
+    std::string toString() const { 
+        std::string str;
+        for (int i = 0; i < this->size(); ++i) {
+            str += buf_[i];
+        }
+        return str;
+    }
     
 private:
     const char* end() const {
