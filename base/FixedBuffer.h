@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-13 10:20:19
- * @LastEditTime: 2021-01-18 14:02:07
+ * @LastEditTime: 2021-01-20 10:00:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Fixedbuf_fer.h
@@ -24,11 +24,6 @@ public:
     // FixedBuffer& operator=(const Fixedbuf_fer& ) = delete;
     void append(const char* buf, size_t len) {
         // FIXME: error?
-        std::cout << "----------------------------------" << std::endl;
-        std::cout << "avail: " << avail()
-                  << "\tlen: " << len
-                  << std::endl;
-        std::cout << "----------------------------------" << std::endl;
         if (static_cast<size_t>(avail()) >= len) {
             memcpy(cur_, buf, len);
             cur_ += len;
@@ -62,6 +57,9 @@ public:
         assert(i >= 0 && i < sizeof(buf_));
         return buf_[i];
     }
+
+    std::string toString() const { return std::string(buf_); }
+
     
 private:
     const char* end() const {

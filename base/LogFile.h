@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-14 11:47:11
- * @LastEditTime: 2021-01-19 15:21:12
+ * @LastEditTime: 2021-01-19 15:41:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/LogFile.h
@@ -49,7 +49,7 @@ private:
     time_t lastFlush_;
     std::unique_ptr<AppendFile> file_; // for log file
 
-    const static int kRollSize_ = 64 * 1024 ;
+    const static int kRollSize_ = 64 * 1024 ; // 64K
     const static int kFlushInterval_ = 3;
     const static int kCheckSteps = 1024;
     const static int kRollPerSeconds_ = 60 * 60 * 24;

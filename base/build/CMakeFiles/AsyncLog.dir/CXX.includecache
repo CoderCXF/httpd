@@ -119,16 +119,6 @@ deque
 -
 
 /home/cxf/Desktop/WebServer/base/test/AsyncLog_test.cpp
-iostream
--
-string
--
-vector
--
-unistd.h
--
-malloc.h
--
 ../AsyncLog.h
 /home/cxf/Desktop/WebServer/base/AsyncLog.h
 ../Thread.h

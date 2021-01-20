@@ -65,3 +65,7 @@ target_link_libraries(FixedBuffer -lpthread)
 # AsyncLog
 add_executable(AsyncLog AsyncLog.cpp LogFile.cpp Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp AppendFile.cpp test/AsyncLog_test.cpp)
 target_link_libraries(AsyncLog -lpthread)
+
+# LogStream
+add_executable(LogStream Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp AppendFile.cpp LogFile.cpp LogStream.cpp test/LogStream_test.cpp)
+target_link_libraries(LogStream -lpthread)
