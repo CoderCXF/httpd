@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-22 11:42:37
- * @LastEditTime: 2021-01-22 15:25:10
+ * @LastEditTime: 2021-01-23 21:33:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/BlockQueue_test.cpp
@@ -33,15 +33,16 @@ class Test
   }
 
   void run(int times)
+
   {
     printf("waiting for count down latch\n");
-    latch_.Wait();
+    latch_.Wait(); // all thread wait here
     printf("all threads started\n");
     for (int i = 0; i < times; ++i)
     {
-      char buf[32];
+      char buf[64];
       snprintf(buf, sizeof buf, "hello %d", i);
-      queue_.push(buf);
+      queue_.push((string)buf);
       printf("tid=%d, put data = %s, size = %zd\n", CurrentThread::tid(), buf, queue_.size());
     }
   }
@@ -88,8 +89,9 @@ class Test
 
 int main() {
     printf("pid=%d, tid=%d\n", ::getpid(), CurrentThread::tid());
-    Test t(5);
-    t.run(100);
+    Test t(5);  // 5 threads
+    t.run(100); // main thread to run 100 times
+    sleep(10);
     t.joinAll();
     
 }
