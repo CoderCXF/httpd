@@ -28,10 +28,6 @@ string
 assert.h
 -
 
-/home/cxf/Desktop/WebServer/base/LogStream.cpp
-LogStream.h
-/home/cxf/Desktop/WebServer/base/LogStream.h
-
 /home/cxf/Desktop/WebServer/base/LogStream.h
 memory
 -
@@ -42,9 +38,15 @@ Base.h
 FixedBuffer.h
 /home/cxf/Desktop/WebServer/base/FixedBuffer.h
 
-/home/cxf/Desktop/WebServer/base/test/LogStream_test.cpp
-../LogStream.h
+/home/cxf/Desktop/WebServer/base/Logging.cpp
+Logging.h
+/home/cxf/Desktop/WebServer/base/Logging.h
+
+/home/cxf/Desktop/WebServer/base/Logging.h
+LogStream.h
 /home/cxf/Desktop/WebServer/base/LogStream.h
-boost/test/unit_test.hpp
+sys/time.h
+-
+time.h
 -
 

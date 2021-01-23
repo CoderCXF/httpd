@@ -53,6 +53,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/BlockQueue.dir/DependInfo.cmake"
   "CMakeFiles/AsyncLog.dir/DependInfo.cmake"
   "CMakeFiles/FixedBuffer.dir/DependInfo.cmake"
   "CMakeFiles/AppendFile.dir/DependInfo.cmake"
@@ -80,6 +81,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ContinuousConfigure.dir/DependInfo.cmake"
   "CMakeFiles/NightlyCoverage.dir/DependInfo.cmake"
   "CMakeFiles/ExperimentalUpdate.dir/DependInfo.cmake"
+  "CMakeFiles/Logging.dir/DependInfo.cmake"
   "CMakeFiles/ExperimentalConfigure.dir/DependInfo.cmake"
   "CMakeFiles/ExperimentalCoverage.dir/DependInfo.cmake"
   "CMakeFiles/ExperimentalBuild.dir/DependInfo.cmake"

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-19 17:54:51
- * @LastEditTime: 2021-01-20 16:33:37
+ * @LastEditTime: 2021-01-21 15:53:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/logging.h
@@ -10,20 +10,54 @@
 #define _LOGGING_H_
 
 #include "LogStream.h"
-class TimeForm{
+#include <sys/time.h>
+#include <time.h>
+
+class TimeStamp{
 public:
-    static TimeForm formTime();
+    TimeStamp();
+    explicit TimeStamp(int64_t microseconds);
+    ~TimeStamp() = default;
+    static TimeStamp nowStamp();
+    std::string formatTime(); 
 private:
-    time_t tm;
+    int64_t microseconds_;
+    static const int kMicrosecondsEachSecond = 1000 * 1000;
 };
 
 class SourceFile{
+    public:
+    template<int N>
+    SourceFile(const char (&arr)[N])
+      : data_(arr),
+        size_(N-1)
+    {
+      const char* slash = strrchr(data_, '/'); // builtin function
+      if (slash)
+      {
+        data_ = slash + 1;
+        size_ -= static_cast<int>(data_ - arr);
+      }
+    }
+    // import
+    explicit SourceFile(const char* filename)
+      : data_(filename)
+    {
+      const char* slash = strrchr(filename, '/');
+      if (slash)
+      {
+        data_ = slash + 1;
+      }
+      size_ = static_cast<int>(strlen(data_));
+    }
 
+    const char* data_;
+    int size_;
 };
 
 class Logger{
 public:
-    enum LogLevel
+  enum LogLevel
   {
     TRACE,
     DEBUG,
@@ -33,16 +67,21 @@ public:
     FATAL,
     NUM_LOG_LEVELS,
   };
-    Logger();
+    Logger(SourceFile file, int line);
+    Logger(SourceFile file, int line, LogLevel level);
+    Logger(SourceFile file, int line, LogLevel level, const char *func);
+    Logger(SourceFile file, int line, bool abort);
     ~Logger();
-    LogStream& stream() {
-        return stream_;
-    }
+    
+    LogStream& stream() { return stream_; }
+    LogLevel logLevel() { return logLevel_; }
+
 private:
-    TimeForm time_;
+    TimeStamp time_;
     LogLevel logLevel_;
+    SourceFile filename_;
+    int line_;
     LogStream stream_;
-    SourceFile file_;
 };
 
 #define LOG_TRACE if (Logger::logLevel() <= ::Logger::TRACE) \

@@ -141,6 +141,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named BlockQueue
+
+# Build rule for target.
+BlockQueue: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BlockQueue
+.PHONY : BlockQueue
+
+# fast build rule for target.
+BlockQueue/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/build
+.PHONY : BlockQueue/fast
+
+#=============================================================================
 # Target rules for targets named AsyncLog
 
 # Build rule for target.
@@ -492,6 +505,19 @@ ExperimentalUpdate/fast:
 .PHONY : ExperimentalUpdate/fast
 
 #=============================================================================
+# Target rules for targets named Logging
+
+# Build rule for target.
+Logging: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Logging
+.PHONY : Logging
+
+# fast build rule for target.
+Logging/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/build
+.PHONY : Logging/fast
+
+#=============================================================================
 # Target rules for targets named ExperimentalConfigure
 
 # Build rule for target.
@@ -645,6 +671,7 @@ AppendFile.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AppendFile.dir/build.make CMakeFiles/AppendFile.dir/AppendFile.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/AppendFile.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/AppendFile.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/AppendFile.cpp.o
 .PHONY : AppendFile.cpp.o
 
 AppendFile.i: AppendFile.cpp.i
@@ -658,6 +685,7 @@ AppendFile.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AppendFile.dir/build.make CMakeFiles/AppendFile.dir/AppendFile.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/AppendFile.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/AppendFile.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/AppendFile.cpp.i
 .PHONY : AppendFile.cpp.i
 
 AppendFile.s: AppendFile.cpp.s
@@ -671,6 +699,7 @@ AppendFile.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AppendFile.dir/build.make CMakeFiles/AppendFile.dir/AppendFile.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/AppendFile.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/AppendFile.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/AppendFile.cpp.s
 .PHONY : AppendFile.cpp.s
 
 AsyncLog.o: AsyncLog.cpp.o
@@ -706,12 +735,14 @@ Condition.o: Condition.cpp.o
 
 # target to build an object file
 Condition.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/Condition.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/Condition.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Condition.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Condition.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/Condition.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Condition.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Condition.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Condition.cpp.o
 .PHONY : Condition.cpp.o
 
 Condition.i: Condition.cpp.i
@@ -720,12 +751,14 @@ Condition.i: Condition.cpp.i
 
 # target to preprocess a source file
 Condition.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/Condition.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/Condition.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Condition.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Condition.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/Condition.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Condition.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Condition.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Condition.cpp.i
 .PHONY : Condition.cpp.i
 
 Condition.s: Condition.cpp.s
@@ -734,12 +767,14 @@ Condition.s: Condition.cpp.s
 
 # target to generate assembly for a file
 Condition.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/Condition.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/Condition.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Condition.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Condition.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/Condition.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Condition.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Condition.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Condition.cpp.s
 .PHONY : Condition.cpp.s
 
 ConditionLatch.o: ConditionLatch.cpp.o
@@ -748,6 +783,7 @@ ConditionLatch.o: ConditionLatch.cpp.o
 
 # target to build an object file
 ConditionLatch.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/ConditionLatch.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/ConditionLatch.cpp.o
 .PHONY : ConditionLatch.cpp.o
 
@@ -757,6 +793,7 @@ ConditionLatch.i: ConditionLatch.cpp.i
 
 # target to preprocess a source file
 ConditionLatch.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/ConditionLatch.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/ConditionLatch.cpp.i
 .PHONY : ConditionLatch.cpp.i
 
@@ -766,6 +803,7 @@ ConditionLatch.s: ConditionLatch.cpp.s
 
 # target to generate assembly for a file
 ConditionLatch.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/ConditionLatch.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/ConditionLatch.cpp.s
 .PHONY : ConditionLatch.cpp.s
 
@@ -779,6 +817,7 @@ LogFile.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/LogFile.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/LogFile.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/LogFile.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/LogFile.cpp.o
 .PHONY : LogFile.cpp.o
 
 LogFile.i: LogFile.cpp.i
@@ -791,6 +830,7 @@ LogFile.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/LogFile.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/LogFile.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/LogFile.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/LogFile.cpp.i
 .PHONY : LogFile.cpp.i
 
 LogFile.s: LogFile.cpp.s
@@ -803,6 +843,7 @@ LogFile.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/LogFile.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/LogFile.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/LogFile.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/LogFile.cpp.s
 .PHONY : LogFile.cpp.s
 
 LogStream.o: LogStream.cpp.o
@@ -812,6 +853,7 @@ LogStream.o: LogStream.cpp.o
 # target to build an object file
 LogStream.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/LogStream.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/LogStream.cpp.o
 .PHONY : LogStream.cpp.o
 
 LogStream.i: LogStream.cpp.i
@@ -821,6 +863,7 @@ LogStream.i: LogStream.cpp.i
 # target to preprocess a source file
 LogStream.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/LogStream.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/LogStream.cpp.i
 .PHONY : LogStream.cpp.i
 
 LogStream.s: LogStream.cpp.s
@@ -830,7 +873,35 @@ LogStream.s: LogStream.cpp.s
 # target to generate assembly for a file
 LogStream.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/LogStream.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/LogStream.cpp.s
 .PHONY : LogStream.cpp.s
+
+Logging.o: Logging.cpp.o
+
+.PHONY : Logging.o
+
+# target to build an object file
+Logging.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Logging.cpp.o
+.PHONY : Logging.cpp.o
+
+Logging.i: Logging.cpp.i
+
+.PHONY : Logging.i
+
+# target to preprocess a source file
+Logging.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Logging.cpp.i
+.PHONY : Logging.cpp.i
+
+Logging.s: Logging.cpp.s
+
+.PHONY : Logging.s
+
+# target to generate assembly for a file
+Logging.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Logging.cpp.s
+.PHONY : Logging.cpp.s
 
 Mutex.o: Mutex.cpp.o
 
@@ -838,6 +909,7 @@ Mutex.o: Mutex.cpp.o
 
 # target to build an object file
 Mutex.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/Mutex.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/Mutex.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Mutex.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Mutex.cpp.o
@@ -846,6 +918,7 @@ Mutex.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/Mutex.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Mutex.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Mutex.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Mutex.cpp.o
 .PHONY : Mutex.cpp.o
 
 Mutex.i: Mutex.cpp.i
@@ -854,6 +927,7 @@ Mutex.i: Mutex.cpp.i
 
 # target to preprocess a source file
 Mutex.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/Mutex.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/Mutex.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Mutex.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Mutex.cpp.i
@@ -862,6 +936,7 @@ Mutex.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/Mutex.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Mutex.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Mutex.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Mutex.cpp.i
 .PHONY : Mutex.cpp.i
 
 Mutex.s: Mutex.cpp.s
@@ -870,6 +945,7 @@ Mutex.s: Mutex.cpp.s
 
 # target to generate assembly for a file
 Mutex.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/Mutex.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/Mutex.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Mutex.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Mutex.cpp.s
@@ -878,6 +954,7 @@ Mutex.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/Mutex.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Mutex.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Mutex.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Mutex.cpp.s
 .PHONY : Mutex.cpp.s
 
 Thread.o: Thread.cpp.o
@@ -886,6 +963,7 @@ Thread.o: Thread.cpp.o
 
 # target to build an object file
 Thread.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/Thread.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/Thread.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Thread.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Thread.cpp.o
@@ -893,6 +971,7 @@ Thread.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/Thread.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Thread.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Thread.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Thread.cpp.o
 .PHONY : Thread.cpp.o
 
 Thread.i: Thread.cpp.i
@@ -901,6 +980,7 @@ Thread.i: Thread.cpp.i
 
 # target to preprocess a source file
 Thread.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/Thread.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/Thread.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Thread.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Thread.cpp.i
@@ -908,6 +988,7 @@ Thread.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/Thread.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Thread.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Thread.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Thread.cpp.i
 .PHONY : Thread.cpp.i
 
 Thread.s: Thread.cpp.s
@@ -916,6 +997,7 @@ Thread.s: Thread.cpp.s
 
 # target to generate assembly for a file
 Thread.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/Thread.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/Thread.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Thread.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Thread.cpp.s
@@ -923,6 +1005,7 @@ Thread.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/Thread.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Condition.dir/build.make CMakeFiles/Condition.dir/Thread.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Thread.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Thread.cpp.s
 .PHONY : Thread.cpp.s
 
 Threadpool.o: Threadpool.cpp.o
@@ -931,11 +1014,13 @@ Threadpool.o: Threadpool.cpp.o
 
 # target to build an object file
 Threadpool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/Threadpool.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/Threadpool.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Threadpool.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Threadpool.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/Threadpool.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Threadpool.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Threadpool.cpp.o
 .PHONY : Threadpool.cpp.o
 
 Threadpool.i: Threadpool.cpp.i
@@ -944,11 +1029,13 @@ Threadpool.i: Threadpool.cpp.i
 
 # target to preprocess a source file
 Threadpool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/Threadpool.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/Threadpool.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Threadpool.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Threadpool.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/Threadpool.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Threadpool.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Threadpool.cpp.i
 .PHONY : Threadpool.cpp.i
 
 Threadpool.s: Threadpool.cpp.s
@@ -957,11 +1044,13 @@ Threadpool.s: Threadpool.cpp.s
 
 # target to generate assembly for a file
 Threadpool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/Threadpool.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/Threadpool.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FixedBuffer.dir/build.make CMakeFiles/FixedBuffer.dir/Threadpool.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/Threadpool.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/Threadpool.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogFile.dir/build.make CMakeFiles/LogFile.dir/Threadpool.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Threadpool.cpp.s
 .PHONY : Threadpool.cpp.s
 
 test/AppendFile_test.o: test/AppendFile_test.cpp.o
@@ -1017,6 +1106,33 @@ test/AsyncLog_test.s: test/AsyncLog_test.cpp.s
 test/AsyncLog_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AsyncLog.dir/build.make CMakeFiles/AsyncLog.dir/test/AsyncLog_test.cpp.s
 .PHONY : test/AsyncLog_test.cpp.s
+
+test/BlockQueue_test.o: test/BlockQueue_test.cpp.o
+
+.PHONY : test/BlockQueue_test.o
+
+# target to build an object file
+test/BlockQueue_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/test/BlockQueue_test.cpp.o
+.PHONY : test/BlockQueue_test.cpp.o
+
+test/BlockQueue_test.i: test/BlockQueue_test.cpp.i
+
+.PHONY : test/BlockQueue_test.i
+
+# target to preprocess a source file
+test/BlockQueue_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/test/BlockQueue_test.cpp.i
+.PHONY : test/BlockQueue_test.cpp.i
+
+test/BlockQueue_test.s: test/BlockQueue_test.cpp.s
+
+.PHONY : test/BlockQueue_test.s
+
+# target to generate assembly for a file
+test/BlockQueue_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BlockQueue.dir/build.make CMakeFiles/BlockQueue.dir/test/BlockQueue_test.cpp.s
+.PHONY : test/BlockQueue_test.cpp.s
 
 test/Condition_test.o: test/Condition_test.cpp.o
 
@@ -1125,6 +1241,33 @@ test/LogStream_test.s: test/LogStream_test.cpp.s
 test/LogStream_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogStream.dir/build.make CMakeFiles/LogStream.dir/test/LogStream_test.cpp.s
 .PHONY : test/LogStream_test.cpp.s
+
+test/Logging_test.o: test/Logging_test.cpp.o
+
+.PHONY : test/Logging_test.o
+
+# target to build an object file
+test/Logging_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/test/Logging_test.cpp.o
+.PHONY : test/Logging_test.cpp.o
+
+test/Logging_test.i: test/Logging_test.cpp.i
+
+.PHONY : test/Logging_test.i
+
+# target to preprocess a source file
+test/Logging_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/test/Logging_test.cpp.i
+.PHONY : test/Logging_test.cpp.i
+
+test/Logging_test.s: test/Logging_test.cpp.s
+
+.PHONY : test/Logging_test.s
+
+# target to generate assembly for a file
+test/Logging_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/test/Logging_test.cpp.s
+.PHONY : test/Logging_test.cpp.s
 
 test/Mutex_test.o: test/Mutex_test.cpp.o
 
@@ -1273,10 +1416,12 @@ help:
 	@echo "... NightlyUpdate"
 	@echo "... AppendFile"
 	@echo "... AsyncLog"
+	@echo "... BlockQueue"
 	@echo "... Condition"
 	@echo "... FixedBuffer"
 	@echo "... LogFile"
 	@echo "... LogStream"
+	@echo "... Logging"
 	@echo "... Mutex"
 	@echo "... Singleton"
 	@echo "... Thread"
@@ -1299,6 +1444,9 @@ help:
 	@echo "... LogStream.o"
 	@echo "... LogStream.i"
 	@echo "... LogStream.s"
+	@echo "... Logging.o"
+	@echo "... Logging.i"
+	@echo "... Logging.s"
 	@echo "... Mutex.o"
 	@echo "... Mutex.i"
 	@echo "... Mutex.s"
@@ -1314,6 +1462,9 @@ help:
 	@echo "... test/AsyncLog_test.o"
 	@echo "... test/AsyncLog_test.i"
 	@echo "... test/AsyncLog_test.s"
+	@echo "... test/BlockQueue_test.o"
+	@echo "... test/BlockQueue_test.i"
+	@echo "... test/BlockQueue_test.s"
 	@echo "... test/Condition_test.o"
 	@echo "... test/Condition_test.i"
 	@echo "... test/Condition_test.s"
@@ -1326,6 +1477,9 @@ help:
 	@echo "... test/LogStream_test.o"
 	@echo "... test/LogStream_test.i"
 	@echo "... test/LogStream_test.s"
+	@echo "... test/Logging_test.o"
+	@echo "... test/Logging_test.i"
+	@echo "... test/Logging_test.s"
 	@echo "... test/Mutex_test.o"
 	@echo "... test/Mutex_test.i"
 	@echo "... test/Mutex_test.s"

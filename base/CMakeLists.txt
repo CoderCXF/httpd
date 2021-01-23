@@ -86,3 +86,11 @@ add_executable(LogStream Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp Appen
 target_link_libraries(LogStream pthread)
 ]]
 
+# Logging
+add_executable(Logging Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp AppendFile.cpp LogFile.cpp LogStream.cpp Logging.cpp test/Logging_test.cpp)
+target_link_libraries(Logging pthread)
+
+# BlockQueue
+add_executable(BlockQueue Mutex.cpp Condition.cpp  ConditionLatch.cpp Thread.cpp Threadpool.cpp test/BlockQueue_test.cpp)
+target_link_libraries(BlockQueue pthread)
+

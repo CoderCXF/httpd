@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-20 08:59:11
- * @LastEditTime: 2021-01-20 15:23:38
+ * @LastEditTime: 2021-01-21 15:40:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/LogStream.h
@@ -100,7 +100,7 @@ public:
   void formatInteger(T);
 
   Buffer buffer_;
-
+ 
   static const int kMaxNumericSize = 32;
 };
 

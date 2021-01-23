@@ -47,6 +47,10 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "bitset": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "complex": "cpp",
+        "iomanip": "cpp",
+        "cfenv": "cpp",
+        "typeindex": "cpp"
     }
 }
