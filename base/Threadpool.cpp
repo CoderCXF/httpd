@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-12 14:32:31
- * @LastEditTime: 2021-01-15 09:08:51
+ * @LastEditTime: 2021-01-25 14:03:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Threadpool.cpp
@@ -30,7 +30,7 @@ void Threadpool::start(int numThreads) {
     running_ = true;
     for (int i = 0; i < numThreads; ++i) {
         threads_.emplace_back(new Thread(std::bind(&Threadpool::runInThread, this)));
-        threads_[i]->Start();
+        threads_[i]->start();
     }
 }
 
@@ -40,11 +40,11 @@ void Threadpool::stop() {
     notFull_.NotifyAll();
     for (std::unique_ptr<Thread> & item : threads_)
     {
-        item->Join();
+        item->join();
     }
     
     std::vector<std::unique_ptr<Thread>> temp;
-    threads_.swap(temp);
+    threads_.swap(temp);  // clear task queue
 }
 
 

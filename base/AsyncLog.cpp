@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-16 11:52:08
- * @LastEditTime: 2021-01-19 15:28:22
+ * @LastEditTime: 2021-01-25 14:04:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/AsyncLog.cpp
@@ -25,12 +25,12 @@ void AsyncLog::start() {
     // Thread thread_([&](){
     //     this->writeLogFileThread();
     // });
-    thread_.Start();
+    thread_.start();
 }
 
 void AsyncLog::stop() {
     running_ = false;
-    thread_.Join();
+    thread_.join();
 }
 
 void AsyncLog::append(const char* logline, size_t len) {

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-11 20:07:15
- * @LastEditTime: 2021-01-12 09:46:51
+ * @LastEditTime: 2021-01-25 14:02:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/Thread_test.cpp
@@ -39,25 +39,25 @@ int main() {
     printf("pid = %d, tid = %d\n", getpid(), CurrentThread::tid());
     
     Thread t1(threadFunc);
-    t1.Start();
-    t1.Join();
+    t1.start();
+    t1.join();
 
     Thread t2(threadFunc2);
-    t2.Start();
-    t2.Join();
+    t2.start();
+    t2.join();
 
     Thread t3(threadFunc3);
-    t3.Start();
-    t3.Join();
+    t3.start();
+    t3.join();
 
     Foo foo(78);
     Thread t4(std::bind(&Foo::memberFunc, &foo));
-    t4.Start();
-    t4.Join();
+    t4.start();
+    t4.join();
 
     Foo foo2(100);
     Thread t5(std::bind(&Foo::memberFunc2, &foo2, std::string("CXF")));
-    t5.Start();
-    t5.Join();
+    t5.start();
+    t5.join();
     return 0;
 }

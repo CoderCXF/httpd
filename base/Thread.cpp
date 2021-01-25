@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-07 20:00:52
- * @LastEditTime: 2021-01-17 15:03:28
+ * @LastEditTime: 2021-01-25 15:06:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Thread.cpp
@@ -22,9 +22,9 @@ pid_t CurrentThread::tid() {
 }
 
 Thread::Thread(ThreadFunc func) 
-	: m_bStarted(false),
-	  m_bJointed(false), 
-	  m_pthreadId(0), 
+	: isStarted_(false),
+	  isJointed_(false), 
+	  pthreadId_(0), 
 	  func_(func),
 	  tid_(0)
 {
@@ -33,16 +33,14 @@ Thread::Thread(ThreadFunc func)
 
 Thread::~Thread()
 {
-	if (m_bStarted && !m_bJointed)
-	{
-		pthread_detach(m_pthreadId);
-	}
+	assert(isStarted_ && !isJointed_);
+	pthread_detach(pthreadId_);
 }
 
 struct ThreadData
 {
 	typedef typename Thread::ThreadFunc ThreadFunc;
-public:
+	
 	ThreadFunc func_;
 	pid_t* tid_;
 	ThreadData(ThreadFunc func, pid_t *tid) 
@@ -57,33 +55,28 @@ public:
 		tid_ = nullptr;
 		func_();
 	}
-
 };
 
-void* thread_adapter(void* obj)
+void* thread_adapter(void* arg) 
 {
-	ThreadData* data = static_cast<ThreadData*>(obj);
+	ThreadData* data = static_cast<ThreadData*>(arg); //this
 	data->runInThread();
-	delete data;
+	data = nullptr;
 	return NULL;
 }
 
-void Thread::Start()
+void Thread::start()
 {
-	if (!m_bStarted)
-	{
-		ThreadData * ptData = new ThreadData(func_, &tid_);
-		pthread_create(&m_pthreadId, NULL, thread_adapter, static_cast<void *> (ptData)); // ThreadData is an object
-																						  // if ThreadData is not exist, ptData == NULL
-		m_bStarted = true;
-	}
+	assert(!isStarted_);
+	std::unique_ptr<ThreadData> ptData(new ThreadData(func_, &tid_));
+	pthread_create(&pthreadId_, NULL, thread_adapter, static_cast<void *>(ptData.get())); // ThreadData is an object
+																					 // if ThreadData is not exist, ptData == NULL
+	isStarted_ = true;
 }
 
-void Thread::Join()
+void Thread::join()
 {
-	if (!m_bJointed)
-	{
-		pthread_join(m_pthreadId, NULL);
-		m_bJointed = true;
-	}
+	assert(isStarted_);
+	pthread_join(pthreadId_, NULL);
+	isJointed_ = true;
 }

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-19 17:54:59
- * @LastEditTime: 2021-01-25 11:21:45
+ * @LastEditTime: 2021-01-25 11:25:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Logging.cpp
@@ -151,7 +151,7 @@ Logger::~Logger() {
   printFileAndLine();
   const LogStream::Buffer& buf(stream().buffer());
   g_output(buf.data(), buf.size());
-  if (logLevel_ == FATAL)
+  if (logLevel_ == FATAL)  // if logLevel_ == FATAL, then abort()
   {
     g_flush();
     abort();

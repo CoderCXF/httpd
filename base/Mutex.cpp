@@ -1,37 +1,35 @@
 /*
  * @Author: your name
  * @Date: 2021-01-09 14:57:27
- * @LastEditTime: 2021-01-11 15:01:34
+ * @LastEditTime: 2021-01-25 15:44:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Mutex.cpp
  */
 #include "Mutex.h"
-#include <iostream>
 Mutex::Mutex() {
     pthread_mutex_init(&mutex_, NULL);
 }
 Mutex::~Mutex() {
     pthread_mutex_destroy(&mutex_);
 }
-void Mutex::Lock() {
+void Mutex::lock() {
     pthread_mutex_lock(&mutex_);
 }
 
-void Mutex::Unlock() {
+void Mutex::unlock() {
     pthread_mutex_unlock(&mutex_);
 }
 
-pthread_mutex_t *Mutex::GetMutexInstance() {
+pthread_mutex_t *Mutex::getMutexInstance() {
     return &mutex_;
 }
+
 /*RAII*/
 MutexGuard::MutexGuard(Mutex &mutex):m_Mutex(mutex){
-    // std::cout << "constructor call" << std::endl;
-    m_Mutex.Lock();
+    m_Mutex.lock();
 }
 
 MutexGuard::~MutexGuard() {
-    // std::cout << "deconstructor call" << std::endl;
-    m_Mutex.Unlock();
+    m_Mutex.unlock();
 }

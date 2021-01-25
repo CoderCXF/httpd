@@ -1,13 +1,15 @@
 /*
  * @Author: your name
  * @Date: 2021-01-09 14:57:19
- * @LastEditTime: 2021-01-11 16:26:55
+ * @LastEditTime: 2021-01-25 15:43:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Mutex.h
  */
 #ifndef _MUTEX_H_
 #define _MUTEX_H_
+
+#include <assert.h>
 #include <unistd.h>
 #include <pthread.h>
 
@@ -17,10 +19,10 @@ public:
     ~Mutex();
     // Mutex(const Mutex &) = delete; //constructor function initilizer list
     Mutex& operator=(const Mutex &) = delete;
-public:
-    void Lock();
-    void Unlock();
-    pthread_mutex_t *GetMutexInstance();
+
+    void lock();
+    void unlock();
+    pthread_mutex_t *getMutexInstance();
 
 private:
     pthread_mutex_t mutex_;

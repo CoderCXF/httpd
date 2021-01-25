@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-22 11:42:37
- * @LastEditTime: 2021-01-24 10:53:54
+ * @LastEditTime: 2021-01-25 14:04:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/BlockQueue_test.cpp
@@ -29,7 +29,7 @@ class Test
     }
     for (auto& thr : threads_)
     {
-      thr->Start();
+      thr->start();
     }
   }
 
@@ -58,7 +58,7 @@ class Test
 
     for (auto& thr : threads_)
     {
-      thr->Join();
+      thr->join();
     }
   }
 

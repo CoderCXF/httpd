@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-12 14:32:20
- * @LastEditTime: 2021-01-12 16:52:40
+ * @LastEditTime: 2021-01-25 11:32:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Threadpool.h
@@ -20,7 +20,7 @@
 class Threadpool{
     
 public:
-    typedef std::function<void ()> TaskFunc;
+    typedef std::function<void ()> TaskFunc;  // define void func() template
 
     explicit Threadpool(int numTasks);
     ~Threadpool();

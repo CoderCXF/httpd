@@ -44,9 +44,12 @@ CMakeFiles/Logging.dir/Threadpool.cpp.o: ../Threadpool.cpp
 CMakeFiles/Logging.dir/Threadpool.cpp.o: ../Threadpool.h
 
 CMakeFiles/Logging.dir/test/Logging_test.cpp.o: ../Base.h
+CMakeFiles/Logging.dir/test/Logging_test.cpp.o: ../Condition.h
 CMakeFiles/Logging.dir/test/Logging_test.cpp.o: ../FixedBuffer.h
 CMakeFiles/Logging.dir/test/Logging_test.cpp.o: ../LogStream.h
 CMakeFiles/Logging.dir/test/Logging_test.cpp.o: ../Logging.h
+CMakeFiles/Logging.dir/test/Logging_test.cpp.o: ../Mutex.h
 CMakeFiles/Logging.dir/test/Logging_test.cpp.o: ../Thread.h
+CMakeFiles/Logging.dir/test/Logging_test.cpp.o: ../Threadpool.h
 CMakeFiles/Logging.dir/test/Logging_test.cpp.o: ../test/Logging_test.cpp
 
