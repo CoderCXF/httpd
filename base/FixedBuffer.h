@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-13 10:20:19
- * @LastEditTime: 2021-01-20 15:51:11
+ * @LastEditTime: 2021-01-24 11:46:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Fixedbuf_fer.h
@@ -46,7 +46,7 @@ public:
         memset(buf_, 0, sizeof buf_);
     }
 
-    inline char* data() { return buf_; }
+    inline const char* data() const { return buf_; }
 
     inline size_t avail() const { return static_cast<size_t>(end() - cur_); }
 

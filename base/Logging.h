@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-19 17:54:51
- * @LastEditTime: 2021-01-21 15:53:27
+ * @LastEditTime: 2021-01-25 11:15:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/logging.h
@@ -10,6 +10,7 @@
 #define _LOGGING_H_
 
 #include "LogStream.h"
+#include "Thread.h"
 #include <sys/time.h>
 #include <time.h>
 
@@ -67,16 +68,22 @@ public:
     FATAL,
     NUM_LOG_LEVELS,
   };
+    // Logger() = default;
     Logger(SourceFile file, int line);
     Logger(SourceFile file, int line, LogLevel level);
     Logger(SourceFile file, int line, LogLevel level, const char *func);
-    Logger(SourceFile file, int line, bool abort);
+    Logger(SourceFile file, int line, bool toabort);
     ~Logger();
     
     LogStream& stream() { return stream_; }
-    LogLevel logLevel() { return logLevel_; }
+    static LogLevel logLevel();
+
+    typedef void (*OutputFunc)(const char* msg, int len);
+    typedef void (*FlushFunc)();
 
 private:
+    void printFileAndLine();
+    
     TimeStamp time_;
     LogLevel logLevel_;
     SourceFile filename_;
@@ -84,11 +91,18 @@ private:
     LogStream stream_;
 };
 
+extern Logger::LogLevel g_logLevel;
+
+inline Logger::LogLevel Logger::logLevel()
+{
+  return g_logLevel;
+}
+
 #define LOG_TRACE if (Logger::logLevel() <= ::Logger::TRACE) \
   ::Logger(__FILE__, __LINE__, Logger::TRACE, __func__).stream()
-#define LOG_DEBUG if (::Logger::logLevel() <= ::Logger::DEBUG) \
+#define LOG_DEBUG if (Logger::logLevel() <= ::Logger::DEBUG) \
   ::Logger(__FILE__, __LINE__, ::Logger::DEBUG, __func__).stream()
-#define LOG_INFO if (::Logger::logLevel() <= ::Logger::INFO) \
+#define LOG_INFO if (Logger::logLevel() <= ::Logger::INFO) \
   ::Logger(__FILE__, __LINE__).stream()
 #define LOG_WARN ::Logger(__FILE__, __LINE__, ::Logger::WARN).stream()
 #define LOG_ERROR ::Logger(__FILE__, __LINE__, ::Logger::ERROR).stream()

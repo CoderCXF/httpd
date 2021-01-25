@@ -1,11 +1,12 @@
 /*
  * @Author: your name
  * @Date: 2021-01-22 11:42:37
- * @LastEditTime: 2021-01-23 21:33:32
+ * @LastEditTime: 2021-01-24 10:53:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/BlockQueue_test.cpp
  */
+// FIXME: this test file error: segmentation fault
 #include "../BlockQueue.h"
 #include "../ConditionLatch.h"
 #include "../Thread.h"
@@ -33,16 +34,17 @@ class Test
   }
 
   void run(int times)
-
   {
     printf("waiting for count down latch\n");
     latch_.Wait(); // all thread wait here
     printf("all threads started\n");
     for (int i = 0; i < times; ++i)
     {
-      char buf[64];
-      snprintf(buf, sizeof buf, "hello %d", i);
-      queue_.push((string)buf);
+      char buf[64] = {0};
+      snprintf(buf, sizeof(buf), "hello %d", i);
+      cout << "buf content:" << buf << endl;
+      queue_.push(buf); // segmentation fault
+      cout << "queue_ has pushed" << endl;
       printf("tid=%d, put data = %s, size = %zd\n", CurrentThread::tid(), buf, queue_.size());
     }
   }

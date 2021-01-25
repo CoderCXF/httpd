@@ -1,12 +1,39 @@
 /*
  * @Author: your name
  * @Date: 2021-01-19 17:54:59
- * @LastEditTime: 2021-01-22 11:37:29
+ * @LastEditTime: 2021-01-25 11:21:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Logging.cpp
  */
 #include "Logging.h"
+
+__thread char t_errnobuf[512];
+__thread char t_time[64];
+__thread time_t t_lastSecond;
+
+const char* strerror_tl(int savedErrno)
+{
+  return strerror_r(savedErrno, t_errnobuf, sizeof t_errnobuf);
+}
+
+void defaultOutput(const char* msg, int len)
+{
+  size_t n = fwrite(msg, 1, len, stdout);
+  //FIXME check n
+  (void)n;
+}
+
+void defaultFlush()
+{
+  fflush(stdout);
+}
+
+Logger::OutputFunc g_output = defaultOutput;
+Logger::FlushFunc g_flush = defaultFlush;
+/*
+ * TimeStamp class constructor
+ */
 
 TimeStamp::TimeStamp() : microseconds_(0)
 {
@@ -38,6 +65,37 @@ std::string TimeStamp::formatTime() {
     return buf;
 }
 
+inline LogStream& operator<<(LogStream& s, const SourceFile& v)
+{
+  s.append(v.data_, v.size_);
+  return s;
+}
+
+/*
+ * Logger class
+ */
+const char* LogLevelName[Logger::NUM_LOG_LEVELS] =
+{
+  "TRACE ",
+  "DEBUG ",
+  "INFO  ",
+  "WARN  ",
+  "ERROR ",
+  "FATAL ",
+};
+// default logLevel = INFO
+Logger::LogLevel initLogLevel()
+{
+  if (::getenv("MUDUO_LOG_TRACE"))
+    return Logger::TRACE;
+  else if (::getenv("MUDUO_LOG_DEBUG"))
+    return Logger::DEBUG;
+  else
+    return Logger::INFO;
+}
+
+Logger::LogLevel g_logLevel = initLogLevel();
+
 Logger::Logger(SourceFile file, int line) 
     : time_(TimeStamp::nowStamp()),
       logLevel_(LogLevel::INFO), // defaut level
@@ -45,7 +103,8 @@ Logger::Logger(SourceFile file, int line)
       line_(line),
       stream_()
 {
-
+  std::string formatedTime = time_.formatTime();
+  stream_ << formatedTime << " " << CurrentThread::tid() << " " << LogLevelName[logLevel_];
 }
 Logger::Logger(SourceFile file, int line, LogLevel level)
     : time_(TimeStamp::nowStamp()),
@@ -54,7 +113,8 @@ Logger::Logger(SourceFile file, int line, LogLevel level)
       line_(line),
       stream_()
 {
-
+  std::string formatedTime = time_.formatTime();
+  stream_ << formatedTime << " " << CurrentThread::tid() << " " << LogLevelName[logLevel_];
 }
 
 Logger::Logger(SourceFile file, int line, LogLevel level, const char *func)
@@ -64,15 +124,36 @@ Logger::Logger(SourceFile file, int line, LogLevel level, const char *func)
       line_(line),
       stream_()
 {
-  
+  std::string formatedTime = time_.formatTime();
+  stream_ << formatedTime << " " << CurrentThread::tid() << " " << LogLevelName[logLevel_];
 }
 
-Logger::Logger(SourceFile file, int line, bool flag)
+Logger::Logger(SourceFile file, int line, bool toabort)
     : time_(TimeStamp::nowStamp()),
       logLevel_(LogLevel::INFO),
       filename_(file),
       line_(line),
       stream_()
 {
-    
+  std::string formatedTime = time_.formatTime();
+  stream_ << formatedTime << " " << CurrentThread::tid() << " " << LogLevelName[logLevel_];
+  if (toabort) {
+    stream_ << strerror_tl(errno) << " (errno=" << errno << ")";
+  }
+}
+
+// deconstructor function
+void Logger::printFileAndLine() {
+  stream_ << '-' << filename_ << ':' << line_ << '\n';
+}
+
+Logger::~Logger() {
+  printFileAndLine();
+  const LogStream::Buffer& buf(stream().buffer());
+  g_output(buf.data(), buf.size());
+  if (logLevel_ == FATAL)
+  {
+    g_flush();
+    abort();
+  }
 }

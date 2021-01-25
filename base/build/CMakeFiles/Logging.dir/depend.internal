@@ -28,6 +28,7 @@ CMakeFiles/Logging.dir/Logging.cpp.o
  /home/cxf/Desktop/WebServer/base/LogStream.h
  /home/cxf/Desktop/WebServer/base/Logging.cpp
  /home/cxf/Desktop/WebServer/base/Logging.h
+ /home/cxf/Desktop/WebServer/base/Thread.h
 CMakeFiles/Logging.dir/Mutex.cpp.o
  /home/cxf/Desktop/WebServer/base/Mutex.cpp
  /home/cxf/Desktop/WebServer/base/Mutex.h
@@ -47,4 +48,5 @@ CMakeFiles/Logging.dir/test/Logging_test.cpp.o
  /home/cxf/Desktop/WebServer/base/FixedBuffer.h
  /home/cxf/Desktop/WebServer/base/LogStream.h
  /home/cxf/Desktop/WebServer/base/Logging.h
+ /home/cxf/Desktop/WebServer/base/Thread.h
  /home/cxf/Desktop/WebServer/base/test/Logging_test.cpp
