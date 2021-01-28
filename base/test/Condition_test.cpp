@@ -1,17 +1,19 @@
 /*
  * @Author: your name
  * @Date: 2021-01-05 10:33:50
- * @LastEditTime: 2021-01-10 12:14:16
+ * @LastEditTime: 2021-01-26 10:55:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Linux_code/multi_thread/pc.c
  */
 #include "../Condition.h"
 #include "string.h"
+
 struct Tickets
 {
     int tick_num;
 } tick;
+
 int t;
 Mutex mutex;
 Condition cond(mutex);

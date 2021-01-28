@@ -18,13 +18,3 @@ unistd.h
 pthread.h
 -
 
-/home/cxf/Desktop/WebServer/base/test/Mutex_test.cpp
-stdio.h
--
-stdlib.h
--
-iostream
--
-../Mutex.h
-/home/cxf/Desktop/WebServer/base/Mutex.h
-

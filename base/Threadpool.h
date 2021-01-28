@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-12 14:32:20
- * @LastEditTime: 2021-01-25 11:32:27
+ * @LastEditTime: 2021-01-26 10:58:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Threadpool.h
@@ -17,6 +17,7 @@
 #include <vector>
 #include <memory.h>
 #include <deque>
+
 class Threadpool{
     
 public:
@@ -36,8 +37,8 @@ private:
     uint32_t maxQueueSize_;   // task queue
     bool running_;
     Mutex mutex_;
-    Condition notEmpty_; // thread can deal
-    Condition notFull_;  // be able to add task
+    Condition notEmpty_; // taskqueue_
+    Condition notFull_;
     std::vector<std::unique_ptr<Thread>> threads_;
     std::deque<TaskFunc> task_queue_;
 };

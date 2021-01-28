@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-09 14:57:27
- * @LastEditTime: 2021-01-25 15:44:07
+ * @LastEditTime: 2021-01-26 10:21:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Mutex.cpp
@@ -26,7 +26,7 @@ pthread_mutex_t *Mutex::getMutexInstance() {
 }
 
 /*RAII*/
-MutexGuard::MutexGuard(Mutex &mutex):m_Mutex(mutex){
+MutexGuard::MutexGuard(Mutex &mutex):m_Mutex(mutex) {
     m_Mutex.lock();
 }
 
