@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-12 14:32:31
- * @LastEditTime: 2021-01-25 14:03:30
+ * @LastEditTime: 2021-01-28 20:39:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Threadpool.cpp
@@ -16,7 +16,7 @@ Threadpool::Threadpool(int numTasks)
       notEmpty_(mutex_),
       notFull_(mutex_)
 {
-    // std::cout << "constructor" << std::endl;
+
 }
 
 Threadpool::~Threadpool() {
@@ -49,7 +49,7 @@ void Threadpool::stop() {
 
 
 bool Threadpool::isFull() {
-    // dead mutex
+    //  FIXME: dead mutex???
     // MutexGuard lock(mutex_);
     return task_queue_.size() >= maxQueueSize_;
 }
