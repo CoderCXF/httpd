@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Timestamp.dir/Timestamp.cc.o CMakeFiles/Timestamp.dir/test/Timestamp_test.cpp.o -o bin/Timestamp   -L/home/cxf/Desktop/WebServer/base/lib  -L/usr/local/lib  -Wl,-rpath,/home/cxf/Desktop/WebServer/base/lib:/usr/local/lib -lpthread 

@@ -84,6 +84,7 @@ all: CMakeFiles/LogStream.dir/all
 all: CMakeFiles/Condition.dir/all
 all: CMakeFiles/LogFile.dir/all
 all: CMakeFiles/Logging.dir/all
+all: CMakeFiles/Timestamp.dir/all
 
 .PHONY : all
 
@@ -131,6 +132,7 @@ clean: CMakeFiles/ExperimentalMemCheck.dir/clean
 clean: CMakeFiles/Experimental.dir/clean
 clean: CMakeFiles/NightlySubmit.dir/clean
 clean: CMakeFiles/ExperimentalSubmit.dir/clean
+clean: CMakeFiles/Timestamp.dir/clean
 clean: CMakeFiles/ContinuousStart.dir/clean
 clean: CMakeFiles/ContinuousUpdate.dir/clean
 
@@ -1161,6 +1163,33 @@ ExperimentalSubmit: CMakeFiles/ExperimentalSubmit.dir/rule
 CMakeFiles/ExperimentalSubmit.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalSubmit.dir/build.make CMakeFiles/ExperimentalSubmit.dir/clean
 .PHONY : CMakeFiles/ExperimentalSubmit.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Timestamp.dir
+
+# All Build rule for target.
+CMakeFiles/Timestamp.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Timestamp.dir/build.make CMakeFiles/Timestamp.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Timestamp.dir/build.make CMakeFiles/Timestamp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cxf/Desktop/WebServer/base/build/CMakeFiles --progress-num=76,77,78 "Built target Timestamp"
+.PHONY : CMakeFiles/Timestamp.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Timestamp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cxf/Desktop/WebServer/base/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Timestamp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cxf/Desktop/WebServer/base/build/CMakeFiles 0
+.PHONY : CMakeFiles/Timestamp.dir/rule
+
+# Convenience name for target.
+Timestamp: CMakeFiles/Timestamp.dir/rule
+
+.PHONY : Timestamp
+
+# clean rule for target.
+CMakeFiles/Timestamp.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Timestamp.dir/build.make CMakeFiles/Timestamp.dir/clean
+.PHONY : CMakeFiles/Timestamp.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/ContinuousStart.dir

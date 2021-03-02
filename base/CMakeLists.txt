@@ -94,3 +94,6 @@ target_link_libraries(Logging pthread)
 add_executable(BlockQueue Mutex.cpp Condition.cpp  ConditionLatch.cpp Thread.cpp Threadpool.cpp test/BlockQueue_test.cpp)
 target_link_libraries(BlockQueue pthread)
 
+# Timestamp
+add_executable(Timestamp Timestamp.cc test/Timestamp_test.cpp)
+target_link_libraries(Timestamp pthread)

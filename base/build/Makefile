@@ -635,6 +635,19 @@ ExperimentalSubmit/fast:
 .PHONY : ExperimentalSubmit/fast
 
 #=============================================================================
+# Target rules for targets named Timestamp
+
+# Build rule for target.
+Timestamp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Timestamp
+.PHONY : Timestamp
+
+# fast build rule for target.
+Timestamp/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Timestamp.dir/build.make CMakeFiles/Timestamp.dir/build
+.PHONY : Timestamp/fast
+
+#=============================================================================
 # Target rules for targets named ContinuousStart
 
 # Build rule for target.
@@ -1053,6 +1066,33 @@ Threadpool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Logging.dir/build.make CMakeFiles/Logging.dir/Threadpool.cpp.s
 .PHONY : Threadpool.cpp.s
 
+Timestamp.o: Timestamp.cc.o
+
+.PHONY : Timestamp.o
+
+# target to build an object file
+Timestamp.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Timestamp.dir/build.make CMakeFiles/Timestamp.dir/Timestamp.cc.o
+.PHONY : Timestamp.cc.o
+
+Timestamp.i: Timestamp.cc.i
+
+.PHONY : Timestamp.i
+
+# target to preprocess a source file
+Timestamp.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Timestamp.dir/build.make CMakeFiles/Timestamp.dir/Timestamp.cc.i
+.PHONY : Timestamp.cc.i
+
+Timestamp.s: Timestamp.cc.s
+
+.PHONY : Timestamp.s
+
+# target to generate assembly for a file
+Timestamp.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Timestamp.dir/build.make CMakeFiles/Timestamp.dir/Timestamp.cc.s
+.PHONY : Timestamp.cc.s
+
 test/AppendFile_test.o: test/AppendFile_test.cpp.o
 
 .PHONY : test/AppendFile_test.o
@@ -1377,6 +1417,33 @@ test/Threadpool_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Threadpool.dir/build.make CMakeFiles/Threadpool.dir/test/Threadpool_test.cpp.s
 .PHONY : test/Threadpool_test.cpp.s
 
+test/Timestamp_test.o: test/Timestamp_test.cpp.o
+
+.PHONY : test/Timestamp_test.o
+
+# target to build an object file
+test/Timestamp_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Timestamp.dir/build.make CMakeFiles/Timestamp.dir/test/Timestamp_test.cpp.o
+.PHONY : test/Timestamp_test.cpp.o
+
+test/Timestamp_test.i: test/Timestamp_test.cpp.i
+
+.PHONY : test/Timestamp_test.i
+
+# target to preprocess a source file
+test/Timestamp_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Timestamp.dir/build.make CMakeFiles/Timestamp.dir/test/Timestamp_test.cpp.i
+.PHONY : test/Timestamp_test.cpp.i
+
+test/Timestamp_test.s: test/Timestamp_test.cpp.s
+
+.PHONY : test/Timestamp_test.s
+
+# target to generate assembly for a file
+test/Timestamp_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Timestamp.dir/build.make CMakeFiles/Timestamp.dir/test/Timestamp_test.cpp.s
+.PHONY : test/Timestamp_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1426,6 +1493,7 @@ help:
 	@echo "... Singleton"
 	@echo "... Thread"
 	@echo "... Threadpool"
+	@echo "... Timestamp"
 	@echo "... AppendFile.o"
 	@echo "... AppendFile.i"
 	@echo "... AppendFile.s"
@@ -1456,6 +1524,9 @@ help:
 	@echo "... Threadpool.o"
 	@echo "... Threadpool.i"
 	@echo "... Threadpool.s"
+	@echo "... Timestamp.o"
+	@echo "... Timestamp.i"
+	@echo "... Timestamp.s"
 	@echo "... test/AppendFile_test.o"
 	@echo "... test/AppendFile_test.i"
 	@echo "... test/AppendFile_test.s"
@@ -1492,6 +1563,9 @@ help:
 	@echo "... test/Threadpool_test.o"
 	@echo "... test/Threadpool_test.i"
 	@echo "... test/Threadpool_test.s"
+	@echo "... test/Timestamp_test.o"
+	@echo "... test/Timestamp_test.i"
+	@echo "... test/Timestamp_test.s"
 .PHONY : help
 
 
