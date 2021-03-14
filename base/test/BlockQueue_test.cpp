@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-22 11:42:37
- * @LastEditTime: 2021-01-25 14:04:09
+ * @LastEditTime: 2021-03-14 09:11:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/BlockQueue_test.cpp
@@ -66,7 +66,7 @@ class Test
 
   void threadFunc()
   {
-    printf("tid=%d, %s started\n",
+    printf("tid=%d started\n",
            CurrentThread::tid()
            /*CurrentThread::name()*/);
 
@@ -79,7 +79,7 @@ class Test
       running = (d != "stop");
     }
 
-    printf("tid=%d, %s stopped\n",
+    printf("tid=%d stopped\n",
            CurrentThread::tid()
            /*CurrentThread::name()*/);
   }

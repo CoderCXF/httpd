@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbase.a CMakeFiles/base.dir/Mutex.o CMakeFiles/base.dir/Condition.o CMakeFiles/base.dir/ConditionLatch.o CMakeFiles/base.dir/LogFile.o CMakeFiles/base.dir/Logging.o CMakeFiles/base.dir/LogStream.o CMakeFiles/base.dir/Thread.o CMakeFiles/base.dir/Threadpool.o
+/usr/bin/ranlib libbase.a

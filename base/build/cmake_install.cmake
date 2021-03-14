@@ -42,6 +42,37 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/cxf/Desktop/WebServer/base/build/libbase.a")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/muduo/base" TYPE FILE FILES
+    "/home/cxf/Desktop/WebServer/base/AppendFile.h"
+    "/home/cxf/Desktop/WebServer/base/AsyncLog.h"
+    "/home/cxf/Desktop/WebServer/base/Base.h"
+    "/home/cxf/Desktop/WebServer/base/BlockQueue.h"
+    "/home/cxf/Desktop/WebServer/base/Condition.h"
+    "/home/cxf/Desktop/WebServer/base/ConditionLatch.h"
+    "/home/cxf/Desktop/WebServer/base/FixedBuffer.h"
+    "/home/cxf/Desktop/WebServer/base/LogFile.h"
+    "/home/cxf/Desktop/WebServer/base/LogStream.h"
+    "/home/cxf/Desktop/WebServer/base/Logging.h"
+    "/home/cxf/Desktop/WebServer/base/Mutex.h"
+    "/home/cxf/Desktop/WebServer/base/Singleton.h"
+    "/home/cxf/Desktop/WebServer/base/Thread.h"
+    "/home/cxf/Desktop/WebServer/base/Threadpool.h"
+    "/home/cxf/Desktop/WebServer/base/Timestamp.h"
+    "/home/cxf/Desktop/WebServer/base/rwn.h"
+    )
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("/home/cxf/Desktop/WebServer/base/build/test/cmake_install.cmake")
+
+endif()
+
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()

@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-03-02 17:21:31
+ * @LastEditTime: 2021-03-03 10:20:53
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /WebServer/net/Poller.h
+ */
 // Copyright 2010, Shuo Chen.  All rights reserved.
 // http://code.google.com/p/muduo/
 //
@@ -14,13 +22,9 @@
 #include <map>
 #include <vector>
 
-#include "muduo/base/Timestamp.h"
-#include "muduo/net/EventLoop.h"
+#include "../base/Timestamp.h"
+#include "../EventLoop.h"
 
-namespace muduo
-{
-namespace net
-{
 
 class Channel;
 
@@ -28,7 +32,7 @@ class Channel;
 /// Base class for IO Multiplexing
 ///
 /// This class doesn't own the Channel objects.
-class Poller : noncopyable
+class Poller
 {
  public:
   typedef std::vector<Channel*> ChannelList;
@@ -64,8 +68,5 @@ class Poller : noncopyable
  private:
   EventLoop* ownerLoop_;
 };
-
-}  // namespace net
-}  // namespace muduo
 
 #endif  // MUDUO_NET_POLLER_H

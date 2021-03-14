@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-19 17:54:59
- * @LastEditTime: 2021-01-25 11:25:55
+ * @LastEditTime: 2021-03-03 15:35:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Logging.cpp
@@ -58,7 +58,7 @@ std::string TimeStamp::formatTime() {
     int64_t microseconds = microseconds_ % kMicrosecondsEachSecond;
     struct tm *tm_;
     tm_ = localtime(&nowtime);
-    snprintf(buf, sizeof(buf), "%04d%02d%02d %02d:%02d:%02d.%06d",
+    snprintf(buf, sizeof(buf), "%04d%02d%02d %02d:%02d:%02d.%06ld",
             tm_->tm_year + 1900, tm_->tm_mon + 1, tm_->tm_mday, 
             tm_->tm_hour, tm_->tm_min, tm_->tm_sec,
             microseconds);

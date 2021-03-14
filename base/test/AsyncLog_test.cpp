@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-16 15:23:14
- * @LastEditTime: 2021-01-19 16:32:08
+ * @LastEditTime: 2021-03-14 09:17:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/test/AsyncLog_test.cpp
@@ -33,7 +33,7 @@ int main()
 	{
 		for (int i = 0; i < 26; ++i)
 		{
-			str.push_back('a' + i);
+			str.push_back(static_cast<int>(i + 'a'));
 			//asynclog.NotifyLog();
 		}
 	}// 26k

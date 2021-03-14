@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/Logging.dir/Logging_test.o -o Logging   -L/home/cxf/Desktop/WebServer/base/build  -lpthread ../libbase.a -lpthread -lrt 

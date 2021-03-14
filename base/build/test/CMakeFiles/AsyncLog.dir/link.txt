@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/AsyncLog.dir/AsyncLog_test.o -o AsyncLog   -L/home/cxf/Desktop/WebServer/base/build  -lpthread ../libbase.a -lpthread -lrt 

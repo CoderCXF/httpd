@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/Thread.dir/Thread_test.o -o Thread   -L/home/cxf/Desktop/WebServer/base/build  -lpthread ../libbase.a -lpthread -lrt 

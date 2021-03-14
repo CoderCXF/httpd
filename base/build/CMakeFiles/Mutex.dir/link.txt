@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/Mutex.dir/Mutex.cpp.o CMakeFiles/Mutex.dir/test/Mutex_test.cpp.o -o bin/Mutex   -L/home/cxf/Desktop/WebServer/base/lib  -L/usr/local/lib  -Wl,-rpath,/home/cxf/Desktop/WebServer/base/lib:/usr/local/lib -lpthread 

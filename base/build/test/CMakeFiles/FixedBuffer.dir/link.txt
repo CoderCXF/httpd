@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/FixedBuffer.dir/FixedBuffer_test.o -o FixedBuffer   -L/home/cxf/Desktop/WebServer/base/build  -lpthread ../libbase.a -lpthread -lrt 

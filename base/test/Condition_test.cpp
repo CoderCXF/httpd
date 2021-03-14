@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-05 10:33:50
- * @LastEditTime: 2021-01-26 10:55:14
+ * @LastEditTime: 2021-03-14 09:23:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Linux_code/multi_thread/pc.c
@@ -50,7 +50,7 @@ void *customer(void *arg) {
 int main() {
     int ret;
     pthread_t tid_pro, tid_customer;
-    srand(time(NULL));
+    srand((unsigned)time(0));
     tick.tick_num = 0;
     ret = pthread_create(&tid_pro, NULL, producer, NULL);
     if (ret != 0) {

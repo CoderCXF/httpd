@@ -1,49 +1,40 @@
-cmake_minimum_required(VERSION 3.19.0)
-project(Server C CXX)
+include(CheckFunctionExists)
 
-set (INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src
-                    /usr/local/include
-					)
-set(LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib
-            /usr/local/lib
-	    /usr/lib/x86_64-linux-gnu)
+check_function_exists(accept4 HAVE_ACCEPT4)
+if(NOT HAVE_ACCEPT4)
+  set_source_files_properties(SocketsOps.cc PROPERTIES COMPILE_FLAGS "-DNO_ACCEPT4")
+endif()
 
-add_compile_options(-std=c++11 -g -Wall)
+set(net_SRCS
+  EventLoop.cpp
+  )
 
-include_directories(${INCLUDE_DIR})
-link_directories(${LIB_DIR})
-##################################################
+add_library(net ${net_SRCS})
+target_link_libraries(net base)
 
-include(CTest)
-enable_testing()
-add_test(NAME LogStream COMMAND LogStream)
+#add_library(muduo_net_cpp11 ${net_SRCS})
+#target_link_libraries(muduo_net_cpp11 muduo_base_cpp11)
+#set_target_properties(muduo_net_cpp11 PROPERTIES COMPILE_FLAGS "-std=c++0x")
 
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
- 
-include_directories(${Boost_INCLUDE_DIRS})
- 
-add_executable(LogStream Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp AppendFile.cpp LogFile.cpp LogStream.cpp test/LogStream_test.cpp)
- 
-target_link_libraries(LogStream ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY} pthread)
+install(TARGETS net DESTINATION lib)
+#install(TARGETS muduo_net_cpp11 DESTINATION lib)
 
-###################################################
-# EXECUTABLE_OUTPUT_PATH
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+set(HEADERS
+  EventLoop.h
+  )
+install(FILES ${HEADERS} DESTINATION include/muduo/net)
 
-# LIBRARY_OUTPUT_PATH
-set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
+#add_subdirectory(http)
+#add_subdirectory(inspect)
 
-#set (BASE_SRC
-#     Mutex.cpp
-#     Condition.cpp
-#     ConditionLatch.cpp
-#     Thread.cpp
-#     Threadpool.cpp)
+#if(MUDUO_BUILD_EXAMPLES)
+#  add_subdirectory(tests)
+#endif()
 
-
-#add_library(server_base ${BASE_SRC})
-#target_link_libraries(server_base pThread)
-
-# Mutex
-add_executable(Epoll Epoll.cpp test/Epoll_test.cpp)
-target_link_libraries()
+#if(PROTOBUF_FOUND)
+#  add_subdirectory(protobuf)
+#  add_subdirectory(protorpc)
+#else()
+#  add_subdirectory(protobuf EXCLUDE_FROM_ALL)
+#  add_subdirectory(protorpc EXCLUDE_FROM_ALL)
+#endif()

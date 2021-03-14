@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-22 09:47:45
- * @LastEditTime: 2021-01-24 10:50:39
+ * @LastEditTime: 2021-03-14 09:14:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/BlockQueue.h
@@ -29,7 +29,7 @@ public:
         notEmpty_.Notify();
     }
     // like consumer : judge notEmpty
-    T& take() {
+    T take() {
         MutexGuard lock(mutex_);
         while (queue_.empty()) {
             notEmpty_.Wait();
@@ -38,6 +38,7 @@ public:
         queue_.pop_front();
         return front;
     }
+    
     size_t size() const{
         MutexGuard lock(mutex_);
         return queue_.size();
