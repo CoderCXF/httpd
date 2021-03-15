@@ -20,6 +20,7 @@ install(TARGETS base DESTINATION lib)
 file(GLOB HEADERS "*.h")
 install(FILES ${HEADERS} DESTINATION include/muduo/base)
 
-# if(BUILD_EXAMPLES)
+#TODO:
+#if(BUILD_EXAMPLES)
   add_subdirectory(test)
-# endif()
+#endif()

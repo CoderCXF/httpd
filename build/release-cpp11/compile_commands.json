@@ -108,5 +108,10 @@
   "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net",
   "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/net.dir/EventLoop.cpp.o -c /home/cxf/Desktop/WebServer/net/EventLoop.cpp",
   "file": "/home/cxf/Desktop/WebServer/net/EventLoop.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/EventLoop_test.dir/EventLoop_test.cpp.o -c /home/cxf/Desktop/WebServer/net/test/EventLoop_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/test/EventLoop_test.cpp"
 }
 ]

@@ -355,6 +355,19 @@ net/fast:
 	$(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/build
 .PHONY : net/fast
 
+#=============================================================================
+# Target rules for targets named EventLoop_test
+
+# Build rule for target.
+EventLoop_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 EventLoop_test
+.PHONY : EventLoop_test
+
+# fast build rule for target.
+EventLoop_test/fast:
+	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/EventLoop_test.dir/build.make net/test/CMakeFiles/EventLoop_test.dir/build
+.PHONY : EventLoop_test/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -371,6 +384,7 @@ help:
 	@echo "... AppendFile"
 	@echo "... BlockQueue"
 	@echo "... Condition"
+	@echo "... EventLoop_test"
 	@echo "... FixedBuffer"
 	@echo "... LogFile"
 	@echo "... Logging"
