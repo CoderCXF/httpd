@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 19:47:27
- * @LastEditTime: 2021-03-03 14:41:12
+ * @LastEditTime: 2021-03-15 21:04:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Eventloop.h
@@ -37,8 +37,12 @@ public:
     }
   }
   bool isInLoopThread() const{
-    return CurrentThread::tid() == threadId_;
+    return CurrentThread::tid() == threadId_
   }
+  //->EPoll::removeChannel()->epoll_ctl(, EPOLL_CTL_DEL, channel->fd(), channel->events())
+  void removeChannel(Channel *channel);   
+  void updateChannel(Channel *channel);
+  bool hasChannel(Channel *channel);
 
 private:
   void abortNotInLoopThread();

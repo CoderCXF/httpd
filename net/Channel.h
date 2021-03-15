@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-03 10:39:14
- * @LastEditTime: 2021-03-15 20:26:01
+ * @LastEditTime: 2021-03-15 21:09:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Channel.h
@@ -32,7 +32,7 @@ class Channel
   typedef std::function<void()> EventCallback;
   typedef std::function<void(Timestamp)> ReadEventCallback;
 
-  Channel(EventLoop* loop, int fd); // Channel包含事件与该事件fd
+  Channel(EventLoop* loop, int fd); // Channel包含事件与该事件fd, 
   ~Channel();
 
   void handleEvent(Timestamp receiveTime);

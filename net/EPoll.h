@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 17:21:31
- * @LastEditTime: 2021-03-15 20:00:12
+ * @LastEditTime: 2021-03-15 20:51:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/EPoll.h
@@ -24,6 +24,8 @@ public:
   ~EPoll();
   typedef std::vector<Channel*> ChannelList;
   TimeStamp poll(int timeoutMs, ChannelList* activeChannels);
+  void updateChannel(Channel* channel);
+  void removeChannel(Channel* channel);
   
 private:
   static const int kInitEventListSize = 16;//初始时最多监听事件个数
