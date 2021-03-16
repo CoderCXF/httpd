@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-07 20:00:52
- * @LastEditTime: 2021-03-14 10:39:46
+ * @LastEditTime: 2021-03-16 19:58:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Thread.h
@@ -68,6 +68,7 @@ public:
 	
 	void start();
 	void join();
+	bool started() { return m_bStarted; }
 	
 private:
 	bool m_bStarted;

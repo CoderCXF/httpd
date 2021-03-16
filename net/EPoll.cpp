@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-16 09:26:42
- * @LastEditTime: 2021-03-16 15:01:19
+ * @LastEditTime: 2021-03-16 15:45:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/EPoll.cpp
@@ -64,7 +64,7 @@ void EPoll::fillActiveChannels(int numEvents, ChannelList* activeChannels) const
 // private function
 void EPoll::update(int operation, Channel *channel) {
   struct epoll_event event;
-  memset(&event, 0, sizeof event);
+  memset(&event, 0, sizeof event);  //or bzero
   event.events = channel->events();
   event.data.ptr = channel;
   int fd = channel->fd();
