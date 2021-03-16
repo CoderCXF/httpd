@@ -49,3 +49,6 @@
 #########################################################
 add_executable(EventLoop_test EventLoop_test.cpp)
 target_link_libraries(EventLoop_test net)
+
+add_executable(Reactor02_test Reactor02_test.cpp)
+target_link_libraries(Reactor02_test net)

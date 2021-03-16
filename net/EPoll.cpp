@@ -1,13 +1,16 @@
-// Copyright 2010, Shuo Chen.  All rights reserved.
-// http://code.google.com/p/muduo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
+/*
+ * @Author: your name
+ * @Date: 2021-03-16 09:26:42
+ * @LastEditTime: 2021-03-16 15:01:19
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /WebServer/net/EPoll.cpp
+ */
 
 #include "EPoll.h"
 #include "Channel.h"
+#include "EventLoop.h"
+#include <sys/epoll.h>
 namespace
 {
 const int kNew = -1;//channel还未添加
@@ -15,26 +18,26 @@ const int kAdded = 1;//channel现在是已经被添加的状态
 const int kDeleted = 2;//channel现在是已经被删除的状态
 }
 // RAII
-Poller::Poller(EventLoop* loop)
+EPoll::EPoll(EventLoop* loop)
   : ownerLoop_(loop),
     epollfd_(::epoll_create1(EPOLL_CLOEXEC)),
-    events_(kInitEventListSize);
+    events_(kInitEventListSize)
 {
   if (epollfd_ < 0) {
-    LOG_FATAL << "epoll_create error"
+    LOG_FATAL << "epoll_create error";
   }
 }
 
 // RAII
-Poller::~Poller() {
-  close(epoll_fd);
+EPoll::~EPoll() {
+  close(epollfd_);
 }
 
-TimeStamp EPoll::poll(int timeoutMs, ChannelList* activeChannels) {
+Timestamp EPoll::poll(int timeoutMs, ChannelList* activeChannels) {
   int numEvents = ::epoll_wait(epollfd_, &*events_.begin(), static_cast<int>(events_.size()), timeoutMs);
-  TimeStamp now(Timestamp::now());
+  Timestamp now(Timestamp::now());
   if (numEvents > 0) {
-    LOG_TRACE << numsEvents << " events happened";
+    LOG_TRACE << numEvents << " events happened";
     fillActiveChannels(numEvents, activeChannels);
     // 扩容
     if (static_cast<size_t>(numEvents) == events_.size()) {
@@ -48,34 +51,24 @@ TimeStamp EPoll::poll(int timeoutMs, ChannelList* activeChannels) {
   return now;
 }
 
-void EPoll::fillActiveChannels(int numEvents, ChannelList* activeChannels) {
-  assert(implicit_cast<size_t>(numEvents) <= events_.size());
+void EPoll::fillActiveChannels(int numEvents, ChannelList* activeChannels) const{
+  assert(static_cast<size_t>(numEvents) <= events_.size());
   for (int i = 0; i < numEvents; ++i)
   {
-    Channel* channel = static_cast<Channel*>(events_[i].data.ptr);//获取就绪的channel
+    Channel* channel = static_cast<Channel*>(events_[i].data.ptr); //获取就绪的channel
+    // Set revents for channel
     channel->set_revents(events_[i].events);
     activeChannels->push_back(channel);
   }
 }
-
-// EPOLL_CTL_ADD 或者 EPOLL_CTL_MOD
-void EPoll::updateChannel(Channel *channel) {
-  ownerLoop_->assertInLoopThread();
-  const int index = channel->index();
-}
-
-// EPOLL_CTL_DEL
-void EPoll::removeChannel(Channel *channel) {
-
-}
-
+// private function
 void EPoll::update(int operation, Channel *channel) {
   struct epoll_event event;
-  memZero(&event, sizeof event);
+  memset(&event, 0, sizeof event);
   event.events = channel->events();
   event.data.ptr = channel;
   int fd = channel->fd();
-
+  
   if (::epoll_ctl(epollfd_, operation, fd, &event) < 0)
   {
     char errMessage[32]; 
@@ -84,10 +77,40 @@ void EPoll::update(int operation, Channel *channel) {
   }
 }
 
-bool Poller::hasChannel(Channel* channel) const
-{
-  ownerLoop->assertInLoopThread();
-  ChannelMap::const_iterator it = channels_.find(channel->fd());
-  return it != channels_.end() && it->second == channel;
+// EPOLL_CTL_ADD 或者 EPOLL_CTL_MOD
+void EPoll::updateChannel(Channel *channel) {
+  ownerLoop_->assertInLoopThread();
+  const int index = channel->index();
+  // new or deleted
+  if (index == kNew || index == kDeleted) {
+    channel->set_index(kAdded);
+    update(EPOLL_CTL_ADD, channel);
+  }
+  // existing
+  else {
+    assert(index == kAdded);
+    if (channel->isNoneEvent())//从epoll上删除channel
+    {
+      update(EPOLL_CTL_DEL, channel);
+      channel->set_index(kDeleted);
+    }
+    else//在epoll上修改channel
+    {
+      update(EPOLL_CTL_MOD, channel);
+    }
+  }
 }
 
+// EPOLL_CTL_DEL
+void EPoll::removeChannel(Channel *channel) {
+  ownerLoop_->assertInLoopThread();
+  assert(channel->isNoneEvent());
+  int index = channel->index();
+  assert(index == kAdded || index == kDeleted);
+  if (index == kAdded)
+  {
+    update(EPOLL_CTL_DEL, channel);
+  }
+  //调用了updateChannel和removeChannel,后状态才会变为kNew，直接调用removeChannel会断言失败
+  channel->set_index(kNew);//将该channel设置成未添加
+}

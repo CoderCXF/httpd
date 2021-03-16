@@ -1,19 +1,11 @@
 /*
  * @Author: your name
  * @Date: 2021-03-03 10:39:25
- * @LastEditTime: 2021-03-15 20:43:21
+ * @LastEditTime: 2021-03-16 14:30:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Channel.cpp
  */
-// Copyright 2010, Shuo Chen.  All rights reserved.
-// http://code.google.com/p/muduo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
-
 #include "../base/Logging.h"
 #include "Channel.h"
 #include "EventLoop.h"
@@ -53,7 +45,7 @@ void Channel::tie(const std::shared_ptr<void>& obj)
   tie_ = obj;
   tied_ = true;
 }
-
+// Channel::update->EventLoop::updateChannel->EPoll::updateChannel
 void Channel::update()
 {
   addedToLoop_ = true;

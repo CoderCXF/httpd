@@ -7,7 +7,10 @@ endif()
 
 set(net_SRCS
   EventLoop.cpp
+  Channel.cpp
+  EPoll.cpp
   )
+
 
 add_library(net ${net_SRCS})
 target_link_libraries(net base)
@@ -21,6 +24,8 @@ install(TARGETS net DESTINATION lib)
 
 set(HEADERS
   EventLoop.h
+  Channel.h
+  EPoll.h
   )
 install(FILES ${HEADERS} DESTINATION include/muduo/net)
 

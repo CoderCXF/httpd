@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 17:21:31
- * @LastEditTime: 2021-03-15 20:51:23
+ * @LastEditTime: 2021-03-16 15:15:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/EPoll.h
@@ -23,7 +23,7 @@ public:
   EPoll(EventLoop *loop);  //epoll in loop 
   ~EPoll();
   typedef std::vector<Channel*> ChannelList;
-  TimeStamp poll(int timeoutMs, ChannelList* activeChannels);
+  Timestamp poll(int timeoutMs, ChannelList* activeChannels);
   void updateChannel(Channel* channel);
   void removeChannel(Channel* channel);
   
@@ -33,8 +33,8 @@ private:
   void update(int operation, Channel* channel);
   typedef std::vector<struct epoll_event> EventList;
   EventLoop* ownerLoop_;	// epoller所属EventLoop, one EventLoop only has one Epoll(nulti reactor models)
-  int epollfd_;				//表示epoll的文件描述符
-  EventList events_;
+  int epollfd_;				    //表示epoll的文件描述符
+  EventList events_;      // Ready events container(epoll_wait)
 };
 
 

@@ -1,0 +1,132 @@
+[
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/base.dir/Mutex.cpp.o -c /home/cxf/Desktop/WebServer/base/Mutex.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/Mutex.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/base.dir/Condition.cpp.o -c /home/cxf/Desktop/WebServer/base/Condition.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/Condition.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/base.dir/ConditionLatch.cpp.o -c /home/cxf/Desktop/WebServer/base/ConditionLatch.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/ConditionLatch.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/base.dir/LogFile.cpp.o -c /home/cxf/Desktop/WebServer/base/LogFile.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/LogFile.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/base.dir/Logging.cpp.o -c /home/cxf/Desktop/WebServer/base/Logging.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/Logging.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/base.dir/LogStream.cpp.o -c /home/cxf/Desktop/WebServer/base/LogStream.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/LogStream.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/base.dir/Thread.cpp.o -c /home/cxf/Desktop/WebServer/base/Thread.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/Thread.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/base.dir/Threadpool.cpp.o -c /home/cxf/Desktop/WebServer/base/Threadpool.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/Threadpool.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/base.dir/Timestamp.cpp.o -c /home/cxf/Desktop/WebServer/base/Timestamp.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/Timestamp.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/base.dir/AppendFile.cpp.o -c /home/cxf/Desktop/WebServer/base/AppendFile.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/AppendFile.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Timestamp.dir/Timestamp_test.cpp.o -c /home/cxf/Desktop/WebServer/base/test/Timestamp_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/test/Timestamp_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Thread.dir/Thread_test.cpp.o -c /home/cxf/Desktop/WebServer/base/test/Thread_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/test/Thread_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Threadpool.dir/Threadpool_test.cpp.o -c /home/cxf/Desktop/WebServer/base/test/Threadpool_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/test/Threadpool_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Condition.dir/Condition_test.cpp.o -c /home/cxf/Desktop/WebServer/base/test/Condition_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/test/Condition_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Mutex.dir/Mutex_test.cpp.o -c /home/cxf/Desktop/WebServer/base/test/Mutex_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/test/Mutex_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Singleton.dir/Singleton_test.cpp.o -c /home/cxf/Desktop/WebServer/base/test/Singleton_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/test/Singleton_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/AppendFile.dir/AppendFile_test.cpp.o -c /home/cxf/Desktop/WebServer/base/test/AppendFile_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/test/AppendFile_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/LogFile.dir/LogFile_test.cpp.o -c /home/cxf/Desktop/WebServer/base/test/LogFile_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/test/LogFile_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/FixedBuffer.dir/FixedBuffer_test.cpp.o -c /home/cxf/Desktop/WebServer/base/test/FixedBuffer_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/test/FixedBuffer_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/BlockQueue.dir/BlockQueue_test.cpp.o -c /home/cxf/Desktop/WebServer/base/test/BlockQueue_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/test/BlockQueue_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Logging.dir/Logging_test.cpp.o -c /home/cxf/Desktop/WebServer/base/test/Logging_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/base/test/Logging_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/net.dir/EventLoop.cpp.o -c /home/cxf/Desktop/WebServer/net/EventLoop.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/EventLoop.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/net.dir/Channel.cpp.o -c /home/cxf/Desktop/WebServer/net/Channel.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/Channel.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/net.dir/EPoll.cpp.o -c /home/cxf/Desktop/WebServer/net/EPoll.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/EPoll.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/EventLoop_test.dir/EventLoop_test.cpp.o -c /home/cxf/Desktop/WebServer/net/test/EventLoop_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/test/EventLoop_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Reactor02_test.dir/Reactor02_test.cpp.o -c /home/cxf/Desktop/WebServer/net/test/Reactor02_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/test/Reactor02_test.cpp"
+}
+]
