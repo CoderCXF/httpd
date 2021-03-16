@@ -13,6 +13,7 @@
 #include <atomic>
 #include <functional>
 #include <vector>
+#include <memory>
 
 // #include <boost/any.hpp>
 
@@ -21,7 +22,7 @@
 #include "../base/Timestamp.h"
 
 class Channel;
-class Poller;
+class EPoll;
 //
 // Reactor, one loop one thread
 //
@@ -31,7 +32,7 @@ public:
   EventLoop();
   ~EventLoop();
   void loop();
-  void assertInLoopThread() {
+  void assertInLoopThread() { //确定该loop在当前线程当中
     if (!isInLoopThread()) {
       abortNotInLoopThread();
     }
@@ -48,6 +49,7 @@ private:
   void abortNotInLoopThread();
   bool looping_;
   const pid_t threadId_; // thread is that create loop thread
+  std::shared_ptr<EPoll> poll;
 };
 
 #endif  // MUDUO_NET_EVENTLOOP_H

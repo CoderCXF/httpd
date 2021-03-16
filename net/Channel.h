@@ -31,8 +31,9 @@ class Channel
  public:
   typedef std::function<void()> EventCallback;
   typedef std::function<void(Timestamp)> ReadEventCallback;
-
-  Channel(EventLoop* loop, int fd); // Channel包含事件与该事件fd, 
+  // Channel包含事件与该事件fd, 以及channel所属的loop
+  // 一个loop多个channel，一个channel只能属于一个loop
+  Channel(EventLoop* loop, int fd); 
   ~Channel();
 
   void handleEvent(Timestamp receiveTime);

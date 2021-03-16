@@ -16,7 +16,8 @@ __thread EventLoop* t_loopInThisThread = 0;
 
 EventLoop::EventLoop() 
     : looping_(false),
-      threadId_(CurrentThread::tid())
+      threadId_(CurrentThread::tid()),
+      poll(make_shared<EPoll>(this))
 {
     LOG_TRACE << "EventLoop created" << this << " in this thread " << threadId_;
     if (t_loopInThisThread) {
@@ -36,7 +37,7 @@ void EventLoop::loop() {
     assertInLoopThread();
     looping_ = true;
     LOG_TRACE << "EventLoop:" << this << " start looping";
-    poll(NULL, 0, 5000); // current eventloop only wait 5s
+    ::poll(NULL, 0, 5000); // current eventloop only wait 5s
     LOG_TRACE << "EventLoop:" << this << " stop looping";
     looping_ = false;
 }
@@ -45,4 +46,25 @@ void EventLoop::abortNotInLoopThread() {
     LOG_FATAL << "EventLoop " << this << " of thread " << threadId_
               << " destructs in thread " << CurrentThread::tid();
 }
+
+void removeChannel(Channel *channel) {
+    assert(channel->ownerLoop() == this);
+    assertInLoopThread();
+    //TODO:
+    poll->removeChannel(channel);
+}
+
+void updateChannel(Channel *channel) {
+    assert(channel->ownerLoop() == this);
+    assertInLoopThread();
+    //TODO:
+    poll->updateChannel(channel);
+}
+
+bool hasChannel(Channel *channel) {
+    assert(channel->ownerLoop() == this);
+    assertInLoopThread();
+    return poll->hashChannel(channel);
+}
+
 
