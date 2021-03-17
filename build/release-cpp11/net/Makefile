@@ -201,6 +201,33 @@ net/fast:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/build
 .PHONY : net/fast
 
+AddrStruct.o: AddrStruct.cpp.o
+
+.PHONY : AddrStruct.o
+
+# target to build an object file
+AddrStruct.cpp.o:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/AddrStruct.cpp.o
+.PHONY : AddrStruct.cpp.o
+
+AddrStruct.i: AddrStruct.cpp.i
+
+.PHONY : AddrStruct.i
+
+# target to preprocess a source file
+AddrStruct.cpp.i:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/AddrStruct.cpp.i
+.PHONY : AddrStruct.cpp.i
+
+AddrStruct.s: AddrStruct.cpp.s
+
+.PHONY : AddrStruct.s
+
+# target to generate assembly for a file
+AddrStruct.cpp.s:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/AddrStruct.cpp.s
+.PHONY : AddrStruct.cpp.s
+
 Channel.o: Channel.cpp.o
 
 .PHONY : Channel.o
@@ -282,6 +309,60 @@ EventLoop.cpp.s:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoop.cpp.s
 .PHONY : EventLoop.cpp.s
 
+Socket.o: Socket.cpp.o
+
+.PHONY : Socket.o
+
+# target to build an object file
+Socket.cpp.o:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Socket.cpp.o
+.PHONY : Socket.cpp.o
+
+Socket.i: Socket.cpp.i
+
+.PHONY : Socket.i
+
+# target to preprocess a source file
+Socket.cpp.i:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Socket.cpp.i
+.PHONY : Socket.cpp.i
+
+Socket.s: Socket.cpp.s
+
+.PHONY : Socket.s
+
+# target to generate assembly for a file
+Socket.cpp.s:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Socket.cpp.s
+.PHONY : Socket.cpp.s
+
+SocketOps.o: SocketOps.cpp.o
+
+.PHONY : SocketOps.o
+
+# target to build an object file
+SocketOps.cpp.o:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/SocketOps.cpp.o
+.PHONY : SocketOps.cpp.o
+
+SocketOps.i: SocketOps.cpp.i
+
+.PHONY : SocketOps.i
+
+# target to preprocess a source file
+SocketOps.cpp.i:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/SocketOps.cpp.i
+.PHONY : SocketOps.cpp.i
+
+SocketOps.s: SocketOps.cpp.s
+
+.PHONY : SocketOps.s
+
+# target to generate assembly for a file
+SocketOps.cpp.s:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/SocketOps.cpp.s
+.PHONY : SocketOps.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -296,6 +377,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... net"
+	@echo "... AddrStruct.o"
+	@echo "... AddrStruct.i"
+	@echo "... AddrStruct.s"
 	@echo "... Channel.o"
 	@echo "... Channel.i"
 	@echo "... Channel.s"
@@ -305,6 +389,12 @@ help:
 	@echo "... EventLoop.o"
 	@echo "... EventLoop.i"
 	@echo "... EventLoop.s"
+	@echo "... Socket.o"
+	@echo "... Socket.i"
+	@echo "... Socket.s"
+	@echo "... SocketOps.o"
+	@echo "... SocketOps.i"
+	@echo "... SocketOps.s"
 .PHONY : help
 
 

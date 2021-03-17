@@ -4,9 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/cxf/Desktop/WebServer/net/AddrStruct.cpp" "/home/cxf/Desktop/WebServer/build/release-cpp11/net/CMakeFiles/net.dir/AddrStruct.cpp.o"
   "/home/cxf/Desktop/WebServer/net/Channel.cpp" "/home/cxf/Desktop/WebServer/build/release-cpp11/net/CMakeFiles/net.dir/Channel.cpp.o"
   "/home/cxf/Desktop/WebServer/net/EPoll.cpp" "/home/cxf/Desktop/WebServer/build/release-cpp11/net/CMakeFiles/net.dir/EPoll.cpp.o"
   "/home/cxf/Desktop/WebServer/net/EventLoop.cpp" "/home/cxf/Desktop/WebServer/build/release-cpp11/net/CMakeFiles/net.dir/EventLoop.cpp.o"
+  "/home/cxf/Desktop/WebServer/net/Socket.cpp" "/home/cxf/Desktop/WebServer/build/release-cpp11/net/CMakeFiles/net.dir/Socket.cpp.o"
+  "/home/cxf/Desktop/WebServer/net/SocketOps.cpp" "/home/cxf/Desktop/WebServer/build/release-cpp11/net/CMakeFiles/net.dir/SocketOps.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

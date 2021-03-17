@@ -9,6 +9,9 @@ set(net_SRCS
   EventLoop.cpp
   Channel.cpp
   EPoll.cpp
+  SocketOps.cpp
+  Socket.cpp
+  AddrStruct.cpp
   )
 
 
@@ -26,6 +29,9 @@ set(HEADERS
   EventLoop.h
   Channel.h
   EPoll.h
+  SocketOps.h
+  Socket.h
+  AddrStruct.h
   )
 install(FILES ${HEADERS} DESTINATION include/muduo/net)
 

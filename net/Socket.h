@@ -1,13 +1,15 @@
 /*
  * @Author: your name
  * @Date: 2021-03-17 10:17:58
- * @LastEditTime: 2021-03-17 11:37:09
+ * @LastEditTime: 2021-03-17 17:44:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Socket.h
  */
 #include <sys/types.h>          /* See NOTES */
 #include <sys/socket.h>
+#include <arpa/inet.h>
+#include "AddrStruct.h"
 
 class Socket{
 public:
@@ -17,9 +19,9 @@ public:
         
     }
     ~Socket();
-    void Bind(const struct sockaddr *addr);
+    void Bind(const AddrStruct &addr);
     void Listen();
-    int Accept();
+    int Accept(AddrStruct &perraddr);
 
 private:
     const int sockfd_;

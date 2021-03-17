@@ -99,6 +99,28 @@ install/local/fast: preinstall/fast
 	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/local/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -121,17 +143,6 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -142,17 +153,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -216,6 +216,21 @@ Reactor02_test/fast:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Reactor02_test.dir/build.make net/test/CMakeFiles/Reactor02_test.dir/build
 .PHONY : Reactor02_test/fast
 
+# Convenience name for target.
+net/test/CMakeFiles/Socket_test.dir/rule:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/test/CMakeFiles/Socket_test.dir/rule
+.PHONY : net/test/CMakeFiles/Socket_test.dir/rule
+
+# Convenience name for target.
+Socket_test: net/test/CMakeFiles/Socket_test.dir/rule
+
+.PHONY : Socket_test
+
+# fast build rule for target.
+Socket_test/fast:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Socket_test.dir/build.make net/test/CMakeFiles/Socket_test.dir/build
+.PHONY : Socket_test/fast
+
 EventLoop_test.o: EventLoop_test.cpp.o
 
 .PHONY : EventLoop_test.o
@@ -270,6 +285,33 @@ Reactor02_test.cpp.s:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Reactor02_test.dir/build.make net/test/CMakeFiles/Reactor02_test.dir/Reactor02_test.cpp.s
 .PHONY : Reactor02_test.cpp.s
 
+Socket_test.o: Socket_test.cpp.o
+
+.PHONY : Socket_test.o
+
+# target to build an object file
+Socket_test.cpp.o:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Socket_test.dir/build.make net/test/CMakeFiles/Socket_test.dir/Socket_test.cpp.o
+.PHONY : Socket_test.cpp.o
+
+Socket_test.i: Socket_test.cpp.i
+
+.PHONY : Socket_test.i
+
+# target to preprocess a source file
+Socket_test.cpp.i:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Socket_test.dir/build.make net/test/CMakeFiles/Socket_test.dir/Socket_test.cpp.i
+.PHONY : Socket_test.cpp.i
+
+Socket_test.s: Socket_test.cpp.s
+
+.PHONY : Socket_test.s
+
+# target to generate assembly for a file
+Socket_test.cpp.s:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Socket_test.dir/build.make net/test/CMakeFiles/Socket_test.dir/Socket_test.cpp.s
+.PHONY : Socket_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -285,12 +327,16 @@ help:
 	@echo "... test"
 	@echo "... EventLoop_test"
 	@echo "... Reactor02_test"
+	@echo "... Socket_test"
 	@echo "... EventLoop_test.o"
 	@echo "... EventLoop_test.i"
 	@echo "... EventLoop_test.s"
 	@echo "... Reactor02_test.o"
 	@echo "... Reactor02_test.i"
 	@echo "... Reactor02_test.s"
+	@echo "... Socket_test.o"
+	@echo "... Socket_test.i"
+	@echo "... Socket_test.s"
 .PHONY : help
 
 

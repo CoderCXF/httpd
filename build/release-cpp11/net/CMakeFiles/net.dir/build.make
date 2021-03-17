@@ -115,11 +115,53 @@ net/CMakeFiles/net.dir/EPoll.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net.dir/EPoll.cpp.s"
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11/net && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/net/EPoll.cpp -o CMakeFiles/net.dir/EPoll.cpp.s
 
+net/CMakeFiles/net.dir/SocketOps.cpp.o: net/CMakeFiles/net.dir/flags.make
+net/CMakeFiles/net.dir/SocketOps.cpp.o: ../../net/SocketOps.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/release-cpp11/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object net/CMakeFiles/net.dir/SocketOps.cpp.o"
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11/net && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/net.dir/SocketOps.cpp.o -c /home/cxf/Desktop/WebServer/net/SocketOps.cpp
+
+net/CMakeFiles/net.dir/SocketOps.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net.dir/SocketOps.cpp.i"
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11/net && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/net/SocketOps.cpp > CMakeFiles/net.dir/SocketOps.cpp.i
+
+net/CMakeFiles/net.dir/SocketOps.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net.dir/SocketOps.cpp.s"
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11/net && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/net/SocketOps.cpp -o CMakeFiles/net.dir/SocketOps.cpp.s
+
+net/CMakeFiles/net.dir/Socket.cpp.o: net/CMakeFiles/net.dir/flags.make
+net/CMakeFiles/net.dir/Socket.cpp.o: ../../net/Socket.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/release-cpp11/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object net/CMakeFiles/net.dir/Socket.cpp.o"
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11/net && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/net.dir/Socket.cpp.o -c /home/cxf/Desktop/WebServer/net/Socket.cpp
+
+net/CMakeFiles/net.dir/Socket.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net.dir/Socket.cpp.i"
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11/net && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/net/Socket.cpp > CMakeFiles/net.dir/Socket.cpp.i
+
+net/CMakeFiles/net.dir/Socket.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net.dir/Socket.cpp.s"
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11/net && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/net/Socket.cpp -o CMakeFiles/net.dir/Socket.cpp.s
+
+net/CMakeFiles/net.dir/AddrStruct.cpp.o: net/CMakeFiles/net.dir/flags.make
+net/CMakeFiles/net.dir/AddrStruct.cpp.o: ../../net/AddrStruct.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/release-cpp11/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object net/CMakeFiles/net.dir/AddrStruct.cpp.o"
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11/net && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/net.dir/AddrStruct.cpp.o -c /home/cxf/Desktop/WebServer/net/AddrStruct.cpp
+
+net/CMakeFiles/net.dir/AddrStruct.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net.dir/AddrStruct.cpp.i"
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11/net && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/net/AddrStruct.cpp > CMakeFiles/net.dir/AddrStruct.cpp.i
+
+net/CMakeFiles/net.dir/AddrStruct.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net.dir/AddrStruct.cpp.s"
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11/net && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/net/AddrStruct.cpp -o CMakeFiles/net.dir/AddrStruct.cpp.s
+
 # Object files for target net
 net_OBJECTS = \
 "CMakeFiles/net.dir/EventLoop.cpp.o" \
 "CMakeFiles/net.dir/Channel.cpp.o" \
-"CMakeFiles/net.dir/EPoll.cpp.o"
+"CMakeFiles/net.dir/EPoll.cpp.o" \
+"CMakeFiles/net.dir/SocketOps.cpp.o" \
+"CMakeFiles/net.dir/Socket.cpp.o" \
+"CMakeFiles/net.dir/AddrStruct.cpp.o"
 
 # External object files for target net
 net_EXTERNAL_OBJECTS =
@@ -127,9 +169,12 @@ net_EXTERNAL_OBJECTS =
 lib/libnet.a: net/CMakeFiles/net.dir/EventLoop.cpp.o
 lib/libnet.a: net/CMakeFiles/net.dir/Channel.cpp.o
 lib/libnet.a: net/CMakeFiles/net.dir/EPoll.cpp.o
+lib/libnet.a: net/CMakeFiles/net.dir/SocketOps.cpp.o
+lib/libnet.a: net/CMakeFiles/net.dir/Socket.cpp.o
+lib/libnet.a: net/CMakeFiles/net.dir/AddrStruct.cpp.o
 lib/libnet.a: net/CMakeFiles/net.dir/build.make
 lib/libnet.a: net/CMakeFiles/net.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cxf/Desktop/WebServer/build/release-cpp11/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library ../lib/libnet.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cxf/Desktop/WebServer/build/release-cpp11/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library ../lib/libnet.a"
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11/net && $(CMAKE_COMMAND) -P CMakeFiles/net.dir/cmake_clean_target.cmake
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11/net && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/net.dir/link.txt --verbose=$(VERBOSE)
 

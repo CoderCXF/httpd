@@ -381,6 +381,19 @@ Reactor02_test/fast:
 	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Reactor02_test.dir/build.make net/test/CMakeFiles/Reactor02_test.dir/build
 .PHONY : Reactor02_test/fast
 
+#=============================================================================
+# Target rules for targets named Socket_test
+
+# Build rule for target.
+Socket_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Socket_test
+.PHONY : Socket_test
+
+# fast build rule for target.
+Socket_test/fast:
+	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Socket_test.dir/build.make net/test/CMakeFiles/Socket_test.dir/build
+.PHONY : Socket_test/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -404,6 +417,7 @@ help:
 	@echo "... Mutex"
 	@echo "... Reactor02_test"
 	@echo "... Singleton"
+	@echo "... Socket_test"
 	@echo "... Thread"
 	@echo "... Threadpool"
 	@echo "... Timestamp"
