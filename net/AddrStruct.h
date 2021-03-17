@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-17 15:10:24
- * @LastEditTime: 2021-03-17 20:37:05
+ * @LastEditTime: 2021-03-17 20:45:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/AddrStruct.h
@@ -34,6 +34,7 @@ public:
     { 
         addr_ = addr;
         // for debug   char* <---> std::string 
+        ///
         // printf("setSockAddrInet success\n"); 
         // char buf[INET_ADDRSTRLEN];
         // inet_ntop(AF_INET, &(addr_.sin_addr.s_addr), buf, sizeof buf);

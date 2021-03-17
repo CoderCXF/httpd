@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-17 09:42:38
- * @LastEditTime: 2021-03-17 19:35:49
+ * @LastEditTime: 2021-03-17 21:21:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/SocketOps.h
@@ -40,7 +40,7 @@ namespace sockets{
     ///
     // void    setSocketNodelay(int sockfd, bool on = true);
     // void    setSocketNoLinger(int sockfd);
-    
+    int socketNoBlockOrDie();
     int bindOrDie(int sockfd, const struct sockaddr *addr);
     int listenOrDie(int sockfd);
     int  accept(int sockfd, struct sockaddr* addr);

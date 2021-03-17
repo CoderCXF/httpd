@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-17 09:42:28
- * @LastEditTime: 2021-03-17 19:36:09
+ * @LastEditTime: 2021-03-17 21:42:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Editna
  * @FilePath: /WebServer/net/SocketOps.cpp
@@ -84,6 +84,14 @@ int     sockets::setSocketNonBlocking(int sockfd) {
 ///
 // socket func
 ///
+int sockets::socketNoBlockOrDie() {
+    int lfd = ::socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0);
+    if (lfd < 0) {
+        LOG_SYSFATAL << "sockets::sockeNoBlockOrDie";
+    }
+    return lfd;
+}
+
 int sockets::bindOrDie(int sockfd, const struct sockaddr *addr) {
     int ret = ::bind(sockfd, addr, static_cast<socklen_t>(sizeof(struct sockaddr)));
     if (ret < 0) {
