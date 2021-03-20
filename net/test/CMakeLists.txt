@@ -55,3 +55,6 @@ target_link_libraries(Reactor02_test net)
 
 add_executable(Socket_test Socket_test.cpp)
 target_link_libraries(Socket_test net)
+
+add_executable(Acceptor_test Acceptor_test.cpp)
+target_link_libraries(Acceptor_test net)

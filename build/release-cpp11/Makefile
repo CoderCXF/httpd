@@ -356,6 +356,32 @@ net/fast:
 .PHONY : net/fast
 
 #=============================================================================
+# Target rules for targets named Acceptor_test
+
+# Build rule for target.
+Acceptor_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Acceptor_test
+.PHONY : Acceptor_test
+
+# fast build rule for target.
+Acceptor_test/fast:
+	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Acceptor_test.dir/build.make net/test/CMakeFiles/Acceptor_test.dir/build
+.PHONY : Acceptor_test/fast
+
+#=============================================================================
+# Target rules for targets named Socket_test
+
+# Build rule for target.
+Socket_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Socket_test
+.PHONY : Socket_test
+
+# fast build rule for target.
+Socket_test/fast:
+	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Socket_test.dir/build.make net/test/CMakeFiles/Socket_test.dir/build
+.PHONY : Socket_test/fast
+
+#=============================================================================
 # Target rules for targets named EventLoop_test
 
 # Build rule for target.
@@ -381,19 +407,6 @@ Reactor02_test/fast:
 	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Reactor02_test.dir/build.make net/test/CMakeFiles/Reactor02_test.dir/build
 .PHONY : Reactor02_test/fast
 
-#=============================================================================
-# Target rules for targets named Socket_test
-
-# Build rule for target.
-Socket_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Socket_test
-.PHONY : Socket_test
-
-# fast build rule for target.
-Socket_test/fast:
-	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Socket_test.dir/build.make net/test/CMakeFiles/Socket_test.dir/build
-.PHONY : Socket_test/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -407,6 +420,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... Acceptor_test"
 	@echo "... AppendFile"
 	@echo "... BlockQueue"
 	@echo "... Condition"

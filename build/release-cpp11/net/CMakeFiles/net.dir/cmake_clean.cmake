@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "../lib/libnet.a"
   "../lib/libnet.pdb"
+  "CMakeFiles/net.dir/Acceptor.cpp.o"
   "CMakeFiles/net.dir/AddrStruct.cpp.o"
   "CMakeFiles/net.dir/Channel.cpp.o"
   "CMakeFiles/net.dir/EPoll.cpp.o"

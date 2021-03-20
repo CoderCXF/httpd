@@ -135,6 +135,21 @@
   "file": "/home/cxf/Desktop/WebServer/net/AddrStruct.cpp"
 },
 {
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/net.dir/Acceptor.cpp.o -c /home/cxf/Desktop/WebServer/net/Acceptor.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/Acceptor.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Acceptor_test.dir/Acceptor_test.cpp.o -c /home/cxf/Desktop/WebServer/net/test/Acceptor_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/test/Acceptor_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Socket_test.dir/Socket_test.cpp.o -c /home/cxf/Desktop/WebServer/net/test/Socket_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/test/Socket_test.cpp"
+},
+{
   "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net/test",
   "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/EventLoop_test.dir/EventLoop_test.cpp.o -c /home/cxf/Desktop/WebServer/net/test/EventLoop_test.cpp",
   "file": "/home/cxf/Desktop/WebServer/net/test/EventLoop_test.cpp"
@@ -143,10 +158,5 @@
   "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net/test",
   "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Reactor02_test.dir/Reactor02_test.cpp.o -c /home/cxf/Desktop/WebServer/net/test/Reactor02_test.cpp",
   "file": "/home/cxf/Desktop/WebServer/net/test/Reactor02_test.cpp"
-},
-{
-  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net/test",
-  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Socket_test.dir/Socket_test.cpp.o -c /home/cxf/Desktop/WebServer/net/test/Socket_test.cpp",
-  "file": "/home/cxf/Desktop/WebServer/net/test/Socket_test.cpp"
 }
 ]

@@ -54,6 +54,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/cxf/Desktop/WebServer/net/SocketOps.h"
     "/home/cxf/Desktop/WebServer/net/Socket.h"
     "/home/cxf/Desktop/WebServer/net/AddrStruct.h"
+    "/home/cxf/Desktop/WebServer/net/Acceptor.h"
     )
 endif()
 

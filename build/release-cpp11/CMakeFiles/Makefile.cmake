@@ -80,7 +80,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "base/test/CMakeFiles/BlockQueue.dir/DependInfo.cmake"
   "base/test/CMakeFiles/Logging.dir/DependInfo.cmake"
   "net/CMakeFiles/net.dir/DependInfo.cmake"
+  "net/test/CMakeFiles/Acceptor_test.dir/DependInfo.cmake"
+  "net/test/CMakeFiles/Socket_test.dir/DependInfo.cmake"
   "net/test/CMakeFiles/EventLoop_test.dir/DependInfo.cmake"
   "net/test/CMakeFiles/Reactor02_test.dir/DependInfo.cmake"
-  "net/test/CMakeFiles/Socket_test.dir/DependInfo.cmake"
   )

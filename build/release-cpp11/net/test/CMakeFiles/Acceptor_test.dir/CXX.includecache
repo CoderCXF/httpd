@@ -18,36 +18,6 @@ error.h
 errno.h
 -
 
-/home/cxf/Desktop/WebServer/base/FixedBuffer.h
-Base.h
-/home/cxf/Desktop/WebServer/base/Base.h
-string.h
--
-string
--
-assert.h
--
-
-/home/cxf/Desktop/WebServer/base/LogStream.h
-memory
--
-algorithm
--
-Base.h
-/home/cxf/Desktop/WebServer/base/Base.h
-FixedBuffer.h
-/home/cxf/Desktop/WebServer/base/FixedBuffer.h
-
-/home/cxf/Desktop/WebServer/base/Logging.h
-LogStream.h
-/home/cxf/Desktop/WebServer/base/LogStream.h
-Thread.h
-/home/cxf/Desktop/WebServer/base/Thread.h
-sys/time.h
--
-time.h
--
-
 /home/cxf/Desktop/WebServer/base/Mutex.h
 assert.h
 -
@@ -77,12 +47,6 @@ string
 -
 iostream
 -
-
-/home/cxf/Desktop/WebServer/net/Acceptor.cpp
-Acceptor.h
-/home/cxf/Desktop/WebServer/net/Acceptor.h
-../base/Logging.h
-/home/cxf/Desktop/WebServer/base/Logging.h
 
 /home/cxf/Desktop/WebServer/net/Acceptor.h
 functional
@@ -122,24 +86,6 @@ memory
 assert.h
 -
 
-/home/cxf/Desktop/WebServer/net/EPoll.cpp
-EPoll.h
-/home/cxf/Desktop/WebServer/net/EPoll.h
-Channel.h
-/home/cxf/Desktop/WebServer/net/Channel.h
-EventLoop.h
-/home/cxf/Desktop/WebServer/net/EventLoop.h
-sys/epoll.h
--
-
-/home/cxf/Desktop/WebServer/net/EPoll.h
-../base/Logging.h
-/home/cxf/Desktop/WebServer/base/Logging.h
-../base/Timestamp.h
-/home/cxf/Desktop/WebServer/base/Timestamp.h
-vector
--
-
 /home/cxf/Desktop/WebServer/net/EventLoop.h
 atomic
 -
@@ -171,4 +117,8 @@ AddrStruct.h
 /home/cxf/Desktop/WebServer/net/SocketOps.h
 arpa/inet.h
 -
+
+/home/cxf/Desktop/WebServer/net/test/Acceptor_test.cpp
+../Acceptor.h
+/home/cxf/Desktop/WebServer/net/Acceptor.h
 

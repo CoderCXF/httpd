@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-19 17:54:59
- * @LastEditTime: 2021-03-16 09:52:45
+ * @LastEditTime: 2021-03-18 10:49:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Logging.cpp
@@ -96,7 +96,7 @@ Logger::LogLevel initLogLevel()
 }
 
 Logger::LogLevel g_logLevel = initLogLevel();
-
+// LOG_INFO
 Logger::Logger(SourceFile file, int line) 
     : time_(TimeStamp::nowStamp()),
       logLevel_(LogLevel::INFO), // defaut level
@@ -107,6 +107,8 @@ Logger::Logger(SourceFile file, int line)
   std::string formatedTime = time_.formatTime();
   stream_ << formatedTime << " " << CurrentThread::tid() << " " << LogLevelName[logLevel_];
 }
+
+//LOG_WARN | ERROR | FATAL
 Logger::Logger(SourceFile file, int line, LogLevel level)
     : time_(TimeStamp::nowStamp()),
       logLevel_(level),
@@ -117,6 +119,7 @@ Logger::Logger(SourceFile file, int line, LogLevel level)
   std::string formatedTime = time_.formatTime();
   stream_ << formatedTime << " " << CurrentThread::tid() << " " << LogLevelName[logLevel_];
 }
+//LOG_TRACE | LOG_DEBUG
 
 Logger::Logger(SourceFile file, int line, LogLevel level, const char *func)
     : time_(TimeStamp::nowStamp()),
@@ -128,10 +131,10 @@ Logger::Logger(SourceFile file, int line, LogLevel level, const char *func)
   std::string formatedTime = time_.formatTime();
   stream_ << formatedTime << " " << CurrentThread::tid() << " " << LogLevelName[logLevel_];
 }
-
+//LOG_SYSERR | LOG_SYSFATAL
 Logger::Logger(SourceFile file, int line, bool toabort)
     : time_(TimeStamp::nowStamp()),
-      logLevel_(LogLevel::INFO),
+      logLevel_(LogLevel::FATAL),
       filename_(file),
       line_(line),
       stream_()

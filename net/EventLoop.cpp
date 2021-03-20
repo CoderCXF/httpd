@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 19:47:37
- * @LastEditTime: 2021-03-16 14:26:44
+ * @LastEditTime: 2021-03-18 10:25:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Eventloop.cpp
@@ -21,7 +21,7 @@ EventLoop::EventLoop()
       quit_(false),
       eventHandling_(false),
       threadId_(CurrentThread::tid()),
-      poller_(std::make_shared<EPoll>(this)),
+      poller_(std::make_shared<EPoll>(this)), // create poller_ by call EPoll constructor(epoll_create)
       currentActiveChannel_(NULL)
 {
     LOG_TRACE << "EventLoop " << this << " created in this thread " << threadId_;

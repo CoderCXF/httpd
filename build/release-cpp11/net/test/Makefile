@@ -87,39 +87,15 @@ install/strip/fast: preinstall/fast
 	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
+.PHONY : list_install_components/fast
 
 # Special rule for the target install
 install: preinstall
@@ -133,16 +109,6 @@ install/fast: preinstall/fast
 	/usr/local/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -153,6 +119,40 @@ test:
 test/fast: test
 
 .PHONY : test/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/local/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -187,6 +187,36 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+net/test/CMakeFiles/Acceptor_test.dir/rule:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/test/CMakeFiles/Acceptor_test.dir/rule
+.PHONY : net/test/CMakeFiles/Acceptor_test.dir/rule
+
+# Convenience name for target.
+Acceptor_test: net/test/CMakeFiles/Acceptor_test.dir/rule
+
+.PHONY : Acceptor_test
+
+# fast build rule for target.
+Acceptor_test/fast:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Acceptor_test.dir/build.make net/test/CMakeFiles/Acceptor_test.dir/build
+.PHONY : Acceptor_test/fast
+
+# Convenience name for target.
+net/test/CMakeFiles/Socket_test.dir/rule:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/test/CMakeFiles/Socket_test.dir/rule
+.PHONY : net/test/CMakeFiles/Socket_test.dir/rule
+
+# Convenience name for target.
+Socket_test: net/test/CMakeFiles/Socket_test.dir/rule
+
+.PHONY : Socket_test
+
+# fast build rule for target.
+Socket_test/fast:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Socket_test.dir/build.make net/test/CMakeFiles/Socket_test.dir/build
+.PHONY : Socket_test/fast
+
+# Convenience name for target.
 net/test/CMakeFiles/EventLoop_test.dir/rule:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/test/CMakeFiles/EventLoop_test.dir/rule
 .PHONY : net/test/CMakeFiles/EventLoop_test.dir/rule
@@ -216,20 +246,32 @@ Reactor02_test/fast:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Reactor02_test.dir/build.make net/test/CMakeFiles/Reactor02_test.dir/build
 .PHONY : Reactor02_test/fast
 
-# Convenience name for target.
-net/test/CMakeFiles/Socket_test.dir/rule:
-	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/test/CMakeFiles/Socket_test.dir/rule
-.PHONY : net/test/CMakeFiles/Socket_test.dir/rule
+Acceptor_test.o: Acceptor_test.cpp.o
 
-# Convenience name for target.
-Socket_test: net/test/CMakeFiles/Socket_test.dir/rule
+.PHONY : Acceptor_test.o
 
-.PHONY : Socket_test
+# target to build an object file
+Acceptor_test.cpp.o:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Acceptor_test.dir/build.make net/test/CMakeFiles/Acceptor_test.dir/Acceptor_test.cpp.o
+.PHONY : Acceptor_test.cpp.o
 
-# fast build rule for target.
-Socket_test/fast:
-	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Socket_test.dir/build.make net/test/CMakeFiles/Socket_test.dir/build
-.PHONY : Socket_test/fast
+Acceptor_test.i: Acceptor_test.cpp.i
+
+.PHONY : Acceptor_test.i
+
+# target to preprocess a source file
+Acceptor_test.cpp.i:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Acceptor_test.dir/build.make net/test/CMakeFiles/Acceptor_test.dir/Acceptor_test.cpp.i
+.PHONY : Acceptor_test.cpp.i
+
+Acceptor_test.s: Acceptor_test.cpp.s
+
+.PHONY : Acceptor_test.s
+
+# target to generate assembly for a file
+Acceptor_test.cpp.s:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Acceptor_test.dir/build.make net/test/CMakeFiles/Acceptor_test.dir/Acceptor_test.cpp.s
+.PHONY : Acceptor_test.cpp.s
 
 EventLoop_test.o: EventLoop_test.cpp.o
 
@@ -325,9 +367,13 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... Acceptor_test"
 	@echo "... EventLoop_test"
 	@echo "... Reactor02_test"
 	@echo "... Socket_test"
+	@echo "... Acceptor_test.o"
+	@echo "... Acceptor_test.i"
+	@echo "... Acceptor_test.s"
 	@echo "... EventLoop_test.o"
 	@echo "... EventLoop_test.i"
 	@echo "... EventLoop_test.s"

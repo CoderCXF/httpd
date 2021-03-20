@@ -12,6 +12,7 @@ set(net_SRCS
   SocketOps.cpp
   Socket.cpp
   AddrStruct.cpp
+  Acceptor.cpp
   )
 
 
@@ -32,6 +33,7 @@ set(HEADERS
   SocketOps.h
   Socket.h
   AddrStruct.h
+  Acceptor.h
   )
 install(FILES ${HEADERS} DESTINATION include/muduo/net)
 

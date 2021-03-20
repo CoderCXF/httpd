@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-17 10:17:58
- * @LastEditTime: 2021-03-17 17:44:35
+ * @LastEditTime: 2021-03-18 09:39:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Socket.h
@@ -22,6 +22,7 @@ public:
     void Bind(const AddrStruct &addr);
     void Listen();
     int Accept(AddrStruct &perraddr);
+    inline int fd() { return sockfd_; }
 
 private:
     const int sockfd_;
