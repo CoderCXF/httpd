@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-17 20:45:47
- * @LastEditTime: 2021-03-20 15:00:43
+ * @LastEditTime: 2021-03-21 08:20:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Acceptor.cpp
@@ -41,13 +41,14 @@ void Acceptor::handleRead() {
     int connfd = acceptSocket_.Accept(peerAddr);
     if (connfd >= 0)
     {
+        // 
         if (newConnectionCallback_)
         {
-        newConnectionCallback_(connfd, peerAddr);
+            newConnectionCallback_(connfd, peerAddr);
         }
         else
         {
-        sockets::close(connfd);
+            sockets::close(connfd);
         }
     }
     else

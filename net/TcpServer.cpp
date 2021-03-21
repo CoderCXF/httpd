@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:48
- * @LastEditTime: 2021-03-20 21:47:37
+ * @LastEditTime: 2021-03-21 08:26:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.cpp
@@ -21,11 +21,12 @@ TcpServer::TcpServer(EventLoop *loop,
             started_(false),
             nextConnId_(1)
 {
-    // Channel::handleEvent-->Acceptor-->handleRead-->Channel::newConnectionCallback == Tcp::server::newConnectionCallback-->
+    // handleEvent会调用handleRead, 然后这里注册的回调函数是newConnection
     acceptor_->setNewConnectionCallback(
     std::bind(&TcpServer::newConnectionCallback, this, std::placeholders::_1, std::placeholders::_2));
 }
 
+//新建一个Connection 对象，并设置Connection的回调函数
 void TcpServer::newConnectionCallback(int sockfd, const AddrStruct& peerAddr) {
     loop_->assertInLoopThread();
     char buf[64];
@@ -38,13 +39,18 @@ void TcpServer::newConnectionCallback(int sockfd, const AddrStruct& peerAddr) {
     if (::getsockname(sockfd, (struct sockaddr*)(&localAddrIn), &addrlen) < 0) {
         LOG_SYSERR << "sockets::getLocalAddr";
     }
+    // localAddr = server addr   
     AddrStruct localAddr(localAddrIn);
-    // TcpConnection class 
-    TcpConnectionPtr conn(new Connection(Loop_,
+    // create a new connection
+    TcpConnectionPtr conn(new Connection(loop_,
                                           connName,
                                           sockfd,
                                           localAddr,
                                           peerAddr));
+    connections_[connName] = conn;                                        
+    conn->setConnectionCallback(connectioncallback_);
+    conn->setMessasgeCallback(messagecallback_);
+    conn->connectEstablished();
 }
 
 void TcpServer::start() {
