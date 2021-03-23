@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:39
- * @LastEditTime: 2021-03-23 15:04:21
+ * @LastEditTime: 2021-03-23 20:33:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.h
@@ -14,10 +14,11 @@
 class EventLoop;
 class Connection;
 class TcpServer{
-    
 public:
     typedef std::shared_ptr<Connection> TcpConnectionPtr;
     typedef std::function<void(const TcpConnectionPtr&)> ConnectionCallback;
+    typedef std::function<void(const TcpConnectionPtr&)> CloseCallback;
+
     // typedef std::function<void (const TcpConnectionPtr&,
     //                         Buffer*,
     //                         Timestamp)> MessageCallback;
@@ -29,16 +30,18 @@ public:
             const std::string& name,
             bool portReused = false);
     ~TcpServer();
-    // epoll_wait-->handleEvent-->accept-->handleRead
-    //-->newConnctionCallback--> TcpServer::newConnectionCallback
+
     void start();
     // 这是为用户提供的接口，用户调用该setConnectionCallback注册函数，
     // 然后会调用Connection::setConnectionCallback将该函数注册进Connection中
     void setConnectionCallback(const ConnectionCallback& cb) { connectioncallback_  = cb; }
     void setMessageCallback(const MessageCallback& cb) { messagecallback_  = cb; }
+    void setCloseCallback(const CloseCallback& cb) { closeCallback_ = cb; }
 private:
     typedef std::map<std::string, TcpConnectionPtr> ConnectionMap;
     void newConnectionCallback(int sockfd, const AddrStruct& peerAddr);
+    void removeConnection(const TcpConnectionPtr& conn);
+    
     EventLoop *loop_;
     const std::string ipPort_;
     const std::string name_;
@@ -47,6 +50,7 @@ private:
     int nextConnId_;
     ConnectionCallback connectioncallback_;
     MessageCallback messagecallback_;
+    CloseCallback closeCallback_; // == TcpServer::removeConnection
     ConnectionMap connections_; // 维护一个连接链表
 };
 #endif

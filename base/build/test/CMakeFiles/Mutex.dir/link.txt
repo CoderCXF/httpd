@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/Mutex.dir/Mutex_test.o -o Mutex   -L/home/cxf/Desktop/WebServer/base/build  -lpthread ../libbase.a -lpthread -lrt 

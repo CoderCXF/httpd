@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/Threadpool.dir/Threadpool_test.o -o Threadpool   -L/home/cxf/Desktop/WebServer/base/build  -lpthread ../libbase.a -lpthread -lrt 

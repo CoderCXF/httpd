@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:48
- * @LastEditTime: 2021-03-23 16:31:34
+ * @LastEditTime: 2021-03-23 20:45:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.cpp
@@ -17,7 +17,7 @@ TcpServer::TcpServer(EventLoop *loop,
             :loop_(loop),
             ipPort_(listenAddr.getIPort()),
             name_(name),
-            acceptor_(new Acceptor(loop_, listenAddr)),
+            acceptor_(new Acceptor(loop_, listenAddr)), // import
             started_(false),
             nextConnId_(1)
 {
@@ -30,14 +30,14 @@ TcpServer::~TcpServer()
     loop_->assertInLoopThread();
     LOG_TRACE << "TcpServer::~TcpServer [" << name_ << "] destructing";
 
-  for (auto& item : connections_)
-  {
-    TcpConnectionPtr conn(item.second);
-    item.second.reset();
-    // TODO:
-    // conn->getLoop()->runInLoop(
-    //   std::bind(&TcpConnection::connectDestroyed, conn));
-  }
+    for (auto& item : connections_)
+    {
+        TcpConnectionPtr conn(item.second);
+        item.second.reset();
+        // TODO:
+        conn->getLoop()->runInLoop(
+          std::bind(&Connection::connectDestroy, conn));
+    }
 }
 //新建一个Connection 对象，并设置Connection的回调函数
 void TcpServer::newConnectionCallback(int sockfd, const AddrStruct& peerAddr) {
@@ -65,6 +65,10 @@ void TcpServer::newConnectionCallback(int sockfd, const AddrStruct& peerAddr) {
     conn->setConnectionCallback(connectioncallback_);
     // 有连接发送消息到来，服务器所发送的信息
     conn->setMessasgeCallback(messagecallback_);
+    // 断开连接，服务器所发送的消息
+    conn->setCloseCallback(
+        std::bind(&TcpServer::removeConnection, this, std::placeholders::_1));
+    // conn->setCloseConnectionCallback();
     conn->connectEstablished();
 }
 
@@ -75,4 +79,15 @@ void TcpServer::start() {
     if (!acceptor_->listening()) {
         loop_->runInLoop(std::bind(&Acceptor::listen, acceptor_.get()));
     }
+}
+
+void TcpServer::removeConnection(const TcpConnectionPtr& conn) {
+    loop_->assertInLoopThread();
+    // LOG_DEBUG << "TcpServer::removeChannel";
+    LOG_INFO << "TcpServer::removeChannel [" << name_ 
+             << "]-connection " << conn->name();
+    size_t n = connections_.erase(conn->name());
+    (void)n;
+    assert(n == 1);
+    loop_->queueInLoop(std::bind(&Connection::connectDestroy, conn));
 }

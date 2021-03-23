@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/AppendFile.dir/AppendFile_test.o -o AppendFile   -L/home/cxf/Desktop/WebServer/base/build  -lpthread ../libbase.a -lpthread -lrt 

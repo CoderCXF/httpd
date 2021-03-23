@@ -31,6 +31,9 @@ net/CMakeFiles/net.dir/Channel.cpp.o: ../../net/Channel.h
 net/CMakeFiles/net.dir/Channel.cpp.o: ../../net/EventLoop.h
 
 net/CMakeFiles/net.dir/Connection.cpp.o: ../../base/Base.h
+net/CMakeFiles/net.dir/Connection.cpp.o: ../../base/FixedBuffer.h
+net/CMakeFiles/net.dir/Connection.cpp.o: ../../base/LogStream.h
+net/CMakeFiles/net.dir/Connection.cpp.o: ../../base/Logging.h
 net/CMakeFiles/net.dir/Connection.cpp.o: ../../base/Mutex.h
 net/CMakeFiles/net.dir/Connection.cpp.o: ../../base/Thread.h
 net/CMakeFiles/net.dir/Connection.cpp.o: ../../base/Timestamp.h

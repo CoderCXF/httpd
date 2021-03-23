@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/Condition.dir/Condition_test.o -o Condition   -L/home/cxf/Desktop/WebServer/base/build  -lpthread ../libbase.a -lpthread -lrt 
