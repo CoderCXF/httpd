@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:48
- * @LastEditTime: 2021-03-21 08:26:45
+ * @LastEditTime: 2021-03-23 16:31:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.cpp
@@ -13,7 +13,7 @@
 TcpServer::TcpServer(EventLoop *loop, 
             AddrStruct &listenAddr,
             const std::string& name,
-            bool portReused = false)
+            bool portReused)
             :loop_(loop),
             ipPort_(listenAddr.getIPort()),
             name_(name),
@@ -25,7 +25,20 @@ TcpServer::TcpServer(EventLoop *loop,
     acceptor_->setNewConnectionCallback(
     std::bind(&TcpServer::newConnectionCallback, this, std::placeholders::_1, std::placeholders::_2));
 }
+TcpServer::~TcpServer() 
+{
+    loop_->assertInLoopThread();
+    LOG_TRACE << "TcpServer::~TcpServer [" << name_ << "] destructing";
 
+  for (auto& item : connections_)
+  {
+    TcpConnectionPtr conn(item.second);
+    item.second.reset();
+    // TODO:
+    // conn->getLoop()->runInLoop(
+    //   std::bind(&TcpConnection::connectDestroyed, conn));
+  }
+}
 //新建一个Connection 对象，并设置Connection的回调函数
 void TcpServer::newConnectionCallback(int sockfd, const AddrStruct& peerAddr) {
     loop_->assertInLoopThread();
@@ -47,8 +60,10 @@ void TcpServer::newConnectionCallback(int sockfd, const AddrStruct& peerAddr) {
                                           sockfd,
                                           localAddr,
                                           peerAddr));
-    connections_[connName] = conn;                                        
+    connections_[connName] = conn;
+    // 有新的连接到来，服务器所发送的信息                                        
     conn->setConnectionCallback(connectioncallback_);
+    // 有连接发送消息到来，服务器所发送的信息
     conn->setMessasgeCallback(messagecallback_);
     conn->connectEstablished();
 }
@@ -58,6 +73,6 @@ void TcpServer::start() {
         started_ = true;
     }
     if (!acceptor_->listening()) {
-        loop_->runInloop(std::bind(&Acceptor::listen(), acceptor_.get()));
+        loop_->runInLoop(std::bind(&Acceptor::listen, acceptor_.get()));
     }
 }

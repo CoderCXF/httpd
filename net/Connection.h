@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:30
- * @LastEditTime: 2021-03-21 08:13:29
+ * @LastEditTime: 2021-03-23 16:40:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.h
@@ -10,14 +10,15 @@
 #define CONNECTION_H
 
 #include "AddrStruct.h"
+#include "../base/Timestamp.h"
 #include <memory>
 
 // 前向声明
 class EventLoop;
-class channel;
+class Channel;
 class Socket;
 
-class Connection{
+class Connection : public std::enable_shared_from_this<Connection>{
 public:
     typedef std::shared_ptr<Connection> TcpConnectionPtr;
     typedef std::function<void(const TcpConnectionPtr&)> ConnectionCallback;
@@ -38,17 +39,26 @@ public:
     void setMessasgeCallback(const MessageCallback& cb) { messageCallback_ = cb; }
     //TODO:未完成
     void connectEstablished();
+    void handleRead(Timestamp receiveTime);
+
+    // simple api
+    const std::string name() { return connName; }
+    const AddrStruct& localAddress() const { return localAddr_; }
+    const AddrStruct& peerAddress() const { return peerAddr_; }
+    EventLoop* getLoop() { return loop_; }
+    bool connected() const { return state_ == kconnected; }
 private:
-    
+    enum StateE{kconnecting, kconnected};
+    void setState(StateE state) { state_ = state; }
     EventLoop *loop_;
     const std::string connName;
     std::unique_ptr<Socket> socket_;
     std::unique_ptr<Channel> channel_;
+    StateE state_;
     const AddrStruct localAddr_; //server sockaddr_in
     const AddrStruct peerAddr_;  // conn(client) sockaddr_in
     ConnectionCallback connectionCallback_;
     MessageCallback messageCallback_;
-    
 
 };
 

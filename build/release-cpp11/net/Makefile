@@ -282,6 +282,33 @@ Channel.cpp.s:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Channel.cpp.s
 .PHONY : Channel.cpp.s
 
+Connection.o: Connection.cpp.o
+
+.PHONY : Connection.o
+
+# target to build an object file
+Connection.cpp.o:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Connection.cpp.o
+.PHONY : Connection.cpp.o
+
+Connection.i: Connection.cpp.i
+
+.PHONY : Connection.i
+
+# target to preprocess a source file
+Connection.cpp.i:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Connection.cpp.i
+.PHONY : Connection.cpp.i
+
+Connection.s: Connection.cpp.s
+
+.PHONY : Connection.s
+
+# target to generate assembly for a file
+Connection.cpp.s:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Connection.cpp.s
+.PHONY : Connection.cpp.s
+
 EPoll.o: EPoll.cpp.o
 
 .PHONY : EPoll.o
@@ -390,6 +417,33 @@ SocketOps.cpp.s:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/SocketOps.cpp.s
 .PHONY : SocketOps.cpp.s
 
+TcpServer.o: TcpServer.cpp.o
+
+.PHONY : TcpServer.o
+
+# target to build an object file
+TcpServer.cpp.o:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/TcpServer.cpp.o
+.PHONY : TcpServer.cpp.o
+
+TcpServer.i: TcpServer.cpp.i
+
+.PHONY : TcpServer.i
+
+# target to preprocess a source file
+TcpServer.cpp.i:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/TcpServer.cpp.i
+.PHONY : TcpServer.cpp.i
+
+TcpServer.s: TcpServer.cpp.s
+
+.PHONY : TcpServer.s
+
+# target to generate assembly for a file
+TcpServer.cpp.s:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/TcpServer.cpp.s
+.PHONY : TcpServer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -413,6 +467,9 @@ help:
 	@echo "... Channel.o"
 	@echo "... Channel.i"
 	@echo "... Channel.s"
+	@echo "... Connection.o"
+	@echo "... Connection.i"
+	@echo "... Connection.s"
 	@echo "... EPoll.o"
 	@echo "... EPoll.i"
 	@echo "... EPoll.s"
@@ -425,6 +482,9 @@ help:
 	@echo "... SocketOps.o"
 	@echo "... SocketOps.i"
 	@echo "... SocketOps.s"
+	@echo "... TcpServer.o"
+	@echo "... TcpServer.i"
+	@echo "... TcpServer.s"
 .PHONY : help
 
 

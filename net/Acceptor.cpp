@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-17 20:45:47
- * @LastEditTime: 2021-03-21 08:20:00
+ * @LastEditTime: 2021-03-23 16:54:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Acceptor.cpp
@@ -36,6 +36,7 @@ void Acceptor::listen() {
 
 void Acceptor::handleRead() {
     loop_->assertInLoopThread();
+    // peerAddr is ouput parameter. client addr struct
     AddrStruct peerAddr;
     //FIXME loop until no more
     int connfd = acceptSocket_.Accept(peerAddr);

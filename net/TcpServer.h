@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:39
- * @LastEditTime: 2021-03-21 08:16:28
+ * @LastEditTime: 2021-03-23 15:04:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.h
@@ -47,6 +47,6 @@ private:
     int nextConnId_;
     ConnectionCallback connectioncallback_;
     MessageCallback messagecallback_;
-    ConnectionMap connections_;
+    ConnectionMap connections_; // 维护一个连接链表
 };
 #endif

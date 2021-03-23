@@ -1,16 +1,18 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 19:47:37
- * @LastEditTime: 2021-03-18 10:25:27
+ * @LastEditTime: 2021-03-23 15:55:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Eventloop.cpp
  */
 #include <poll.h>
+#include <sys/eventfd.h>
 #include "EventLoop.h"
 #include "Channel.h"
 #include "EPoll.h"
 #include "../base/Logging.h"
+#include "SocketOps.h"
 
 // one loop only belone to one thread;
 // In other words, one thread only one eventloop object
@@ -20,8 +22,10 @@ EventLoop::EventLoop()
     : looping_(false),
       quit_(false),
       eventHandling_(false),
+      callingPendingFunctors_(false),
       threadId_(CurrentThread::tid()),
       poller_(std::make_shared<EPoll>(this)), // create poller_ by call EPoll constructor(epoll_create)
+      wakeupFd_(createEventfd()),
       currentActiveChannel_(NULL)
 {
     LOG_TRACE << "EventLoop " << this << " created in this thread " << threadId_;
@@ -85,4 +89,49 @@ void EventLoop::removeChannel(Channel *channel) {
     poller_->removeChannel(channel);
 }
 
+void EventLoop::runInLoop(Functor cb)
+{
+  if (isInLoopThread())
+  {
+    cb();
+  }
+  else
+  {
+    queueInLoop(std::move(cb));
+  }
+}
+
+void EventLoop::queueInLoop(Functor cb)
+{
+  {
+  MutexGuard lock(mutex_);
+  pendingFunctors_.push_back(std::move(cb));
+  }
+
+  if (!isInLoopThread() || callingPendingFunctors_)
+  {
+    wakeup();
+  }
+}
+
+void EventLoop::wakeup()
+{
+  uint64_t one = 1;
+  ssize_t n = sockets::write(wakeupFd_, &one, sizeof one);
+  if (n != sizeof one)
+  {
+    LOG_ERROR << "EventLoop::wakeup() writes " << n << " bytes instead of 8";
+  }
+}
+
+int EventLoop::createEventfd()
+{
+  int evtfd = ::eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC);
+  if (evtfd < 0)
+  {
+    LOG_SYSERR << "Failed in eventfd";
+    abort();
+  }
+  return evtfd;
+}
 

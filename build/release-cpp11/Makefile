@@ -395,6 +395,19 @@ EventLoop_test/fast:
 .PHONY : EventLoop_test/fast
 
 #=============================================================================
+# Target rules for targets named TcpServer_test01
+
+# Build rule for target.
+TcpServer_test01: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TcpServer_test01
+.PHONY : TcpServer_test01
+
+# fast build rule for target.
+TcpServer_test01/fast:
+	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test01.dir/build.make net/test/CMakeFiles/TcpServer_test01.dir/build
+.PHONY : TcpServer_test01/fast
+
+#=============================================================================
 # Target rules for targets named Reactor02_test
 
 # Build rule for target.
@@ -432,6 +445,7 @@ help:
 	@echo "... Reactor02_test"
 	@echo "... Singleton"
 	@echo "... Socket_test"
+	@echo "... TcpServer_test01"
 	@echo "... Thread"
 	@echo "... Threadpool"
 	@echo "... Timestamp"

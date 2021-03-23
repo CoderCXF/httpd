@@ -75,6 +75,18 @@ CMAKE_BINARY_DIR = /home/cxf/Desktop/WebServer/build/release-cpp11
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -109,6 +121,17 @@ install/fast: preinstall/fast
 	/usr/local/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/local/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -130,29 +153,6 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -230,6 +230,21 @@ EventLoop_test: net/test/CMakeFiles/EventLoop_test.dir/rule
 EventLoop_test/fast:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/EventLoop_test.dir/build.make net/test/CMakeFiles/EventLoop_test.dir/build
 .PHONY : EventLoop_test/fast
+
+# Convenience name for target.
+net/test/CMakeFiles/TcpServer_test01.dir/rule:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/test/CMakeFiles/TcpServer_test01.dir/rule
+.PHONY : net/test/CMakeFiles/TcpServer_test01.dir/rule
+
+# Convenience name for target.
+TcpServer_test01: net/test/CMakeFiles/TcpServer_test01.dir/rule
+
+.PHONY : TcpServer_test01
+
+# fast build rule for target.
+TcpServer_test01/fast:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test01.dir/build.make net/test/CMakeFiles/TcpServer_test01.dir/build
+.PHONY : TcpServer_test01/fast
 
 # Convenience name for target.
 net/test/CMakeFiles/Reactor02_test.dir/rule:
@@ -354,6 +369,33 @@ Socket_test.cpp.s:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Socket_test.dir/build.make net/test/CMakeFiles/Socket_test.dir/Socket_test.cpp.s
 .PHONY : Socket_test.cpp.s
 
+TcpServer_test01.o: TcpServer_test01.cpp.o
+
+.PHONY : TcpServer_test01.o
+
+# target to build an object file
+TcpServer_test01.cpp.o:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test01.dir/build.make net/test/CMakeFiles/TcpServer_test01.dir/TcpServer_test01.cpp.o
+.PHONY : TcpServer_test01.cpp.o
+
+TcpServer_test01.i: TcpServer_test01.cpp.i
+
+.PHONY : TcpServer_test01.i
+
+# target to preprocess a source file
+TcpServer_test01.cpp.i:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test01.dir/build.make net/test/CMakeFiles/TcpServer_test01.dir/TcpServer_test01.cpp.i
+.PHONY : TcpServer_test01.cpp.i
+
+TcpServer_test01.s: TcpServer_test01.cpp.s
+
+.PHONY : TcpServer_test01.s
+
+# target to generate assembly for a file
+TcpServer_test01.cpp.s:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test01.dir/build.make net/test/CMakeFiles/TcpServer_test01.dir/TcpServer_test01.cpp.s
+.PHONY : TcpServer_test01.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -371,6 +413,7 @@ help:
 	@echo "... EventLoop_test"
 	@echo "... Reactor02_test"
 	@echo "... Socket_test"
+	@echo "... TcpServer_test01"
 	@echo "... Acceptor_test.o"
 	@echo "... Acceptor_test.i"
 	@echo "... Acceptor_test.s"
@@ -383,6 +426,9 @@ help:
 	@echo "... Socket_test.o"
 	@echo "... Socket_test.i"
 	@echo "... Socket_test.s"
+	@echo "... TcpServer_test01.o"
+	@echo "... TcpServer_test01.i"
+	@echo "... TcpServer_test01.s"
 .PHONY : help
 
 

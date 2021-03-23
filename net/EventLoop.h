@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 19:47:27
- * @LastEditTime: 2021-03-16 14:01:37
+ * @LastEditTime: 2021-03-23 15:59:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Eventloop.h
@@ -28,9 +28,20 @@ class EPoll;
 
 class EventLoop{
 public:
+  typedef std::function<void()> Functor;
   EventLoop();
   ~EventLoop();
   void loop();
+  void runInLoop(Functor cb);
+  void queueInLoop(Functor cb);
+  void wakeup();
+  int createEventfd();
+  
+  void removeChannel(Channel *channel);   
+  void updateChannel(Channel *channel);
+  void quit() { quit_ = true; }
+
+  
   void assertInLoopThread() { //确定该loop在当前线程当中
     if (!isInLoopThread()) {
       abortNotInLoopThread();
@@ -39,22 +50,24 @@ public:
   bool isInLoopThread() const{
     return CurrentThread::tid() == threadId_;
   }
-  //->EPoll::removeChannel()->epoll_ctl(, EPOLL_CTL_DEL, channel->fd(), channel->events())
-  void removeChannel(Channel *channel);   
-  void updateChannel(Channel *channel);
-  void quit() { quit_ = true; }
 private:
   typedef std::vector<Channel*> ChannelList;
   void abortNotInLoopThread();
+
   bool looping_;
   bool quit_;
   bool eventHandling_;
+  bool callingPendingFunctors_; /* atomic */
   const pid_t threadId_; // thread is that create loop thread
   Timestamp pollReturnTime_;
   std::shared_ptr<EPoll> poller_;
-  ChannelList activeChannels_;
+  int wakeupFd_;
   Channel* currentActiveChannel_;
+  ChannelList activeChannels_;
 
+  // TODO:
+  Mutex mutex_;
+  std::vector<Functor> pendingFunctors_;
   static const int kPollTimeMs = 10000;
 };
 
