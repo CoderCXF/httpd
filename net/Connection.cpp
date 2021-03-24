@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-24 10:06:17
+ * @LastEditTime: 2021-03-24 14:44:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
@@ -66,6 +66,7 @@ void Connection::handleRead(Timestamp receiveTime)
         }
         else if (n == 0)
         {
+                LOG_DEBUG << "Cononection::handleRead";
                 handleClose();
         }
         else
@@ -103,8 +104,9 @@ void Connection::connectDestroy() {
 void Connection::handleClose() {
         LOG_DEBUG << "Connection::handlwClose()";
         loop_->assertInLoopThread();
-        channel_->disableAll();
         setState(StateE::kdisconnected);
+        channel_->disableAll();
+        connectionCallback_(shared_from_this());
         // closeCallback是一个内部函数，和connectionCallback以及messageCallback不一样，
         // 这里的closeCallback实际上就是调用了TcpServer::removeConnection
         closeCallback_(shared_from_this()); 

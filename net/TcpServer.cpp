@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:48
- * @LastEditTime: 2021-03-24 10:04:38
+ * @LastEditTime: 2021-03-24 14:16:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.cpp
@@ -55,8 +55,8 @@ void TcpServer::newConnectionCallback(int sockfd, const AddrStruct& peerAddr) {
     }
     // localAddr = server addr   
     AddrStruct localAddr(localAddrIn);
-    // 有新的连接到来的时候，才会使用轮叫的方式分配一个EventLoop（subReactor）,
-    // 但是之前已经挂在每个EventLoop中的所有连接还是在本EventLoop被响应，即轮叫只是轮叫由哪一个epoll负责监听这个新的连接套接字
+    // 新的连接不放在main Reactor(acceptor所在的IO线程)，
+    // 而是轮叫放至其他的IO线程（sub Reactor）中
     EventLoop *ioLoop = threadpool_->getNextLoop();
     // create a new connection
     TcpConnectionPtr conn(new Connection(ioLoop,

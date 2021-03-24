@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-03 10:39:25
- * @LastEditTime: 2021-03-16 14:30:09
+ * @LastEditTime: 2021-03-24 14:25:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Channel.cpp
@@ -68,6 +68,7 @@ void Channel::handleEvent(Timestamp receiveTime)
     if (guard)
     {
       handleEventWithGuard(receiveTime);
+      // LOG_DEBUG << "use_count = " << guard.use_count();
     }
   }
   else

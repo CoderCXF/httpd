@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 19:47:37
- * @LastEditTime: 2021-03-24 12:01:15
+ * @LastEditTime: 2021-03-24 15:05:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Eventloop.cpp
@@ -26,6 +26,7 @@ EventLoop::EventLoop()
       threadId_(CurrentThread::tid()),
       poller_(std::make_shared<EPoll>(this)), // create poller_ by call EPoll constructor(epoll_create)
       wakeupFd_(createEventfd()),
+      wakeupChannel_(new Channel(this, wakeupFd_)),
       currentActiveChannel_(NULL)
 {
     LOG_TRACE << "EventLoop " << this << " created in this thread " << threadId_;
@@ -35,6 +36,10 @@ EventLoop::EventLoop()
     } else {
         t_loopInThisThread = this;
     }
+    wakeupChannel_->setReadCallback(
+      std::bind(&EventLoop::handleRead, this));
+    // we are always reading the wakeupfd
+    wakeupChannel_->enableReading();
 }
 
 EventLoop::~EventLoop() {
@@ -60,7 +65,7 @@ void EventLoop::loop() {
         }
         currentActiveChannel_ = NULL;
         eventHandling_ = false;
-        // doPendingFunctors();//让I/O线程也能处理一些计算任务
+        doPendingFunctors();//让I/O线程也能处理一些计算任务
     }
     LOG_TRACE << "EventLoop " << this << " stop looping";
     looping_ = false;
@@ -135,3 +140,28 @@ int EventLoop::createEventfd()
   return evtfd;
 }
 
+void EventLoop::handleRead()
+{
+  uint64_t one = 1;
+  ssize_t n = sockets::read(wakeupFd_, &one, sizeof one);
+  if (n != sizeof one)
+  {
+    LOG_ERROR << "EventLoop::handleRead() reads " << n << " bytes instead of 8";
+  }
+}
+void EventLoop::doPendingFunctors()
+{
+  std::vector<Functor> functors;
+  callingPendingFunctors_ = true;
+
+  {
+  MutexGuard lock(mutex_);
+  functors.swap(pendingFunctors_);
+  }
+
+  for (const Functor& functor : functors)
+  {
+    functor();
+  }
+  callingPendingFunctors_ = false;
+}

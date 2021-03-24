@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-23 20:56:15
- * @LastEditTime: 2021-03-24 11:56:57
+ * @LastEditTime: 2021-03-24 14:42:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/EventLoopThreadPool.h
@@ -27,7 +27,6 @@ public:
 
 	// for debug
 	int getThreadNums() { return numThreads_; }
-
 private:
 
 	EventLoop* baseloop_;										//和accept所属的eventloop相同

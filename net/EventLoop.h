@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 19:47:27
- * @LastEditTime: 2021-03-24 09:40:02
+ * @LastEditTime: 2021-03-24 15:02:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Eventloop.h
@@ -53,7 +53,9 @@ public:
 private:
   typedef std::vector<Channel*> ChannelList;
   void abortNotInLoopThread();
-
+  void handleRead();
+  void doPendingFunctors();
+  
   bool looping_;
   bool quit_;
   bool eventHandling_;
@@ -61,6 +63,7 @@ private:
   const pid_t threadId_; // thread is that create loop thread
   std::shared_ptr<EPoll> poller_;
   int wakeupFd_;
+  std::unique_ptr<Channel> wakeupChannel_;
   Channel* currentActiveChannel_;
   ChannelList activeChannels_;
   Timestamp pollReturnTime_;

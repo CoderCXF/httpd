@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:39
- * @LastEditTime: 2021-03-24 11:59:39
+ * @LastEditTime: 2021-03-24 16:22:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.h
@@ -29,7 +29,7 @@ public:
     TcpServer(EventLoop *loop, 
             AddrStruct &listenAddr,
             const std::string& name,
-            bool portReused = false);
+            bool portReused = true);
     ~TcpServer();
 
     void start();
@@ -37,7 +37,6 @@ public:
     // 然后会调用Connection::setConnectionCallback将该函数注册进Connection中
     void setConnectionCallback(const ConnectionCallback& cb) { connectioncallback_  = cb; }
     void setMessageCallback(const MessageCallback& cb) { messagecallback_  = cb; }
-    void setCloseCallback(const CloseCallback& cb) { closeCallback_ = cb; }
     void setThreadNum(int threadNum);
 
     // for debug
@@ -47,7 +46,6 @@ private:
     void newConnectionCallback(int sockfd, const AddrStruct& peerAddr);
     void removeConnection(const TcpConnectionPtr& conn);
     void removeConnectionInLoop(const TcpConnectionPtr& conn);
-
     
     EventLoop *loop_;
     const std::string ipPort_;
