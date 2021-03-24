@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 19:47:37
- * @LastEditTime: 2021-03-23 15:55:10
+ * @LastEditTime: 2021-03-24 12:01:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Eventloop.cpp
@@ -104,8 +104,8 @@ void EventLoop::runInLoop(Functor cb)
 void EventLoop::queueInLoop(Functor cb)
 {
   {
-  MutexGuard lock(mutex_);
-  pendingFunctors_.push_back(std::move(cb));
+    MutexGuard lock(mutex_);
+    pendingFunctors_.push_back(std::move(cb));
   }
 
   if (!isInLoopThread() || callingPendingFunctors_)

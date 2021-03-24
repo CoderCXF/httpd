@@ -363,6 +363,60 @@ EventLoop.cpp.s:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoop.cpp.s
 .PHONY : EventLoop.cpp.s
 
+EventLoopThread.o: EventLoopThread.cpp.o
+
+.PHONY : EventLoopThread.o
+
+# target to build an object file
+EventLoopThread.cpp.o:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThread.cpp.o
+.PHONY : EventLoopThread.cpp.o
+
+EventLoopThread.i: EventLoopThread.cpp.i
+
+.PHONY : EventLoopThread.i
+
+# target to preprocess a source file
+EventLoopThread.cpp.i:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThread.cpp.i
+.PHONY : EventLoopThread.cpp.i
+
+EventLoopThread.s: EventLoopThread.cpp.s
+
+.PHONY : EventLoopThread.s
+
+# target to generate assembly for a file
+EventLoopThread.cpp.s:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThread.cpp.s
+.PHONY : EventLoopThread.cpp.s
+
+EventLoopThreadPool.o: EventLoopThreadPool.cpp.o
+
+.PHONY : EventLoopThreadPool.o
+
+# target to build an object file
+EventLoopThreadPool.cpp.o:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o
+.PHONY : EventLoopThreadPool.cpp.o
+
+EventLoopThreadPool.i: EventLoopThreadPool.cpp.i
+
+.PHONY : EventLoopThreadPool.i
+
+# target to preprocess a source file
+EventLoopThreadPool.cpp.i:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.i
+.PHONY : EventLoopThreadPool.cpp.i
+
+EventLoopThreadPool.s: EventLoopThreadPool.cpp.s
+
+.PHONY : EventLoopThreadPool.s
+
+# target to generate assembly for a file
+EventLoopThreadPool.cpp.s:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.s
+.PHONY : EventLoopThreadPool.cpp.s
+
 Socket.o: Socket.cpp.o
 
 .PHONY : Socket.o
@@ -476,6 +530,12 @@ help:
 	@echo "... EventLoop.o"
 	@echo "... EventLoop.i"
 	@echo "... EventLoop.s"
+	@echo "... EventLoopThread.o"
+	@echo "... EventLoopThread.i"
+	@echo "... EventLoopThread.s"
+	@echo "... EventLoopThreadPool.o"
+	@echo "... EventLoopThreadPool.i"
+	@echo "... EventLoopThreadPool.s"
 	@echo "... Socket.o"
 	@echo "... Socket.i"
 	@echo "... Socket.s"

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 19:47:27
- * @LastEditTime: 2021-03-23 15:59:07
+ * @LastEditTime: 2021-03-24 09:40:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Eventloop.h
@@ -59,11 +59,11 @@ private:
   bool eventHandling_;
   bool callingPendingFunctors_; /* atomic */
   const pid_t threadId_; // thread is that create loop thread
-  Timestamp pollReturnTime_;
   std::shared_ptr<EPoll> poller_;
   int wakeupFd_;
   Channel* currentActiveChannel_;
   ChannelList activeChannels_;
+  Timestamp pollReturnTime_;
 
   // TODO:
   Mutex mutex_;

@@ -7,6 +7,8 @@ endif()
 
 set(net_SRCS
   EventLoop.cpp
+  EventLoopThread.cpp
+  EventLoopThreadPool.cpp
   Channel.cpp
   EPoll.cpp
   SocketOps.cpp
@@ -30,6 +32,8 @@ install(TARGETS net DESTINATION lib)
 
 set(HEADERS
   EventLoop.h
+  EventLoopThread.h
+  EventLoopThreadPool.h
   Channel.h
   EPoll.h
   SocketOps.h

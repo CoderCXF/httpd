@@ -70,6 +70,25 @@ net/CMakeFiles/net.dir/EventLoop.cpp.o: ../../net/EventLoop.cpp
 net/CMakeFiles/net.dir/EventLoop.cpp.o: ../../net/EventLoop.h
 net/CMakeFiles/net.dir/EventLoop.cpp.o: ../../net/SocketOps.h
 
+net/CMakeFiles/net.dir/EventLoopThread.cpp.o: ../../base/Base.h
+net/CMakeFiles/net.dir/EventLoopThread.cpp.o: ../../base/Condition.h
+net/CMakeFiles/net.dir/EventLoopThread.cpp.o: ../../base/Mutex.h
+net/CMakeFiles/net.dir/EventLoopThread.cpp.o: ../../base/Thread.h
+net/CMakeFiles/net.dir/EventLoopThread.cpp.o: ../../base/Timestamp.h
+net/CMakeFiles/net.dir/EventLoopThread.cpp.o: ../../net/EventLoop.h
+net/CMakeFiles/net.dir/EventLoopThread.cpp.o: ../../net/EventLoopThread.cpp
+net/CMakeFiles/net.dir/EventLoopThread.cpp.o: ../../net/EventLoopThread.h
+
+net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../../base/Base.h
+net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../../base/Condition.h
+net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../../base/Mutex.h
+net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../../base/Thread.h
+net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../../base/Timestamp.h
+net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../../net/EventLoop.h
+net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../../net/EventLoopThread.h
+net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../../net/EventLoopThreadPool.cpp
+net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../../net/EventLoopThreadPool.h
+
 net/CMakeFiles/net.dir/Socket.cpp.o: ../../base/Base.h
 net/CMakeFiles/net.dir/Socket.cpp.o: ../../base/FixedBuffer.h
 net/CMakeFiles/net.dir/Socket.cpp.o: ../../base/LogStream.h
@@ -100,6 +119,7 @@ net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/AddrStruct.h
 net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/Channel.h
 net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/Connection.h
 net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/EventLoop.h
+net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/EventLoopThreadPool.h
 net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/Socket.h
 net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/SocketOps.h
 net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/TcpServer.cpp

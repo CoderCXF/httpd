@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/net.dir/Connection.cpp.o"
   "CMakeFiles/net.dir/EPoll.cpp.o"
   "CMakeFiles/net.dir/EventLoop.cpp.o"
+  "CMakeFiles/net.dir/EventLoopThread.cpp.o"
+  "CMakeFiles/net.dir/EventLoopThreadPool.cpp.o"
   "CMakeFiles/net.dir/Socket.cpp.o"
   "CMakeFiles/net.dir/SocketOps.cpp.o"
   "CMakeFiles/net.dir/TcpServer.cpp.o"

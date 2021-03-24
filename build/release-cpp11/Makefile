@@ -395,17 +395,30 @@ EventLoop_test/fast:
 .PHONY : EventLoop_test/fast
 
 #=============================================================================
-# Target rules for targets named TcpServer_test01
+# Target rules for targets named TcpServer_test02_EventLoopThreadPool
 
 # Build rule for target.
-TcpServer_test01: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TcpServer_test01
-.PHONY : TcpServer_test01
+TcpServer_test02_EventLoopThreadPool: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TcpServer_test02_EventLoopThreadPool
+.PHONY : TcpServer_test02_EventLoopThreadPool
 
 # fast build rule for target.
-TcpServer_test01/fast:
-	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test01.dir/build.make net/test/CMakeFiles/TcpServer_test01.dir/build
-.PHONY : TcpServer_test01/fast
+TcpServer_test02_EventLoopThreadPool/fast:
+	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/build.make net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/build
+.PHONY : TcpServer_test02_EventLoopThreadPool/fast
+
+#=============================================================================
+# Target rules for targets named TcpServer_test01_signleThread
+
+# Build rule for target.
+TcpServer_test01_signleThread: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TcpServer_test01_signleThread
+.PHONY : TcpServer_test01_signleThread
+
+# fast build rule for target.
+TcpServer_test01_signleThread/fast:
+	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test01_signleThread.dir/build.make net/test/CMakeFiles/TcpServer_test01_signleThread.dir/build
+.PHONY : TcpServer_test01_signleThread/fast
 
 #=============================================================================
 # Target rules for targets named Reactor02_test
@@ -445,7 +458,8 @@ help:
 	@echo "... Reactor02_test"
 	@echo "... Singleton"
 	@echo "... Socket_test"
-	@echo "... TcpServer_test01"
+	@echo "... TcpServer_test01_signleThread"
+	@echo "... TcpServer_test02_EventLoopThreadPool"
 	@echo "... Thread"
 	@echo "... Threadpool"
 	@echo "... Timestamp"

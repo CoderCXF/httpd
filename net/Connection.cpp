@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-23 20:49:01
+ * @LastEditTime: 2021-03-24 10:06:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
@@ -26,7 +26,8 @@ Connection::Connection(EventLoop* loop,
          localAddr_(localAddr),
          peerAddr_(peerAddr)
 {
-        // 通道可读事件到来的时候，会调用Connection::handleRead函数(也就是下面这个函数)
+        // 通道可读事件到来的时候，会调用Channel::handleEvent,
+        // Connection::handleRead函数(也就是下面这个函数)
         channel_->setReadCallback(std::bind(&Connection::handleRead, this, std::placeholders::_1));
         channel_->setCloseCallback(std::bind(&Connection::handleClose, this));
         channel_->setErrorCallback(std::bind(&Connection::handleError, this));
@@ -103,12 +104,13 @@ void Connection::handleClose() {
         LOG_DEBUG << "Connection::handlwClose()";
         loop_->assertInLoopThread();
         channel_->disableAll();
+        setState(StateE::kdisconnected);
         // closeCallback是一个内部函数，和connectionCallback以及messageCallback不一样，
         // 这里的closeCallback实际上就是调用了TcpServer::removeConnection
         closeCallback_(shared_from_this()); 
 }
 //
-/// error
+/// handle error
 //
 
 void Connection::handleError() {

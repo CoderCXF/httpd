@@ -49,6 +49,8 @@ endif()
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/muduo/net" TYPE FILE FILES
     "/home/cxf/Desktop/WebServer/net/EventLoop.h"
+    "/home/cxf/Desktop/WebServer/net/EventLoopThread.h"
+    "/home/cxf/Desktop/WebServer/net/EventLoopThreadPool.h"
     "/home/cxf/Desktop/WebServer/net/Channel.h"
     "/home/cxf/Desktop/WebServer/net/EPoll.h"
     "/home/cxf/Desktop/WebServer/net/SocketOps.h"

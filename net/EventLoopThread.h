@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-16 18:09:29
- * @LastEditTime: 2021-03-17 10:33:26
+ * @LastEditTime: 2021-03-24 07:44:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/EventLoopThread.h
@@ -19,7 +19,7 @@ class EventLoop;
 
 class EventLoopThread{
 public: 
-    EventLoopThread(const std::string name);
+    EventLoopThread(const std::string name = std::string());
     ~EventLoopThread();
     EventLoop* startLoop();
 
