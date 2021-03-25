@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:48
- * @LastEditTime: 2021-03-24 14:16:49
+ * @LastEditTime: 2021-03-25 16:40:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.cpp
@@ -72,6 +72,7 @@ void TcpServer::newConnectionCallback(int sockfd, const AddrStruct& peerAddr) {
     // 断开连接，服务器所发送的消息
     conn->setCloseCallback(
         std::bind(&TcpServer::removeConnection, this, std::placeholders::_1));
+    conn->setWriteCompleteCallback(writeCompleteCallback_);
     // conn->setCloseConnectionCallback();
     // conn->connectEstablished();
     // FIXME:

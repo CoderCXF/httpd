@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:30
- * @LastEditTime: 2021-03-25 08:42:24
+ * @LastEditTime: 2021-03-25 17:55:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.h
@@ -24,10 +24,12 @@ class Connection : public std::enable_shared_from_this<Connection>{
 public:
     typedef std::shared_ptr<Connection> TcpConnectionPtr;
     typedef std::function<void(const TcpConnectionPtr&)> ConnectionCallback;
-    typedef std::function<void(const TcpConnectionPtr&)> CloseCallback;;
+    typedef std::function<void(const TcpConnectionPtr&)> CloseCallback;
     typedef std::function<void (const TcpConnectionPtr&,
                             Buffer*,
                             Timestamp)> MessageCallback;
+    typedef std::function<void(const TcpConnectionPtr&)> WriteCompleteCallback;
+    typedef std::function<void(const TcpConnectionPtr&, size_t)> HighWaterMarkCallback;
     // temporary
     // typedef std::function<void (const TcpConnectionPtr&,
     //                         const char*,
@@ -40,13 +42,17 @@ public:
     ~Connection();
     void setConnectionCallback(const ConnectionCallback& cb) { connectionCallback_ = cb; }
     void setMessasgeCallback(const MessageCallback& cb) { messageCallback_ = cb; }
-    void setCloseCallback(const CloseCallback& cb) { closeCallback_ = cb; }
+    void setCloseCallback(const CloseCallback& cb) { writeCompleteCallback_ = cb; }
+    void setWriteCompleteCallback(const WriteCompleteCallback& cb) { closeCallback_ = cb; }
+    void setHighWatermarkCallback(const HighWaterMarkCallback& cb, size_t highWaterMark) 
+    { highWaterMarkCallback_ = cb; highWaterMark_ = highWaterMark; }
     
     //TODO:未完成
     /// TcpServer call
     void connectEstablished();
     void connectDestroy();
     void handleRead(Timestamp receiveTime);
+    void handleWrite();
     void handleClose();
     void handleError();
 
@@ -68,7 +74,9 @@ private:
     void setState(StateE state) { state_ = state; }
     // send & shutdown
     void sendInLoop(const std::string &data);
+    void sendInLoop(const char* buf, size_t len);
     void shutdownInLoop();
+    
     EventLoop *loop_;
     const std::string connName;
     std::unique_ptr<Socket> socket_;
@@ -76,10 +84,13 @@ private:
     StateE state_;
     const AddrStruct localAddr_; //server sockaddr_in
     const AddrStruct peerAddr_;  // conn(client) sockaddr_in
+    size_t highWaterMark_;
     ConnectionCallback connectionCallback_;
     MessageCallback messageCallback_;
     CloseCallback closeCallback_; // TcpServer::removeConnection
-    Buffer inputBuffrr_;
+    WriteCompleteCallback writeCompleteCallback_;
+    HighWaterMarkCallback highWaterMarkCallback_;
+    Buffer inputBuffer_;
     Buffer outputBuffer_;
 };
 

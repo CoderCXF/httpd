@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:39
- * @LastEditTime: 2021-03-25 08:31:57
+ * @LastEditTime: 2021-03-25 16:39:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.h
@@ -28,6 +28,7 @@ public:
     // typedef std::function<void (const TcpConnectionPtr&,
     //                         const char*,
     //                         ssize_t len)> MessageCallback;
+    typedef std::function<void(const TcpConnectionPtr&)> WriteCompleteCallback;
     TcpServer(EventLoop *loop, 
             AddrStruct &listenAddr,
             const std::string& name,
@@ -39,6 +40,7 @@ public:
     // 然后会调用Connection::setConnectionCallback将该函数注册进Connection中
     void setConnectionCallback(const ConnectionCallback& cb) { connectioncallback_  = cb; }
     void setMessageCallback(const MessageCallback& cb) { messagecallback_  = cb; }
+    void setWriteCompleteCallback(const WriteCompleteCallback& cb) { writeCompleteCallback_  = cb; }
     void setThreadNum(int threadNum);
 
     // for debug
@@ -59,6 +61,7 @@ private:
     ConnectionCallback connectioncallback_;
     MessageCallback messagecallback_;
     CloseCallback closeCallback_; // == TcpServer::removeConnection
+    WriteCompleteCallback writeCompleteCallback_;
     ConnectionMap connections_; // 维护一个连接链表
 };
 #endif
