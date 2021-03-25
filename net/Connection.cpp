@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-24 14:44:40
+ * @LastEditTime: 2021-03-25 08:32:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
@@ -57,12 +57,15 @@ void Connection::handleRead(Timestamp receiveTime)
         // LOG_SYSERR << "TcpConnection::handleRead";
         // handleError();
         // }
-        char buf[65535];
-        size_t n = ::read(channel_->fd(), buf, sizeof buf);
+        // char buf[65535];
+        // size_t n = ::read(channel_->fd(), buf, sizeof buf);
+        int saveErrno = 0;
+        ssize_t n = inputBuffrr_.readFd(channel_->fd(), &saveErrno);
         // messageCallback_(shared_from_this(), buf, n);
         if (n > 0)
         {
-                messageCallback_(shared_from_this(), buf, sizeof buf);
+                // messageCallback_(shared_from_this(), buf, sizeof buf);
+                messageCallback_(shared_from_this(), &inputBuffrr_, receiveTime);
         }
         else if (n == 0)
         {
@@ -119,3 +122,54 @@ void Connection::handleError() {
         LOG_ERROR << "Tcp::Connection";
 }
 
+void Connection::send(const char* data, int len) {
+        if (state_ == StateE::kconnected && loop_->isInLoopThread()) {
+                sendInLoop(std::forward<std::string>(data));
+        } else {
+                loop_->runInLoop(std::bind(
+                        &Connection::sendInLoop,
+                        this,
+                        std::forward<std::string>(data)
+                ));
+        }
+}
+
+void Connection::send(const void *data, int len) {
+        send(static_cast<const char *>(data), len);
+}
+
+void Connection::send(const std::string &data) {
+        if (state_ == StateE::kconnected &&loop_->isInLoopThread()) {
+                sendInLoop(data);
+        } else {
+                loop_->runInLoop(std::bind(
+                        &Connection::sendInLoop,
+                        this,
+                        data));
+        }
+}
+void Connection::send(Buffer *data) {
+        if (state_ == StateE::kconnected &&loop_->isInLoopThread()) {
+                sendInLoop(data->retrieveAllAsString());
+                data->retrieveAll();
+        } else {
+                loop_->runInLoop(std::bind(
+                        &Connection::sendInLoop,
+                        this,
+                        data->retrieveAllAsString()
+                ));
+        }
+}
+
+void Connection::sendInLoop(const std::string &data) {
+        assert(loop_->isInLoopThread());
+        sockets::write(channel_->fd(), data.c_str(), data.size());
+}
+
+void Connection::shutdown() {
+
+}
+
+void Connection::shutdownInLoop() {
+        
+}

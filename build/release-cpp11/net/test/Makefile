@@ -87,18 +87,6 @@ install/local/fast: preinstall/fast
 	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -120,6 +108,18 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target test
 test:
@@ -217,6 +217,21 @@ Socket_test/fast:
 .PHONY : Socket_test/fast
 
 # Convenience name for target.
+net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/rule:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/rule
+.PHONY : net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/rule
+
+# Convenience name for target.
+TcpServer_test03_Buffer_send: net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/rule
+
+.PHONY : TcpServer_test03_Buffer_send
+
+# fast build rule for target.
+TcpServer_test03_Buffer_send/fast:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/build.make net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/build
+.PHONY : TcpServer_test03_Buffer_send/fast
+
+# Convenience name for target.
 net/test/CMakeFiles/EventLoop_test.dir/rule:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/test/CMakeFiles/EventLoop_test.dir/rule
 .PHONY : net/test/CMakeFiles/EventLoop_test.dir/rule
@@ -230,36 +245,6 @@ EventLoop_test: net/test/CMakeFiles/EventLoop_test.dir/rule
 EventLoop_test/fast:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/EventLoop_test.dir/build.make net/test/CMakeFiles/EventLoop_test.dir/build
 .PHONY : EventLoop_test/fast
-
-# Convenience name for target.
-net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/rule:
-	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/rule
-.PHONY : net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/rule
-
-# Convenience name for target.
-TcpServer_test02_EventLoopThreadPool: net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/rule
-
-.PHONY : TcpServer_test02_EventLoopThreadPool
-
-# fast build rule for target.
-TcpServer_test02_EventLoopThreadPool/fast:
-	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/build.make net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/build
-.PHONY : TcpServer_test02_EventLoopThreadPool/fast
-
-# Convenience name for target.
-net/test/CMakeFiles/TcpServer_test01_signleThread.dir/rule:
-	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/test/CMakeFiles/TcpServer_test01_signleThread.dir/rule
-.PHONY : net/test/CMakeFiles/TcpServer_test01_signleThread.dir/rule
-
-# Convenience name for target.
-TcpServer_test01_signleThread: net/test/CMakeFiles/TcpServer_test01_signleThread.dir/rule
-
-.PHONY : TcpServer_test01_signleThread
-
-# fast build rule for target.
-TcpServer_test01_signleThread/fast:
-	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test01_signleThread.dir/build.make net/test/CMakeFiles/TcpServer_test01_signleThread.dir/build
-.PHONY : TcpServer_test01_signleThread/fast
 
 # Convenience name for target.
 net/test/CMakeFiles/Reactor02_test.dir/rule:
@@ -384,59 +369,32 @@ Socket_test.cpp.s:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/Socket_test.dir/build.make net/test/CMakeFiles/Socket_test.dir/Socket_test.cpp.s
 .PHONY : Socket_test.cpp.s
 
-TcpServer_test01_signleThread.o: TcpServer_test01_signleThread.cpp.o
+TcpServer_test03_Buffer_send.o: TcpServer_test03_Buffer_send.cpp.o
 
-.PHONY : TcpServer_test01_signleThread.o
-
-# target to build an object file
-TcpServer_test01_signleThread.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test01_signleThread.dir/build.make net/test/CMakeFiles/TcpServer_test01_signleThread.dir/TcpServer_test01_signleThread.cpp.o
-.PHONY : TcpServer_test01_signleThread.cpp.o
-
-TcpServer_test01_signleThread.i: TcpServer_test01_signleThread.cpp.i
-
-.PHONY : TcpServer_test01_signleThread.i
-
-# target to preprocess a source file
-TcpServer_test01_signleThread.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test01_signleThread.dir/build.make net/test/CMakeFiles/TcpServer_test01_signleThread.dir/TcpServer_test01_signleThread.cpp.i
-.PHONY : TcpServer_test01_signleThread.cpp.i
-
-TcpServer_test01_signleThread.s: TcpServer_test01_signleThread.cpp.s
-
-.PHONY : TcpServer_test01_signleThread.s
-
-# target to generate assembly for a file
-TcpServer_test01_signleThread.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test01_signleThread.dir/build.make net/test/CMakeFiles/TcpServer_test01_signleThread.dir/TcpServer_test01_signleThread.cpp.s
-.PHONY : TcpServer_test01_signleThread.cpp.s
-
-TcpServer_test02_EventLoopThreadPool.o: TcpServer_test02_EventLoopThreadPool.cpp.o
-
-.PHONY : TcpServer_test02_EventLoopThreadPool.o
+.PHONY : TcpServer_test03_Buffer_send.o
 
 # target to build an object file
-TcpServer_test02_EventLoopThreadPool.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/build.make net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_EventLoopThreadPool.cpp.o
-.PHONY : TcpServer_test02_EventLoopThreadPool.cpp.o
+TcpServer_test03_Buffer_send.cpp.o:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/build.make net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/TcpServer_test03_Buffer_send.cpp.o
+.PHONY : TcpServer_test03_Buffer_send.cpp.o
 
-TcpServer_test02_EventLoopThreadPool.i: TcpServer_test02_EventLoopThreadPool.cpp.i
+TcpServer_test03_Buffer_send.i: TcpServer_test03_Buffer_send.cpp.i
 
-.PHONY : TcpServer_test02_EventLoopThreadPool.i
+.PHONY : TcpServer_test03_Buffer_send.i
 
 # target to preprocess a source file
-TcpServer_test02_EventLoopThreadPool.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/build.make net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_EventLoopThreadPool.cpp.i
-.PHONY : TcpServer_test02_EventLoopThreadPool.cpp.i
+TcpServer_test03_Buffer_send.cpp.i:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/build.make net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/TcpServer_test03_Buffer_send.cpp.i
+.PHONY : TcpServer_test03_Buffer_send.cpp.i
 
-TcpServer_test02_EventLoopThreadPool.s: TcpServer_test02_EventLoopThreadPool.cpp.s
+TcpServer_test03_Buffer_send.s: TcpServer_test03_Buffer_send.cpp.s
 
-.PHONY : TcpServer_test02_EventLoopThreadPool.s
+.PHONY : TcpServer_test03_Buffer_send.s
 
 # target to generate assembly for a file
-TcpServer_test02_EventLoopThreadPool.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/build.make net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_EventLoopThreadPool.cpp.s
-.PHONY : TcpServer_test02_EventLoopThreadPool.cpp.s
+TcpServer_test03_Buffer_send.cpp.s:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/build.make net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/TcpServer_test03_Buffer_send.cpp.s
+.PHONY : TcpServer_test03_Buffer_send.cpp.s
 
 # Help Target
 help:
@@ -455,8 +413,7 @@ help:
 	@echo "... EventLoop_test"
 	@echo "... Reactor02_test"
 	@echo "... Socket_test"
-	@echo "... TcpServer_test01_signleThread"
-	@echo "... TcpServer_test02_EventLoopThreadPool"
+	@echo "... TcpServer_test03_Buffer_send"
 	@echo "... Acceptor_test.o"
 	@echo "... Acceptor_test.i"
 	@echo "... Acceptor_test.s"
@@ -469,12 +426,9 @@ help:
 	@echo "... Socket_test.o"
 	@echo "... Socket_test.i"
 	@echo "... Socket_test.s"
-	@echo "... TcpServer_test01_signleThread.o"
-	@echo "... TcpServer_test01_signleThread.i"
-	@echo "... TcpServer_test01_signleThread.s"
-	@echo "... TcpServer_test02_EventLoopThreadPool.o"
-	@echo "... TcpServer_test02_EventLoopThreadPool.i"
-	@echo "... TcpServer_test02_EventLoopThreadPool.s"
+	@echo "... TcpServer_test03_Buffer_send.o"
+	@echo "... TcpServer_test03_Buffer_send.i"
+	@echo "... TcpServer_test03_Buffer_send.s"
 .PHONY : help
 
 

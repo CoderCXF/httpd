@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:30
- * @LastEditTime: 2021-03-23 20:34:36
+ * @LastEditTime: 2021-03-25 08:42:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.h
@@ -10,6 +10,7 @@
 #define CONNECTION_H
 
 #include "AddrStruct.h"
+#include "Buffer.h"
 #include "../base/Timestamp.h"
 #include "../base/Logging.h"
 #include <memory>
@@ -24,13 +25,13 @@ public:
     typedef std::shared_ptr<Connection> TcpConnectionPtr;
     typedef std::function<void(const TcpConnectionPtr&)> ConnectionCallback;
     typedef std::function<void(const TcpConnectionPtr&)> CloseCallback;;
-    // typedef std::function<void (const TcpConnectionPtr&,
-    //                         Buffer*,
-    //                         Timestamp)> MessageCallback;
-    // temporary
     typedef std::function<void (const TcpConnectionPtr&,
-                            const char*,
-                            ssize_t len)> MessageCallback;
+                            Buffer*,
+                            Timestamp)> MessageCallback;
+    // temporary
+    // typedef std::function<void (const TcpConnectionPtr&,
+    //                         const char*,
+    //                         ssize_t len)> MessageCallback;
     Connection(EventLoop* loop,
                 const std::string& name,
                 int sockfd,
@@ -48,6 +49,14 @@ public:
     void handleRead(Timestamp receiveTime);
     void handleClose();
     void handleError();
+
+    // 向客户端回送消息 & 服务器(主动)单向关闭
+    void send(const char* data, int len);
+    void send(const void *data, int len);
+    void send(const std::string &data);
+    void send(Buffer *data);
+
+    void shutdown();
     // simple api
     const std::string name() { return connName; }
     const AddrStruct& localAddress() const { return localAddr_; }
@@ -57,6 +66,9 @@ public:
 private:
     enum StateE{kdisconnected, kconnecting, kconnected, kdisconnecting};
     void setState(StateE state) { state_ = state; }
+    // send & shutdown
+    void sendInLoop(const std::string &data);
+    void shutdownInLoop();
     EventLoop *loop_;
     const std::string connName;
     std::unique_ptr<Socket> socket_;
@@ -67,6 +79,8 @@ private:
     ConnectionCallback connectionCallback_;
     MessageCallback messageCallback_;
     CloseCallback closeCallback_; // TcpServer::removeConnection
+    Buffer inputBuffrr_;
+    Buffer outputBuffer_;
 };
 
 

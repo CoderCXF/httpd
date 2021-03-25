@@ -19,6 +19,11 @@ net/CMakeFiles/net.dir/Acceptor.cpp.o: ../../net/SocketOps.h
 net/CMakeFiles/net.dir/AddrStruct.cpp.o: ../../net/AddrStruct.cpp
 net/CMakeFiles/net.dir/AddrStruct.cpp.o: ../../net/AddrStruct.h
 
+net/CMakeFiles/net.dir/Buffer.cpp.o: ../../net/AddrStruct.h
+net/CMakeFiles/net.dir/Buffer.cpp.o: ../../net/Buffer.cpp
+net/CMakeFiles/net.dir/Buffer.cpp.o: ../../net/Buffer.h
+net/CMakeFiles/net.dir/Buffer.cpp.o: ../../net/Socket.h
+
 net/CMakeFiles/net.dir/Channel.cpp.o: ../../base/Base.h
 net/CMakeFiles/net.dir/Channel.cpp.o: ../../base/FixedBuffer.h
 net/CMakeFiles/net.dir/Channel.cpp.o: ../../base/LogStream.h
@@ -38,6 +43,7 @@ net/CMakeFiles/net.dir/Connection.cpp.o: ../../base/Mutex.h
 net/CMakeFiles/net.dir/Connection.cpp.o: ../../base/Thread.h
 net/CMakeFiles/net.dir/Connection.cpp.o: ../../base/Timestamp.h
 net/CMakeFiles/net.dir/Connection.cpp.o: ../../net/AddrStruct.h
+net/CMakeFiles/net.dir/Connection.cpp.o: ../../net/Buffer.h
 net/CMakeFiles/net.dir/Connection.cpp.o: ../../net/Channel.h
 net/CMakeFiles/net.dir/Connection.cpp.o: ../../net/Connection.cpp
 net/CMakeFiles/net.dir/Connection.cpp.o: ../../net/Connection.h
@@ -116,6 +122,7 @@ net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../base/Thread.h
 net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../base/Timestamp.h
 net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/Acceptor.h
 net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/AddrStruct.h
+net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/Buffer.h
 net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/Channel.h
 net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/Connection.h
 net/CMakeFiles/net.dir/TcpServer.cpp.o: ../../net/EventLoop.h

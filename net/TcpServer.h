@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:39
- * @LastEditTime: 2021-03-24 16:22:33
+ * @LastEditTime: 2021-03-25 08:31:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.h
@@ -11,6 +11,8 @@
 #include "Acceptor.h"
 #include "EventLoopThreadPool.h"
 #include <map>
+#include "Buffer.h"
+#include "../base/Timestamp.h"
 
 class EventLoop;
 class Connection;
@@ -20,12 +22,12 @@ public:
     typedef std::function<void(const TcpConnectionPtr&)> ConnectionCallback;
     typedef std::function<void(const TcpConnectionPtr&)> CloseCallback;
 
-    // typedef std::function<void (const TcpConnectionPtr&,
-    //                         Buffer*,
-    //                         Timestamp)> MessageCallback;
     typedef std::function<void (const TcpConnectionPtr&,
-                            const char*,
-                            ssize_t len)> MessageCallback;
+                            Buffer*,
+                            Timestamp)> MessageCallback;
+    // typedef std::function<void (const TcpConnectionPtr&,
+    //                         const char*,
+    //                         ssize_t len)> MessageCallback;
     TcpServer(EventLoop *loop, 
             AddrStruct &listenAddr,
             const std::string& name,

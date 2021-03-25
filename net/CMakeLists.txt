@@ -16,6 +16,7 @@ set(net_SRCS
   AddrStruct.cpp
   Acceptor.cpp
   TcpServer.cpp
+  Buffer.cpp
   Connection.cpp
   )
 
@@ -41,6 +42,7 @@ set(HEADERS
   AddrStruct.h
   Acceptor.h
   TcpServer.h
+  Buffer.h
   Connection.h
   )
 install(FILES ${HEADERS} DESTINATION include/muduo/net)

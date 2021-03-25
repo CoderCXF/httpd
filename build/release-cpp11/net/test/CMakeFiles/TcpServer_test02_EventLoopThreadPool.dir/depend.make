@@ -10,6 +10,7 @@ net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_Ev
 net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_EventLoopThreadPool.cpp.o: ../../base/Timestamp.h
 net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_EventLoopThreadPool.cpp.o: ../../net/Acceptor.h
 net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_EventLoopThreadPool.cpp.o: ../../net/AddrStruct.h
+net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_EventLoopThreadPool.cpp.o: ../../net/Buffer.h
 net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_EventLoopThreadPool.cpp.o: ../../net/Channel.h
 net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_EventLoopThreadPool.cpp.o: ../../net/Connection.h
 net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_EventLoopThreadPool.cpp.o: ../../net/EventLoop.h

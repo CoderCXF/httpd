@@ -19,6 +19,11 @@ net/CMakeFiles/net.dir/Acceptor.cpp.o
 net/CMakeFiles/net.dir/AddrStruct.cpp.o
  /home/cxf/Desktop/WebServer/net/AddrStruct.cpp
  /home/cxf/Desktop/WebServer/net/AddrStruct.h
+net/CMakeFiles/net.dir/Buffer.cpp.o
+ /home/cxf/Desktop/WebServer/net/AddrStruct.h
+ /home/cxf/Desktop/WebServer/net/Buffer.cpp
+ /home/cxf/Desktop/WebServer/net/Buffer.h
+ /home/cxf/Desktop/WebServer/net/Socket.h
 net/CMakeFiles/net.dir/Channel.cpp.o
  /home/cxf/Desktop/WebServer/base/Base.h
  /home/cxf/Desktop/WebServer/base/FixedBuffer.h
@@ -39,6 +44,7 @@ net/CMakeFiles/net.dir/Connection.cpp.o
  /home/cxf/Desktop/WebServer/base/Thread.h
  /home/cxf/Desktop/WebServer/base/Timestamp.h
  /home/cxf/Desktop/WebServer/net/AddrStruct.h
+ /home/cxf/Desktop/WebServer/net/Buffer.h
  /home/cxf/Desktop/WebServer/net/Channel.h
  /home/cxf/Desktop/WebServer/net/Connection.cpp
  /home/cxf/Desktop/WebServer/net/Connection.h
@@ -117,6 +123,7 @@ net/CMakeFiles/net.dir/TcpServer.cpp.o
  /home/cxf/Desktop/WebServer/base/Timestamp.h
  /home/cxf/Desktop/WebServer/net/Acceptor.h
  /home/cxf/Desktop/WebServer/net/AddrStruct.h
+ /home/cxf/Desktop/WebServer/net/Buffer.h
  /home/cxf/Desktop/WebServer/net/Channel.h
  /home/cxf/Desktop/WebServer/net/Connection.h
  /home/cxf/Desktop/WebServer/net/EventLoop.h

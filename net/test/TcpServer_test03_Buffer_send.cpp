@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-23 16:11:07
- * @LastEditTime: 2021-03-25 08:35:22
+ * @LastEditTime: 2021-03-25 08:38:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/test/TcpServer_test01.cpp
@@ -22,18 +22,22 @@ void onConnection(const TcpConnectionPtr& conn) {
 }
 
 void onMessage(const TcpConnectionPtr& conn,
-                const char *data,
-                ssize_t len) {
-    printf("onMessage: receive [%ld] bytes from connection [%s]\n",
-            len,
+                Buffer *buf,
+                Timestamp receiveTime) {
+    std::string msg(buf->retrieveAllAsString());
+    printf("onMessage: receive [%ld] bytes message is [%s] from connection [%s]\n",
+            buf->readableBytes(),
+            msg.c_str(),
             conn->name().c_str());
+    // echo back
+    conn->send(buf);
 }
 
 int main() {
     EventLoop loop;
     AddrStruct listenAddr(9999);
     TcpServer server(&loop, listenAddr, "TcpServer_test01");
-    // FIXME: MessageCallback has used Buffer
+
     server.setConnectionCallback(onConnection);
     server.setMessageCallback(onMessage);
     server.start();
