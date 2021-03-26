@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:39
- * @LastEditTime: 2021-03-25 16:39:55
+ * @LastEditTime: 2021-03-25 20:47:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.h
@@ -29,6 +29,8 @@ public:
     //                         const char*,
     //                         ssize_t len)> MessageCallback;
     typedef std::function<void(const TcpConnectionPtr&)> WriteCompleteCallback;
+    typedef std::function<void(const TcpConnectionPtr&, size_t)> HighWaterMarkCallback;
+
     TcpServer(EventLoop *loop, 
             AddrStruct &listenAddr,
             const std::string& name,
@@ -38,6 +40,7 @@ public:
     void start();
     // 这是为用户提供的接口，用户调用该setConnectionCallback注册函数，
     // 然后会调用Connection::setConnectionCallback将该函数注册进Connection中
+    // for user api
     void setConnectionCallback(const ConnectionCallback& cb) { connectioncallback_  = cb; }
     void setMessageCallback(const MessageCallback& cb) { messagecallback_  = cb; }
     void setWriteCompleteCallback(const WriteCompleteCallback& cb) { writeCompleteCallback_  = cb; }

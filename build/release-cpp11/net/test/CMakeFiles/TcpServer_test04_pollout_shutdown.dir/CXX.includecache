@@ -106,6 +106,18 @@ string.h
 stdint.h
 -
 
+/home/cxf/Desktop/WebServer/net/Buffer.h
+vector
+-
+stdlib.h
+-
+algorithm
+-
+assert.h
+-
+string
+-
+
 /home/cxf/Desktop/WebServer/net/Channel.h
 ../base/Timestamp.h
 /home/cxf/Desktop/WebServer/base/Timestamp.h
@@ -117,14 +129,18 @@ assert.h
 -
 
 /home/cxf/Desktop/WebServer/net/Connection.h
+memory
+-
+functional
+-
 AddrStruct.h
 /home/cxf/Desktop/WebServer/net/AddrStruct.h
+Buffer.h
+/home/cxf/Desktop/WebServer/net/Buffer.h
 ../base/Timestamp.h
 /home/cxf/Desktop/WebServer/base/Timestamp.h
 ../base/Logging.h
 /home/cxf/Desktop/WebServer/base/Logging.h
-memory
--
 
 /home/cxf/Desktop/WebServer/net/EventLoop.h
 atomic
@@ -173,8 +189,12 @@ EventLoopThreadPool.h
 /home/cxf/Desktop/WebServer/net/EventLoopThreadPool.h
 map
 -
+Buffer.h
+/home/cxf/Desktop/WebServer/net/Buffer.h
+../base/Timestamp.h
+/home/cxf/Desktop/WebServer/base/Timestamp.h
 
-/home/cxf/Desktop/WebServer/net/test/TcpServer_test01.cpp
+/home/cxf/Desktop/WebServer/net/test/TcpServer_test04_pollout_shutdown.cpp
 ../TcpServer.h
 /home/cxf/Desktop/WebServer/net/TcpServer.h
 ../EventLoop.h

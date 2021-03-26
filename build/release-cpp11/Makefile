@@ -408,6 +408,19 @@ EventLoop_test/fast:
 .PHONY : EventLoop_test/fast
 
 #=============================================================================
+# Target rules for targets named TcpServer_test04_pollout_shutdown
+
+# Build rule for target.
+TcpServer_test04_pollout_shutdown: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TcpServer_test04_pollout_shutdown
+.PHONY : TcpServer_test04_pollout_shutdown
+
+# fast build rule for target.
+TcpServer_test04_pollout_shutdown/fast:
+	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/build.make net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/build
+.PHONY : TcpServer_test04_pollout_shutdown/fast
+
+#=============================================================================
 # Target rules for targets named Reactor02_test
 
 # Build rule for target.
@@ -446,6 +459,7 @@ help:
 	@echo "... Singleton"
 	@echo "... Socket_test"
 	@echo "... TcpServer_test03_Buffer_send"
+	@echo "... TcpServer_test04_pollout_shutdown"
 	@echo "... Thread"
 	@echo "... Threadpool"
 	@echo "... Timestamp"

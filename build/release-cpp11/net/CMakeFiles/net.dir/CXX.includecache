@@ -106,16 +106,6 @@ string.h
 stdint.h
 -
 
-/home/cxf/Desktop/WebServer/net/Buffer.cpp
-errno.h
--
-sys/uio.h
--
-Buffer.h
-/home/cxf/Desktop/WebServer/net/Buffer.h
-Socket.h
-/home/cxf/Desktop/WebServer/net/Socket.h
-
 /home/cxf/Desktop/WebServer/net/Buffer.h
 vector
 -
@@ -143,14 +133,18 @@ Connection.h
 /home/cxf/Desktop/WebServer/net/Connection.h
 EventLoop.h
 /home/cxf/Desktop/WebServer/net/EventLoop.h
-Socket.h
-/home/cxf/Desktop/WebServer/net/Socket.h
 Channel.h
 /home/cxf/Desktop/WebServer/net/Channel.h
+Socket.h
+/home/cxf/Desktop/WebServer/net/Socket.h
 SocketOps.h
 /home/cxf/Desktop/WebServer/net/SocketOps.h
 
 /home/cxf/Desktop/WebServer/net/Connection.h
+memory
+-
+functional
+-
 AddrStruct.h
 /home/cxf/Desktop/WebServer/net/AddrStruct.h
 Buffer.h
@@ -159,26 +153,6 @@ Buffer.h
 /home/cxf/Desktop/WebServer/base/Timestamp.h
 ../base/Logging.h
 /home/cxf/Desktop/WebServer/base/Logging.h
-memory
--
-
-/home/cxf/Desktop/WebServer/net/EPoll.cpp
-EPoll.h
-/home/cxf/Desktop/WebServer/net/EPoll.h
-Channel.h
-/home/cxf/Desktop/WebServer/net/Channel.h
-EventLoop.h
-/home/cxf/Desktop/WebServer/net/EventLoop.h
-sys/epoll.h
--
-
-/home/cxf/Desktop/WebServer/net/EPoll.h
-../base/Logging.h
-/home/cxf/Desktop/WebServer/base/Logging.h
-../base/Timestamp.h
-/home/cxf/Desktop/WebServer/base/Timestamp.h
-vector
--
 
 /home/cxf/Desktop/WebServer/net/EventLoop.h
 atomic

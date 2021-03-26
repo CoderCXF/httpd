@@ -87,6 +87,18 @@ install/local/fast: preinstall/fast
 	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -108,18 +120,6 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
 
 # Special rule for the target test
 test:
@@ -245,6 +245,21 @@ EventLoop_test: net/test/CMakeFiles/EventLoop_test.dir/rule
 EventLoop_test/fast:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/EventLoop_test.dir/build.make net/test/CMakeFiles/EventLoop_test.dir/build
 .PHONY : EventLoop_test/fast
+
+# Convenience name for target.
+net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/rule:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/rule
+.PHONY : net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/rule
+
+# Convenience name for target.
+TcpServer_test04_pollout_shutdown: net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/rule
+
+.PHONY : TcpServer_test04_pollout_shutdown
+
+# fast build rule for target.
+TcpServer_test04_pollout_shutdown/fast:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/build.make net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/build
+.PHONY : TcpServer_test04_pollout_shutdown/fast
 
 # Convenience name for target.
 net/test/CMakeFiles/Reactor02_test.dir/rule:
@@ -396,6 +411,33 @@ TcpServer_test03_Buffer_send.cpp.s:
 	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/build.make net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/TcpServer_test03_Buffer_send.cpp.s
 .PHONY : TcpServer_test03_Buffer_send.cpp.s
 
+TcpServer_test04_pollout_shutdown.o: TcpServer_test04_pollout_shutdown.cpp.o
+
+.PHONY : TcpServer_test04_pollout_shutdown.o
+
+# target to build an object file
+TcpServer_test04_pollout_shutdown.cpp.o:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/build.make net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/TcpServer_test04_pollout_shutdown.cpp.o
+.PHONY : TcpServer_test04_pollout_shutdown.cpp.o
+
+TcpServer_test04_pollout_shutdown.i: TcpServer_test04_pollout_shutdown.cpp.i
+
+.PHONY : TcpServer_test04_pollout_shutdown.i
+
+# target to preprocess a source file
+TcpServer_test04_pollout_shutdown.cpp.i:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/build.make net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/TcpServer_test04_pollout_shutdown.cpp.i
+.PHONY : TcpServer_test04_pollout_shutdown.cpp.i
+
+TcpServer_test04_pollout_shutdown.s: TcpServer_test04_pollout_shutdown.cpp.s
+
+.PHONY : TcpServer_test04_pollout_shutdown.s
+
+# target to generate assembly for a file
+TcpServer_test04_pollout_shutdown.cpp.s:
+	cd /home/cxf/Desktop/WebServer/build/release-cpp11 && $(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/build.make net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/TcpServer_test04_pollout_shutdown.cpp.s
+.PHONY : TcpServer_test04_pollout_shutdown.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -414,6 +456,7 @@ help:
 	@echo "... Reactor02_test"
 	@echo "... Socket_test"
 	@echo "... TcpServer_test03_Buffer_send"
+	@echo "... TcpServer_test04_pollout_shutdown"
 	@echo "... Acceptor_test.o"
 	@echo "... Acceptor_test.i"
 	@echo "... Acceptor_test.s"
@@ -429,6 +472,9 @@ help:
 	@echo "... TcpServer_test03_Buffer_send.o"
 	@echo "... TcpServer_test03_Buffer_send.i"
 	@echo "... TcpServer_test03_Buffer_send.s"
+	@echo "... TcpServer_test04_pollout_shutdown.o"
+	@echo "... TcpServer_test04_pollout_shutdown.i"
+	@echo "... TcpServer_test04_pollout_shutdown.s"
 .PHONY : help
 
 

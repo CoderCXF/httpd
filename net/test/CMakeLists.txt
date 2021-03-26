@@ -67,3 +67,6 @@ target_link_libraries(Acceptor_test net)
 
 add_executable(TcpServer_test03_Buffer_send TcpServer_test03_Buffer_send.cpp)
 target_link_libraries(TcpServer_test03_Buffer_send net)
+
+add_executable(TcpServer_test04_pollout_shutdown TcpServer_test04_pollout_shutdown.cpp)
+target_link_libraries(TcpServer_test04_pollout_shutdown net)

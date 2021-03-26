@@ -1,15 +1,15 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-25 17:57:36
+ * @LastEditTime: 2021-03-26 09:42:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
  */
 #include "Connection.h"
 #include "EventLoop.h"
-#include "Socket.h"
 #include "Channel.h"
+#include "Socket.h"
 #include "SocketOps.h"
 
 Connection::Connection(EventLoop *loop,
@@ -32,7 +32,7 @@ Connection::Connection(EventLoop *loop,
         channel_->setWriteCallback(std::bind(&Connection::handleWrite, this));
         channel_->setCloseCallback(std::bind(&Connection::handleClose, this));
         channel_->setErrorCallback(std::bind(&Connection::handleError, this));
-        sockets::setKeepAlive(true);
+        sockets::setKeepAlive(channel_->fd(), true); // 开启长连接,默认true
 }
 Connection::~Connection()
 {
@@ -76,47 +76,49 @@ void Connection::handleRead(Timestamp receiveTime)
         }
 }
 
-void Connection::handleWrite() {
-  // TODO:
+// 处理写事件，即负责将应用层buffer中的内容全部写入内核缓冲区
+void Connection::handleWrite()
+{
+        // TODO:
 
-  loop_->assertInLoopThread();
-  if (channel_->isWriting())
-  {
-    ssize_t n = sockets::write(channel_->fd(),
-                               outputBuffer_.peek(),
-                               outputBuffer_.readableBytes());
-    if (n > 0)
-    {
-      outputBuffer_.retrieve(n);
-      // 缓冲区已经全部写入内核缓冲区,停止监听写事件
-      if (outputBuffer_.readableBytes() == 0)
-      {
-        channel_->disableWriting();
-        if (writeCompleteCallback_)
+        loop_->assertInLoopThread();
+        if (channel_->isWriting())
         {
-          loop_->queueInLoop(std::bind(writeCompleteCallback_, shared_from_this()));
+                ssize_t n = sockets::write(channel_->fd(),
+                                           outputBuffer_.peek(),
+                                           outputBuffer_.readableBytes());
+                if (n > 0)
+                {
+                        outputBuffer_.retrieve(n);
+                        // 一旦缓冲区已经全部写入内核缓冲区,停止监听写事件
+                        if (outputBuffer_.readableBytes() == 0)
+                        {
+                                // 一旦缓冲区已经全部写入内核缓冲区,停止监听写事件
+                                channel_->disableWriting();
+                                if (writeCompleteCallback_)
+                                {
+                                        loop_->queueInLoop(std::bind(writeCompleteCallback_, shared_from_this()));
+                                }
+                                if (state_ == kdisconnecting)
+                                {
+                                        shutdownInLoop();
+                                }
+                        }
+                }
+                else
+                {
+                        LOG_SYSERR << "TcpConnection::handleWrite";
+                        // if (state_ == kDisconnecting)
+                        // {
+                        //   shutdownInLoop();
+                        // }
+                }
         }
-        if (state_ == kdisconnecting)
+        else
         {
-          shutdownInLoop();
+                LOG_TRACE << "Connection fd = " << channel_->fd()
+                          << " is down, no more writing";
         }
-      }
-    }
-    else
-    {
-      LOG_SYSERR << "TcpConnection::handleWrite";
-      // if (state_ == kDisconnecting)
-      // {
-      //   shutdownInLoop();
-      // }
-    }
-  }
-  else
-  {
-    LOG_TRACE << "Connection fd = " << channel_->fd()
-              << " is down, no more writing";
-  }
-
 }
 //
 /// 建立连接，并真正的回调用户注册的connectionCallback
@@ -235,6 +237,7 @@ void Connection::sendInLoop(const char *buf, size_t len)
         ssize_t nwrote = 0;
         if (!channel_->isWriting() && outputBuffer_.readableBytes() == 0)
         {
+                //这个时候应用层缓冲区没有数据，所以直接write即可
                 sockets::write(channel_->fd(), buf, len);
                 if (nwrote >= 0)
                 {
@@ -251,20 +254,22 @@ void Connection::sendInLoop(const char *buf, size_t len)
                         LOG_SYSERR << "Connection::sendInLoop";
                 }
         }
+
         assert(remaining <= len);
         // 如果一次性没有写完，意味着发送内核缓冲区已满，所以需要写入应用层buffer(output buffer)
-        if (remaining > 0) {
+        if (remaining > 0)
+        {
                 size_t oldLen = outputBuffer_.readableBytes();
-                if (oldLen + remaining >= highWaterMark_
-                        && oldLen < highWaterMark_
-                        && highWaterMarkCallback_)
+                if (oldLen + remaining >= highWaterMark_ && oldLen < highWaterMark_ && highWaterMarkCallback_)
                 {
-                        loop_->queueInLoop(std::bind(&Connection::highWaterMarkCallback_, shared_from_this(), oldLen + remaining));
+                        loop_->queueInLoop(std::bind(highWaterMarkCallback_, shared_from_this(), oldLen + remaining));
                 }
-                outputBuffer_.append(static_cast<const char*>(buf)+nwrote, remaining);
+                outputBuffer_.append(static_cast<const char *>(buf) + nwrote, remaining);
                 if (!channel_->isWriting())
                 {
-                        // 开始监听写事件
+                        // 开始监听写事件（服务器-->客户端）
+                        // 只要是server调用了send函数就开始监听写事件
+                        // （enableWriting-->Channel::update-->EPoll::updateChannel(epoll_ctl(EPOLL_CTL_ADD, EPOLL_OUT))）
                         channel_->enableWriting();
                 }
         }
@@ -272,22 +277,27 @@ void Connection::sendInLoop(const char *buf, size_t len)
 // 关闭写端，必须等到缓冲区数据全部写完之后再关闭
 void Connection::shutdown()
 {
-// FIXME: use compare and swap
-  if (state_ == kconnected)
-  {
-    setState(kdisconnecting);
-    // FIXME: shared_from_this()?
-    loop_->runInLoop(std::bind(&Connection::shutdownInLoop, shared_from_this()));
-  }
+        // FIXME: use compare and swap
+        if (state_ == kconnected)
+        {
+                setState(kdisconnecting);
+                // FIXME: shared_from_this()?
+                loop_->runInLoop(std::bind(&Connection::shutdownInLoop, shared_from_this()));
+        }
 }
 
 void Connection::shutdownInLoop()
 {
-  loop_->assertInLoopThread();
-  // 如果没有关注读事件的话
-  if (!channel_->isWriting())
-  {
-    // we are not writing
-    sockets::shutdownRDWR(channel_->fd());
-  }
+        loop_->assertInLoopThread();
+        // 如果没有关注读事件的话
+        if (!channel_->isWriting())
+        {
+                // we are not writing
+                sockets::shutdownRDWR(channel_->fd());
+        }
+}
+
+void Connection::setTcpNoDelay(bool on) 
+{ 
+        ::sockets::setTcpNoDelay(channel_->fd(), on); 
 }

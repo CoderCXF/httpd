@@ -186,6 +186,11 @@
 },
 {
   "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/TcpServer_test04_pollout_shutdown.dir/TcpServer_test04_pollout_shutdown.cpp.o -c /home/cxf/Desktop/WebServer/net/test/TcpServer_test04_pollout_shutdown.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/test/TcpServer_test04_pollout_shutdown.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/release-cpp11/net/test",
   "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O2 -DNDEBUG -o CMakeFiles/Reactor02_test.dir/Reactor02_test.cpp.o -c /home/cxf/Desktop/WebServer/net/test/Reactor02_test.cpp",
   "file": "/home/cxf/Desktop/WebServer/net/test/Reactor02_test.cpp"
 }
