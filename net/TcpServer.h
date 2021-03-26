@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:39
- * @LastEditTime: 2021-03-25 20:47:08
+ * @LastEditTime: 2021-03-26 14:20:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.h
@@ -33,8 +33,7 @@ public:
 
     TcpServer(EventLoop *loop, 
             AddrStruct &listenAddr,
-            const std::string& name,
-            bool portReused = true);
+            const std::string& name);
     ~TcpServer();
 
     void start();

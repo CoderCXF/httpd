@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-26 09:42:06
+ * @LastEditTime: 2021-03-26 14:28:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
@@ -210,7 +210,7 @@ void Connection::send(Buffer *data)
 {
         if (state_ == StateE::kconnected && loop_->isInLoopThread())
         {
-                sendInLoop(data->retrieveAllAsString());
+                sendInLoop(data->peek(), data->readableBytes());
                 data->retrieveAll();
         }
         else
@@ -238,7 +238,8 @@ void Connection::sendInLoop(const char *buf, size_t len)
         if (!channel_->isWriting() && outputBuffer_.readableBytes() == 0)
         {
                 //这个时候应用层缓冲区没有数据，所以直接write即可
-                sockets::write(channel_->fd(), buf, len);
+                nwrote = sockets::write(channel_->fd(), buf, len);
+                LOG_DEBUG << "[write directly! nwrote = " << nwrote << "]";
                 if (nwrote >= 0)
                 {
                         remaining = len - nwrote;

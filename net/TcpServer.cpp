@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:48
- * @LastEditTime: 2021-03-25 16:40:42
+ * @LastEditTime: 2021-03-26 14:21:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.cpp
@@ -12,15 +12,14 @@
 #include <functional> // for std::bind
 TcpServer::TcpServer(EventLoop *loop, 
             AddrStruct &listenAddr,
-            const std::string& name,
-            bool portReused)
-            :loop_(loop),
-            ipPort_(listenAddr.getIPort()),
-            name_(name),
-            acceptor_(new Acceptor(loop_, listenAddr)), // import
-            started_(false),
-            nextConnId_(1),
-            threadpool_(new EventLoopThreadPool(loop_, name_))
+            const std::string& name)
+        :loop_(loop),
+        ipPort_(listenAddr.getIPort()),
+        name_(name),
+        acceptor_(new Acceptor(loop_, listenAddr)), // import
+        started_(false),
+        nextConnId_(1),
+        threadpool_(new EventLoopThreadPool(loop_, name_))
 {
     // handleEvent会调用handleRead, 然后这里注册的回调函数是newConnection
     acceptor_->setNewConnectionCallback(

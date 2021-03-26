@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-23 16:11:07
- * @LastEditTime: 2021-03-25 08:38:02
+ * @LastEditTime: 2021-03-26 14:27:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/test/TcpServer_test01.cpp
@@ -25,12 +25,12 @@ void onMessage(const TcpConnectionPtr& conn,
                 Buffer *buf,
                 Timestamp receiveTime) {
     std::string msg(buf->retrieveAllAsString());
-    printf("onMessage: receive [%ld] bytes message is [%s] from connection [%s]\n",
+    printf("onMessage: receive [%ld] bytes message is [%s] from connection [%s]",
             buf->readableBytes(),
             msg.c_str(),
             conn->name().c_str());
     // echo back
-    conn->send(buf);
+    conn->send(msg);
 }
 
 int main() {
