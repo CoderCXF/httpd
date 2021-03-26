@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-13 10:20:19
- * @LastEditTime: 2021-01-28 20:51:42
+ * @LastEditTime: 2021-03-26 14:39:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Fixedbuf_fer.h
@@ -49,7 +49,7 @@ public:
     void bzero() { memset(buf_, 0, sizeof buf_); }
     
     // for Debug
-    char& operator[](int i) {
+    char& operator[](size_t i) {
         assert(i >= 0 && i < sizeof(buf_));
         return buf_[i];
     }

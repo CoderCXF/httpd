@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-03 10:39:25
- * @LastEditTime: 2021-03-24 14:25:44
+ * @LastEditTime: 2021-03-26 14:41:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Channel.cpp
@@ -34,10 +34,11 @@ Channel::~Channel()
 {
   assert(!eventHandling_);
   assert(!addedToLoop_);
-  if (loop_->isInLoopThread())
-  {
-    assert(!loop_->hasChannel(this));
-  }
+  // FIXME:
+  // if (loop_->isInLoopThread())
+  // {
+  //   assert(!loop_->hasChannel(this));
+  // }
 }
 
 void Channel::tie(const std::shared_ptr<void>& obj)
