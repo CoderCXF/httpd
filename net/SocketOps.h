@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-17 09:42:38
- * @LastEditTime: 2021-03-17 21:21:24
+ * @LastEditTime: 2021-03-27 21:25:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/SocketOps.h
@@ -18,28 +18,9 @@ namespace sockets{
     void    shutdownRead(int sockfd);
     void    shutdownWrite(int sockfd);
     void    shutdownRDWR(int sockfd);
-
+    //
     ///
-    //NON_BLOCK
-    ///
-    int     setSocketNonBlocking(int sockfd);
-    ///
-    // SO_REUSEADDR
-    ///
-    void    setReuseAddr(int sockfd, bool on = true);
-    ///
-    // TCP_NODELAY(nagle)
-    ///
-    void    setTcpNoDelay(int sockfd, bool on);
-    ///
-    // SO_KEEPALIVE
-    ///
-    void	setKeepAlive(int sockfd, bool on = true);
-    ///
-    // 
-    ///
-    // void    setSocketNodelay(int sockfd, bool on = true);
-    // void    setSocketNoLinger(int sockfd);
+    //
     int socketNoBlockOrDie();
     int bindOrDie(int sockfd, const struct sockaddr *addr);
     int listenOrDie(int sockfd);

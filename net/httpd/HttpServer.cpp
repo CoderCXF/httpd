@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-26 21:17:17
- * @LastEditTime: 2021-03-27 20:06:27
+ * @LastEditTime: 2021-03-27 21:53:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/httpd/HttpServer.cpp
@@ -25,9 +25,9 @@ HttpServer::HttpServer(EventLoop* loop,
 }
 void HttpServer::onConnection(const TcpConnectionPtr& conn) {
     if (conn->connected()) {
-        printf("new connection from [ipPort = %s] up\n", conn->peerAddress().getIPort().c_str());
+        LOG_INFO << "[new connection from [ipPort = %s] up\n]", conn->peerAddress().getIPort().c_str();
     } else {
-        printf("conection  [ipPort = %s] down\n", conn->peerAddress().getIPort().c_str());
+        LOG_INFO << "[conection  [ipPort = %s] down\n]", conn->peerAddress().getIPort().c_str();
     }
 }
 
@@ -41,7 +41,6 @@ void HttpServer::onMessage(const TcpConnectionPtr& conn,
     HttpParse parse;
     succeed = parse.parseRequest(inputBuffer);
     // 可以通过request接口获取解析的请求
-    printf("parse success? %d\n", succeed);
     if (!succeed) {
         conn->send("HTTP/1.1 400 Bad Request\r\n\r\n");
         conn->shutdown();
@@ -51,7 +50,6 @@ void HttpServer::onMessage(const TcpConnectionPtr& conn,
         // FIXME: is OK?
         parse.reset();
     }
-
 }
 
 void HttpServer::onRequest(const TcpConnectionPtr& conn, 
@@ -63,7 +61,10 @@ void HttpServer::onRequest(const TcpConnectionPtr& conn,
         || request.version() == HttpRequest::kHttp10) 
     {
         response.setVersion(HttpResponse::kHttp10);
+    } else {
+        response.setVersion(HttpResponse::kHttp11);
     }
+    // 由用户(回调函数)填充响应内容
     httpCallback_(request, &response);
     Buffer buf;
     response.appendBuf(&buf);                   

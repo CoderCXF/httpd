@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:30
- * @LastEditTime: 2021-03-26 09:42:41
+ * @LastEditTime: 2021-03-27 21:39:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.h
@@ -70,7 +70,9 @@ public:
     const std::string name() { return connName; }
     const AddrStruct& localAddress() const { return localAddr_; }
     const AddrStruct& peerAddress() const { return peerAddr_; }
+    // Nagle
     void setTcpNoDelay(bool on);
+    void setKeepAlive(bool on);
     EventLoop* getLoop() { return loop_; }
     bool connected() const { return state_ == kconnected; }
 private:

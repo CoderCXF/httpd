@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-17 09:42:28
- * @LastEditTime: 2021-03-26 14:25:14
+ * @LastEditTime: 2021-03-27 21:26:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Editna
  * @FilePath: /WebServer/net/SocketOps.cpp
@@ -9,8 +9,6 @@
 
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <netinet/tcp.h> //TCP_NODELAY
-#include <fcntl.h>
 #include <unistd.h>
 #include"../base/Logging.h"
 #include "SocketOps.h"
@@ -50,35 +48,7 @@ void    sockets::shutdownWrite(int sockfd) {
 void    sockets::shutdownRDWR(int sockfd) {
     ::shutdown(sockfd, SHUT_RDWR);
 }
-///
-//options func
-///
-void    sockets::setReuseAddr(int sockfd, bool on) {
-    int optval = on ? 1 : 0;
-    ::setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &optval, static_cast<socklen_t>(sizeof(optval)));
-}
 
-void    sockets::setTcpNoDelay(int sockfd, bool on) {
-    int optval = on ? 1 : 0;
-    ::setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, &optval, static_cast<socklen_t>(sizeof optval));
-}
-
-void sockets::setKeepAlive(int sockfd, bool on)
-{
-  int optval = on ? 1 : 0;
-  ::setsockopt(sockfd, SOL_SOCKET, SO_KEEPALIVE,
-               &optval, static_cast<socklen_t>(sizeof optval));
-}
-
-int     sockets::setSocketNonBlocking(int sockfd) {
-    int flags = ::fcntl(sockfd, F_GETFL, 0);
-    flags |= O_NONBLOCK;
-    int ret = 0;
-    if ((ret = fcntl(sockfd, F_SETFL, flags)) == -1) {
-        LOG_SYSFATAL << "sockets::setSocketNonBlocking";
-    }
-    return ret;
-}
 
 
 ///

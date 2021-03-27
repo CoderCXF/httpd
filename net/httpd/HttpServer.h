@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-26 21:17:08
- * @LastEditTime: 2021-03-27 11:15:09
+ * @LastEditTime: 2021-03-27 21:50:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/httpd/HttpServer.h
@@ -41,7 +41,6 @@ public:
         << "] starts listening on " << server_.ipPort();
         server_.start();
     }
-    
 private:
     void onConnection(const TcpConnectionPtr& conn);
     void onMessage(const TcpConnectionPtr& conn,

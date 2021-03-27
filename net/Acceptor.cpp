@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-17 20:45:47
- * @LastEditTime: 2021-03-26 14:25:40
+ * @LastEditTime: 2021-03-27 21:56:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Acceptor.cpp
@@ -16,7 +16,7 @@ Acceptor::Acceptor(EventLoop *loop, AddrStruct serverAddr, int reusePort)
           listening_(false)
 {
     // 设置监听套接字端口复用
-    sockets::setReuseAddr(acceptSocket_.fd(), reusePort);
+    acceptSocket_.setReuseAddr(reusePort);
     acceptSocket_.Bind(serverAddr);
     // post callback(handleEvent use this callback)
     acceptChannel_.setReadCallback(

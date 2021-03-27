@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-27 14:56:36
+ * @LastEditTime: 2021-03-27 21:43:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
@@ -32,7 +32,9 @@ Connection::Connection(EventLoop *loop,
         channel_->setWriteCallback(std::bind(&Connection::handleWrite, this));
         channel_->setCloseCallback(std::bind(&Connection::handleClose, this));
         channel_->setErrorCallback(std::bind(&Connection::handleError, this));
-        sockets::setKeepAlive(channel_->fd(), true); // 开启长连接,默认true
+        // TODO: 
+        // 全部接口交由用户负责（在HttpServer中提供两个函数接口setTcpNoDelay & setKeepAlive）???
+        // socket_->setKeepAlive(true); 
 }
 Connection::~Connection()
 {
@@ -285,5 +287,9 @@ void Connection::shutdownInLoop()
 
 void Connection::setTcpNoDelay(bool on) 
 { 
-        ::sockets::setTcpNoDelay(channel_->fd(), on); 
+        socket_->setTcpNoDelay(on); 
+}
+
+void Connection::setKeepAlive(bool on) {
+        socket_->setKeepAlive(on);
 }
