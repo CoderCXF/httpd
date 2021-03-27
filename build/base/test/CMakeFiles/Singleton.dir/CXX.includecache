@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cxf/Desktop/WebServer/base/Singleton.h
+pthread.h
+-
+iostream
+-
+memory
+-
+
+/home/cxf/Desktop/WebServer/base/test/Singleton_test.cpp
+../Singleton.h
+/home/cxf/Desktop/WebServer/base/Singleton.h
+iostream
+-
+string
+-
+cstdlib
+-
+cstring
+-
+unistd.h
+-
+

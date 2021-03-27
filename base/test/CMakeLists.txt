@@ -19,8 +19,8 @@ add_executable(Singleton Singleton_test.cpp)
 target_link_libraries(Singleton pthread base)
 
 # AppendFile
-add_executable(AppendFile AppendFile_test.cpp)
-target_link_libraries(AppendFile pthread base)
+# add_executable(AppendFile AppendFile_test.cpp)
+# target_link_libraries(AppendFile pthread base)
 
 # LogFile
 add_executable(LogFile LogFile_test.cpp)
@@ -33,12 +33,6 @@ target_link_libraries(FixedBuffer pthread base)
 # AsyncLog
 # add_executable(AsyncLog AsyncLog_test.cpp)
 # target_link_libraries(AsyncLog pthread base)
-
-#LogStream
-#[[
-add_executable(LogStream Mutex.cpp Condition.cpp Thread.cpp Threadpool.cpp AppendFile.cpp LogFile.cpp LogStream.cpp test/LogStream_test.cpp)
-target_link_libraries(LogStream pthread)
-]]
 
 # Logging
 add_executable(Logging Logging_test.cpp)

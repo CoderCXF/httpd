@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-26 21:17:17
- * @LastEditTime: 2021-03-27 15:32:19
+ * @LastEditTime: 2021-03-27 20:06:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/httpd/HttpServer.cpp
@@ -74,8 +74,8 @@ void HttpServer::onRequest(const TcpConnectionPtr& conn,
 }
 
 void HttpServer::defaultHttpCallback(const HttpRequest&, HttpResponse* resp)
-    {
+{
     resp->setStatusCode(HttpResponse::k404NotFound);
     resp->setStatusMessage("Not Found");
     // resp->setCloseConnection(true);
-    }
+}
