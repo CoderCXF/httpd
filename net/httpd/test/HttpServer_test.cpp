@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-27 09:45:53
- * @LastEditTime: 2021-03-27 15:42:55
+ * @LastEditTime: 2021-03-27 20:27:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/httpd/test/HttpServer_test.cpp
@@ -37,9 +37,13 @@ void onRequest(const HttpRequest& req, HttpResponse* resp)
     resp->setContentType("text/html");
     resp->addHeader("Server", "Muduo");
     std::string now = Timestamp::now().toFormattedString();
-    resp->setBody("<html><head><title>This is title</title></head>"
-        "<body><h1>Hello</h1>Now is " + now +
-        "</body></html>");
+    // resp->setBody("<html><head><title>Love</title></head>"
+    //     "<body><h1>Hello</h1>Now is " + now +
+    //     "</body></html>");
+    resp->setBody("<html><head><title>Love</title></head>"
+                  "<body><div style=\"margin: 0 auto; left: 50%; right: 50%;\">"
+                  "<span style = \"color: red; font-size: 3em;\">Love"
+                  "</span></div></body></html>");
   }
   else if (req.path() == "/favicon.ico")
   {

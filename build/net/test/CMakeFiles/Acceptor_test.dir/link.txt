@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -rdynamic CMakeFiles/Acceptor_test.dir/Acceptor_test.cpp.o -o ../../bin/Acceptor_test  ../../lib/libnet.a ../../lib/libbase.a -lpthread -lrt 
