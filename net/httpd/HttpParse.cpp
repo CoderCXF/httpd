@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-27 08:25:06
- * @LastEditTime: 2021-03-27 15:15:35
+ * @LastEditTime: 2021-03-27 20:51:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/httpd/HttpParse.cpp
@@ -60,15 +60,12 @@ bool HttpParse::parseRequestLine(const char *start, const char *end) {
     bool success = true;
     const char* space = std::find(start, end, ' ');
     if (space != end) {
-        LOG_DEBUG << "space != end";
         request_.setMethod(start, space);
-        LOG_DEBUG << "parseMethod success";
         start = space + 1;
         space = std::find(start, end, ' ');
         if (space != end) {
             request_.setPath(start, space);
             start = space + 1;
-            LOG_DEBUG << "parsePath success";
         } 
         else {
             success = false;
@@ -78,11 +75,9 @@ bool HttpParse::parseRequestLine(const char *start, const char *end) {
         if (success) {
             if (*(end - 1) == '1') {
                 request_.setVersion(HttpRequest::kHttp11);
-                LOG_DEBUG << "setVersion-kHttp11 success";
             } 
             else if (*(end - 1) == '0') {
                 request_.setVersion(HttpRequest::kHttp10);
-                LOG_DEBUG << "setVersionkHttp10 success";
 
             }
             else {
