@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-23 20:56:26
- * @LastEditTime: 2021-03-24 11:49:01
+ * @LastEditTime: 2021-03-27 14:52:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/EventLoopThreadpool.cpp
@@ -9,6 +9,7 @@
 #include "EventLoopThreadPool.h"
 #include "EventLoop.h"
 #include "EventLoopThread.h"
+#include "../base/Logging.h"
 EventLoopThreadPool::EventLoopThreadPool(EventLoop* baseLoop, const std::string& nameArg)
   : baseloop_(baseLoop),
     name_(nameArg),
@@ -37,7 +38,10 @@ void EventLoopThreadPool::start(bool startTimer) {
 }
 
 EventLoop* EventLoopThreadPool::getNextLoop() {
+    // for debug
+    // LOG_DEBUG << "baseloop_->assertInLoopThread() Before";
     baseloop_->assertInLoopThread();
+    // LOG_DEBUG << "baseloop_->assertInLoopThread() After";
     assert(started_);
     EventLoop *loop = baseloop_;
     // round-robin

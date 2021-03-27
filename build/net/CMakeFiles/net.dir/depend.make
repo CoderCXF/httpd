@@ -87,6 +87,9 @@ net/CMakeFiles/net.dir/EventLoopThread.cpp.o: ../net/EventLoopThread.h
 
 net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../base/Base.h
 net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../base/Condition.h
+net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../base/FixedBuffer.h
+net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../base/LogStream.h
+net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../base/Logging.h
 net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../base/Mutex.h
 net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../base/Thread.h
 net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o: ../base/Timestamp.h

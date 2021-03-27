@@ -47,7 +47,7 @@ set(HEADERS
   )
 install(FILES ${HEADERS} DESTINATION include/muduo/net)
 
-#add_subdirectory(http)
+add_subdirectory(httpd)
 #add_subdirectory(inspect)
 
 #TODO:

@@ -62,8 +62,8 @@ target_link_libraries(Acceptor_test net)
 # add_executable(TcpServer_test01_signleThread TcpServer_test01_signleThread.cpp)
 # target_link_libraries(TcpServer_test01_signleThread net)
 
-# add_executable(TcpServer_test02_EventLoopThreadPool TcpServer_test02_EventLoopThreadPool.cpp)
-# target_link_libraries(TcpServer_test02_EventLoopThreadPool net)
+add_executable(TcpServer_test02_EventLoopThreadPool TcpServer_test02_EventLoopThreadPool.cpp)
+target_link_libraries(TcpServer_test02_EventLoopThreadPool net)
 
 add_executable(TcpServer_test03_Buffer_send TcpServer_test03_Buffer_send.cpp)
 target_link_libraries(TcpServer_test03_Buffer_send net)

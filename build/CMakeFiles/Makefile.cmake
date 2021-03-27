@@ -14,6 +14,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.19.0/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.19.0/CMakeSystem.cmake"
   "../net/CMakeLists.txt"
+  "../net/httpd/CMakeLists.txt"
   "../net/test/CMakeLists.txt"
   "/usr/local/share/cmake-3.19/Modules/CMakeCInformation.cmake"
   "/usr/local/share/cmake-3.19/Modules/CMakeCXXInformation.cmake"
@@ -49,6 +50,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "base/CMakeFiles/CMakeDirectoryInformation.cmake"
   "base/test/CMakeFiles/CMakeDirectoryInformation.cmake"
   "net/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "net/httpd/CMakeFiles/CMakeDirectoryInformation.cmake"
   "net/test/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -67,10 +69,13 @@ set(CMAKE_DEPEND_INFO_FILES
   "base/test/CMakeFiles/BlockQueue.dir/DependInfo.cmake"
   "base/test/CMakeFiles/Logging.dir/DependInfo.cmake"
   "net/CMakeFiles/net.dir/DependInfo.cmake"
+  "net/httpd/CMakeFiles/httpserver_test.dir/DependInfo.cmake"
+  "net/httpd/CMakeFiles/http.dir/DependInfo.cmake"
   "net/test/CMakeFiles/Acceptor_test.dir/DependInfo.cmake"
   "net/test/CMakeFiles/Socket_test.dir/DependInfo.cmake"
   "net/test/CMakeFiles/TcpServer_test03_Buffer_send.dir/DependInfo.cmake"
   "net/test/CMakeFiles/EventLoop_test.dir/DependInfo.cmake"
+  "net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/DependInfo.cmake"
   "net/test/CMakeFiles/TcpServer_test04_pollout_shutdown.dir/DependInfo.cmake"
   "net/test/CMakeFiles/Reactor02_test.dir/DependInfo.cmake"
   )

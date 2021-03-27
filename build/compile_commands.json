@@ -165,6 +165,21 @@
   "file": "/home/cxf/Desktop/WebServer/net/Connection.cpp"
 },
 {
+  "directory": "/home/cxf/Desktop/WebServer/build/net/httpd",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/http.dir/HttpParse.cpp.o -c /home/cxf/Desktop/WebServer/net/httpd/HttpParse.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/httpd/HttpParse.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/net/httpd",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/http.dir/HttpServer.cpp.o -c /home/cxf/Desktop/WebServer/net/httpd/HttpServer.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/httpd/HttpServer.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/net/httpd",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/httpserver_test.dir/test/HttpServer_test.cpp.o -c /home/cxf/Desktop/WebServer/net/httpd/test/HttpServer_test.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/httpd/test/HttpServer_test.cpp"
+},
+{
   "directory": "/home/cxf/Desktop/WebServer/build/net/test",
   "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/Acceptor_test.dir/Acceptor_test.cpp.o -c /home/cxf/Desktop/WebServer/net/test/Acceptor_test.cpp",
   "file": "/home/cxf/Desktop/WebServer/net/test/Acceptor_test.cpp"
@@ -183,6 +198,11 @@
   "directory": "/home/cxf/Desktop/WebServer/build/net/test",
   "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/EventLoop_test.dir/EventLoop_test.cpp.o -c /home/cxf/Desktop/WebServer/net/test/EventLoop_test.cpp",
   "file": "/home/cxf/Desktop/WebServer/net/test/EventLoop_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/WebServer/build/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/WebServer -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_EventLoopThreadPool.cpp.o -c /home/cxf/Desktop/WebServer/net/test/TcpServer_test02_EventLoopThreadPool.cpp",
+  "file": "/home/cxf/Desktop/WebServer/net/test/TcpServer_test02_EventLoopThreadPool.cpp"
 },
 {
   "directory": "/home/cxf/Desktop/WebServer/build/net/test",

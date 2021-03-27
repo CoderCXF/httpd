@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-24 16:51:37
- * @LastEditTime: 2021-03-25 08:22:47
+ * @LastEditTime: 2021-03-26 20:57:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Buffer.h
@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <assert.h>
 #include <string>
+#include <string.h>
 class Buffer
 {
 public:
@@ -67,6 +68,10 @@ public:
 		ensureWritableBytes(len);
 		std::copy(data, data + len, beginWrite());
 		hasWritten(len);
+	}
+
+	void append(const std::string &data) {
+		append(static_cast<const char *>(data.c_str()), data.size());
 	}
 
 	void append(const void* data, size_t len)

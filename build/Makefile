@@ -356,6 +356,32 @@ net/fast:
 .PHONY : net/fast
 
 #=============================================================================
+# Target rules for targets named httpserver_test
+
+# Build rule for target.
+httpserver_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 httpserver_test
+.PHONY : httpserver_test
+
+# fast build rule for target.
+httpserver_test/fast:
+	$(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/httpserver_test.dir/build.make net/httpd/CMakeFiles/httpserver_test.dir/build
+.PHONY : httpserver_test/fast
+
+#=============================================================================
+# Target rules for targets named http
+
+# Build rule for target.
+http: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 http
+.PHONY : http
+
+# fast build rule for target.
+http/fast:
+	$(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/build
+.PHONY : http/fast
+
+#=============================================================================
 # Target rules for targets named Acceptor_test
 
 # Build rule for target.
@@ -408,6 +434,19 @@ EventLoop_test/fast:
 .PHONY : EventLoop_test/fast
 
 #=============================================================================
+# Target rules for targets named TcpServer_test02_EventLoopThreadPool
+
+# Build rule for target.
+TcpServer_test02_EventLoopThreadPool: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TcpServer_test02_EventLoopThreadPool
+.PHONY : TcpServer_test02_EventLoopThreadPool
+
+# fast build rule for target.
+TcpServer_test02_EventLoopThreadPool/fast:
+	$(MAKE) $(MAKESILENT) -f net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/build.make net/test/CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/build
+.PHONY : TcpServer_test02_EventLoopThreadPool/fast
+
+#=============================================================================
 # Target rules for targets named TcpServer_test04_pollout_shutdown
 
 # Build rule for target.
@@ -458,12 +497,15 @@ help:
 	@echo "... Reactor02_test"
 	@echo "... Singleton"
 	@echo "... Socket_test"
+	@echo "... TcpServer_test02_EventLoopThreadPool"
 	@echo "... TcpServer_test03_Buffer_send"
 	@echo "... TcpServer_test04_pollout_shutdown"
 	@echo "... Thread"
 	@echo "... Threadpool"
 	@echo "... Timestamp"
 	@echo "... base"
+	@echo "... http"
+	@echo "... httpserver_test"
 	@echo "... net"
 .PHONY : help
 

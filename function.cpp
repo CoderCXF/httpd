@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-25 20:18:09
- * @LastEditTime: 2021-03-25 20:30:57
+ * @LastEditTime: 2021-03-26 20:50:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/function.cpp
@@ -21,7 +21,7 @@ void fun2(int a) {
 }
 
 int main() {
-
+    char buf[32];
     Functor2 functor2(fun2);
     callback(std::bind(functor2, 2));
     return 0;

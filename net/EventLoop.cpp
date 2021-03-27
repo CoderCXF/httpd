@@ -1,13 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 19:47:37
- * @LastEditTime: 2021-03-24 15:05:32
+ * @LastEditTime: 2021-03-26 15:56:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Eventloop.cpp
  */
 #include <poll.h>
 #include <sys/eventfd.h>
+#include <signal.h>
 #include "EventLoop.h"
 #include "Channel.h"
 #include "EPoll.h"
@@ -29,6 +30,7 @@ EventLoop::EventLoop()
       wakeupChannel_(new Channel(this, wakeupFd_)),
       currentActiveChannel_(NULL)
 {
+    signal(SIGPIPE,SIG_IGN);  
     LOG_TRACE << "EventLoop " << this << " created in this thread " << threadId_;
     if (t_loopInThisThread) {
         LOG_FATAL << "Another EventLoop " << t_loopInThisThread

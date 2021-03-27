@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:39
- * @LastEditTime: 2021-03-26 14:20:46
+ * @LastEditTime: 2021-03-27 10:12:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.h
@@ -44,6 +44,15 @@ public:
     void setMessageCallback(const MessageCallback& cb) { messagecallback_  = cb; }
     void setWriteCompleteCallback(const WriteCompleteCallback& cb) { writeCompleteCallback_  = cb; }
     void setThreadNum(int threadNum);
+
+    inline std::string name() {
+        return name_;
+    }
+
+    inline std::string ipPort() {
+        return ipPort_;
+    }
+
 
     // for debug
     int getThreadNums() { return threadpool_->getThreadNums(); }

@@ -215,6 +215,9 @@ MUDUO_BUILD_EXAMPLES:BOOL=ON
 //Dependencies for the target
 base_LIB_DEPENDS:STATIC=general;pthread;general;rt;
 
+//Dependencies for the target
+http_LIB_DEPENDS:STATIC=general;net;
+
 //Value Computed by CMake
 muduo_BINARY_DIR:STATIC=/home/cxf/Desktop/WebServer/build
 
@@ -327,7 +330,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

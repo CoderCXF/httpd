@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:48
- * @LastEditTime: 2021-03-26 14:21:09
+ * @LastEditTime: 2021-03-27 15:01:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.cpp
@@ -72,9 +72,8 @@ void TcpServer::newConnectionCallback(int sockfd, const AddrStruct& peerAddr) {
     conn->setCloseCallback(
         std::bind(&TcpServer::removeConnection, this, std::placeholders::_1));
     conn->setWriteCompleteCallback(writeCompleteCallback_);
-    // conn->setCloseConnectionCallback();
-    // conn->connectEstablished();
     // FIXME:
+    // conn->connectEstablished();
     ioLoop->runInLoop(std::bind(&Connection::connectEstablished, conn));
 }
 void TcpServer::setThreadNum(int threadNum) {
@@ -93,7 +92,8 @@ void TcpServer::start() {
 }
 
 void TcpServer::removeConnection(const TcpConnectionPtr& conn) {
-    loop_->assertInLoopThread();
+    // FIXME: why if cancle comment, will error ocurr ???
+    // loop_->assertInLoopThread();
     loop_->runInLoop(std::bind(&TcpServer::removeConnectionInLoop, this, conn));
 }
 

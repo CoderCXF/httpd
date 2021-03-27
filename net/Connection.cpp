@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-26 14:28:43
+ * @LastEditTime: 2021-03-27 14:56:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
@@ -41,22 +41,6 @@ Connection::~Connection()
 void Connection::handleRead(Timestamp receiveTime)
 {
         loop_->assertInLoopThread();
-        // int savedErrno = 0;
-        // ssize_t n = inputBuffer_.readFd(channel_->fd(), &savedErrno);
-        // if (n > 0)
-        // {
-        // messageCallback_(shared_from_this(), &inputBuffer_, receiveTime);
-        // }
-        // else if (n == 0)
-        // {
-        // handleClose();
-        // }
-        // else
-        // {
-        // errno = savedErrno;
-        // LOG_SYSERR << "TcpConnection::handleRead";
-        // handleError();
-        // }
         int saveErrno = 0;
         ssize_t n = inputBuffer_.readFd(channel_->fd(), &saveErrno);
         // messageCallback_(shared_from_this(), buf, n);
@@ -80,7 +64,6 @@ void Connection::handleRead(Timestamp receiveTime)
 void Connection::handleWrite()
 {
         // TODO:
-
         loop_->assertInLoopThread();
         if (channel_->isWriting())
         {
@@ -131,6 +114,7 @@ void Connection::connectEstablished()
         channel_->tie(shared_from_this()); // shared_ptr + 1
         // 开始监听读事件update(epoll_ctl(EPOLL_CTL_ADD))
         channel_->enableReading();
+        // 执行用户回调的onConnection中的else语句
         connectionCallback_(shared_from_this());
 }
 //
@@ -156,6 +140,7 @@ void Connection::handleClose()
         loop_->assertInLoopThread();
         setState(StateE::kdisconnected);
         channel_->disableAll();
+        // 执行用户回调的onConnection中的else语句
         connectionCallback_(shared_from_this());
         // closeCallback是一个内部函数，和connectionCallback以及messageCallback不一样，
         // 这里的closeCallback实际上就是调用了TcpServer::removeConnection
