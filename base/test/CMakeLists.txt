@@ -15,8 +15,8 @@ add_executable(Threadpool Threadpool_test.cpp)
 target_link_libraries(Threadpool pthread base)
 
 # Singleton
-add_executable(Singleton Singleton_test.cpp)
-target_link_libraries(Singleton pthread base)
+# add_executable(Singleton Singleton_test.cpp)
+# target_link_libraries(Singleton pthread base)
 
 # AppendFile
 # add_executable(AppendFile AppendFile_test.cpp)
