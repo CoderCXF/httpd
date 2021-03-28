@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-28 10:42:33
+ * @LastEditTime: 2021-03-28 11:26:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
@@ -158,8 +158,7 @@ void Connection::handleClose()
 
 void Connection::handleError()
 {
-        // TODO: comment LOG
-        // LOG_ERROR << "Tcp::Connection";
+        LOG_ERROR << "Tcp::Connection";
 }
 //
 /// 由于有函数重载，所以需要显示绑定（指定函数返回值和形参列表）

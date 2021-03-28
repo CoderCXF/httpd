@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-26 21:17:17
- * @LastEditTime: 2021-03-28 10:25:54
+ * @LastEditTime: 2021-03-28 11:28:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/httpd/HttpServer.cpp
@@ -26,11 +26,11 @@ HttpServer::HttpServer(EventLoop* loop,
 void HttpServer::onConnection(const TcpConnectionPtr& conn) {
     // TODO: forbid Nagle
     conn->setTcpNoDelay(true);
-    if (conn->connected()) {
-        LOG_INFO << "new connection from [ipPort = " << conn->peerAddress().getIPort().c_str() << "] is up";
-    } else {
-        LOG_INFO << "conection  [ipPort =" << conn->peerAddress().getIPort().c_str() << "] is down";
-    }
+    // if (conn->connected()) {
+    //     LOG_INFO << "HttpServer::onConnection -> new connection from [ipPort = " << conn->peerAddress().getIPort().c_str() << "] is up";
+    // } else {
+    //     LOG_INFO << "HttpServer::onConnection -> conection  [ipPort =" << conn->peerAddress().getIPort().c_str() << "] is down";
+    // }
 }
 
 void HttpServer::onMessage(const TcpConnectionPtr& conn,
