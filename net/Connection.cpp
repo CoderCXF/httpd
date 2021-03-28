@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-27 21:43:58
+ * @LastEditTime: 2021-03-28 08:03:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
@@ -35,6 +35,7 @@ Connection::Connection(EventLoop *loop,
         // TODO: 
         // 全部接口交由用户负责（在HttpServer中提供两个函数接口setTcpNoDelay & setKeepAlive）???
         // socket_->setKeepAlive(true); 
+        socket_->setTcpNoDelay(true);
 }
 Connection::~Connection()
 {

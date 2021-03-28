@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-26 21:17:17
- * @LastEditTime: 2021-03-27 21:53:47
+ * @LastEditTime: 2021-03-28 08:03:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/httpd/HttpServer.cpp
@@ -61,8 +61,10 @@ void HttpServer::onRequest(const TcpConnectionPtr& conn,
         || request.version() == HttpRequest::kHttp10) 
     {
         response.setVersion(HttpResponse::kHttp10);
+        conn->setKeepAlive(false);
     } else {
         response.setVersion(HttpResponse::kHttp11);
+        conn->setKeepAlive(true);
     }
     // 由用户(回调函数)填充响应内容
     httpCallback_(request, &response);
