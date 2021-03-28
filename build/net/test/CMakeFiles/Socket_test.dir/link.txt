@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -rdynamic CMakeFiles/Socket_test.dir/Socket_test.cpp.o -o ../../bin/Socket_test  ../../lib/libnet.a ../../lib/libbase.a -lpthread -lrt 
