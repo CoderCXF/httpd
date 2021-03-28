@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-19 17:54:59
- * @LastEditTime: 2021-03-18 10:49:21
+ * @LastEditTime: 2021-03-28 20:34:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Logging.cpp
@@ -134,7 +134,7 @@ Logger::Logger(SourceFile file, int line, LogLevel level, const char *func)
 //LOG_SYSERR | LOG_SYSFATAL
 Logger::Logger(SourceFile file, int line, bool toabort)
     : time_(TimeStamp::nowStamp()),
-      logLevel_(LogLevel::FATAL),
+      logLevel_(toabort? LogLevel::FATAL : LogLevel::ERROR),
       filename_(file),
       line_(line),
       stream_()
@@ -155,7 +155,7 @@ Logger::~Logger() {
   printFileAndLine();
   const LogStream::Buffer& buf(stream().buffer());
   g_output(buf.data(), buf.size());
-  if (logLevel_ == FATAL)  // if logLevel_ == FATAL, then abort()
+  if (logLevel_ == LogLevel::FATAL)  // if logLevel_ == FATAL, then abort()
   {
     g_flush();
     abort();

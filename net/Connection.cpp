@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-28 11:26:37
+ * @LastEditTime: 2021-03-28 20:35:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
@@ -226,6 +226,7 @@ void Connection::sendInLoop(const char *buf, size_t len)
 {
         size_t remaining = len;
         ssize_t nwrote = 0;
+        bool error = false;
         if (!channel_->isWriting() && outputBuffer_.readableBytes() == 0)
         {
                 //这个时候应用层缓冲区没有数据，所以直接write即可
@@ -243,12 +244,15 @@ void Connection::sendInLoop(const char *buf, size_t len)
                         // handle error
                         nwrote = 0;
                         LOG_SYSERR << "Connection::sendInLoop";
+                        if (errno == EPIPE) {
+                                error = true;
+                        }
                 }
         }
 
         assert(remaining <= len);
         // 如果一次性没有写完，意味着发送内核缓冲区已满，所以需要写入应用层buffer(output buffer)
-        if (remaining > 0)
+        if (!error && remaining > 0)
         {
                 size_t oldLen = outputBuffer_.readableBytes();
                 if (oldLen + remaining >= highWaterMark_ && oldLen < highWaterMark_ && highWaterMarkCallback_)

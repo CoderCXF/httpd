@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 19:47:37
- * @LastEditTime: 2021-03-28 10:15:41
+ * @LastEditTime: 2021-03-28 20:36:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Eventloop.cpp
@@ -30,6 +30,7 @@ EventLoop::EventLoop()
       wakeupChannel_(new Channel(this, wakeupFd_)),
       currentActiveChannel_(NULL)
 {
+    // TODO:
     signal(SIGPIPE,SIG_IGN);  
     LOG_TRACE << "EventLoop " << this << " created in this thread " << threadId_;
     if (t_loopInThisThread) {
