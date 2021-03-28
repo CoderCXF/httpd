@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/cxf/Desktop/WebServer/net/AddrStruct.h
+/home/cxf/Desktop/httpd/net/AddrStruct.h
 sys/types.h
 -
 sys/socket.h
@@ -20,7 +20,7 @@ string.h
 stdint.h
 -
 
-/home/cxf/Desktop/WebServer/net/Socket.h
+/home/cxf/Desktop/httpd/net/Socket.h
 sys/types.h
 -
 sys/socket.h
@@ -28,13 +28,13 @@ sys/socket.h
 arpa/inet.h
 -
 AddrStruct.h
-/home/cxf/Desktop/WebServer/net/AddrStruct.h
+/home/cxf/Desktop/httpd/net/AddrStruct.h
 
-/home/cxf/Desktop/WebServer/net/test/Socket_test.cpp
+/home/cxf/Desktop/httpd/net/test/Socket_test.cpp
 stdio.h
 -
 ../Socket.h
-/home/cxf/Desktop/WebServer/net/Socket.h
+/home/cxf/Desktop/httpd/net/Socket.h
 ../AddrStruct.h
-/home/cxf/Desktop/WebServer/net/AddrStruct.h
+/home/cxf/Desktop/httpd/net/AddrStruct.h
 

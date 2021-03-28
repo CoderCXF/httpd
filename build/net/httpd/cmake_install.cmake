@@ -1,8 +1,8 @@
-# Install script for directory: /home/cxf/Desktop/WebServer/net/httpd
+# Install script for directory: /home/cxf/Desktop/httpd/net/httpd
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cxf/Desktop/WebServer")
+  set(CMAKE_INSTALL_PREFIX "/home/cxf/Desktop/httpd")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,15 +43,15 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/cxf/Desktop/WebServer/build/lib/libhttp.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/cxf/Desktop/httpd/build/lib/libhttp.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/muduo/net/http" TYPE FILE FILES
-    "/home/cxf/Desktop/WebServer/net/httpd/HttpRequest.h"
-    "/home/cxf/Desktop/WebServer/net/httpd/HttpResponse.h"
-    "/home/cxf/Desktop/WebServer/net/httpd/HttpParse.h"
-    "/home/cxf/Desktop/WebServer/net/httpd/HttpServer.h"
+    "/home/cxf/Desktop/httpd/net/httpd/HttpRequest.h"
+    "/home/cxf/Desktop/httpd/net/httpd/HttpResponse.h"
+    "/home/cxf/Desktop/httpd/net/httpd/HttpParse.h"
+    "/home/cxf/Desktop/httpd/net/httpd/HttpServer.h"
     )
 endif()
 

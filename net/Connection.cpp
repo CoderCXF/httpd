@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-28 08:03:59
+ * @LastEditTime: 2021-03-28 10:42:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
@@ -32,10 +32,10 @@ Connection::Connection(EventLoop *loop,
         channel_->setWriteCallback(std::bind(&Connection::handleWrite, this));
         channel_->setCloseCallback(std::bind(&Connection::handleClose, this));
         channel_->setErrorCallback(std::bind(&Connection::handleError, this));
-        // TODO: 
-        // 全部接口交由用户负责（在HttpServer中提供两个函数接口setTcpNoDelay & setKeepAlive）???
-        // socket_->setKeepAlive(true); 
-        socket_->setTcpNoDelay(true);
+        // TODO:
+        // 只要是设置了keep-alive，就表明服务器支持长连接了.
+        // 但是客户端也必须发来keep-alive才能最后真正实现长连接，并不是说服务器这端设置了就是长连接了。
+        socket_->setKeepAlive(true); 
 }
 Connection::~Connection()
 {
@@ -54,7 +54,8 @@ void Connection::handleRead(Timestamp receiveTime)
         }
         else if (n == 0)
         {
-                LOG_DEBUG << "Cononection::handleRead";
+                // TODO: comment LOG
+                // LOG_DEBUG << "Cononection::handleRead";
                 handleClose();
         }
         else
@@ -93,6 +94,7 @@ void Connection::handleWrite()
                 }
                 else
                 {
+
                         LOG_SYSERR << "TcpConnection::handleWrite";
                         // if (state_ == kDisconnecting)
                         // {
@@ -102,8 +104,9 @@ void Connection::handleWrite()
         }
         else
         {
-                LOG_TRACE << "Connection fd = " << channel_->fd()
-                          << " is down, no more writing";
+                // TODO: comment LOG
+                // LOG_TRACE << "Connection fd = " << channel_->fd()
+                //           << " is down, no more writing";
         }
 }
 //
@@ -115,6 +118,7 @@ void Connection::connectEstablished()
         assert(state_ == StateE::kconnecting);
         setState(StateE::kconnected);
         channel_->tie(shared_from_this()); // shared_ptr + 1
+        /// 监听用户的读事件并且回调用户的函数
         // 开始监听读事件update(epoll_ctl(EPOLL_CTL_ADD))
         channel_->enableReading();
         // 执行用户回调的onConnection中的else语句
@@ -139,7 +143,6 @@ void Connection::connectDestroy()
 //
 void Connection::handleClose()
 {
-        LOG_DEBUG << "Connection::handlwClose()";
         loop_->assertInLoopThread();
         setState(StateE::kdisconnected);
         channel_->disableAll();
@@ -155,7 +158,8 @@ void Connection::handleClose()
 
 void Connection::handleError()
 {
-        LOG_ERROR << "Tcp::Connection";
+        // TODO: comment LOG
+        // LOG_ERROR << "Tcp::Connection";
 }
 //
 /// 由于有函数重载，所以需要显示绑定（指定函数返回值和形参列表）
@@ -227,7 +231,6 @@ void Connection::sendInLoop(const char *buf, size_t len)
         {
                 //这个时候应用层缓冲区没有数据，所以直接write即可
                 nwrote = sockets::write(channel_->fd(), buf, len);
-                LOG_DEBUG << "[write directly! nwrote = " << nwrote << "]";
                 if (nwrote >= 0)
                 {
                         remaining = len - nwrote;

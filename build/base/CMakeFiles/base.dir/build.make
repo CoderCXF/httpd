@@ -62,10 +62,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cxf/Desktop/WebServer
+CMAKE_SOURCE_DIR = /home/cxf/Desktop/httpd
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cxf/Desktop/WebServer/build
+CMAKE_BINARY_DIR = /home/cxf/Desktop/httpd/build
 
 # Include any dependencies generated for this target.
 include base/CMakeFiles/base.dir/depend.make
@@ -78,133 +78,133 @@ include base/CMakeFiles/base.dir/flags.make
 
 base/CMakeFiles/base.dir/Mutex.cpp.o: base/CMakeFiles/base.dir/flags.make
 base/CMakeFiles/base.dir/Mutex.cpp.o: ../base/Mutex.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object base/CMakeFiles/base.dir/Mutex.cpp.o"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/Mutex.cpp.o -c /home/cxf/Desktop/WebServer/base/Mutex.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/httpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object base/CMakeFiles/base.dir/Mutex.cpp.o"
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/Mutex.cpp.o -c /home/cxf/Desktop/httpd/base/Mutex.cpp
 
 base/CMakeFiles/base.dir/Mutex.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/base.dir/Mutex.cpp.i"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/base/Mutex.cpp > CMakeFiles/base.dir/Mutex.cpp.i
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/httpd/base/Mutex.cpp > CMakeFiles/base.dir/Mutex.cpp.i
 
 base/CMakeFiles/base.dir/Mutex.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/base.dir/Mutex.cpp.s"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/Mutex.cpp -o CMakeFiles/base.dir/Mutex.cpp.s
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/httpd/base/Mutex.cpp -o CMakeFiles/base.dir/Mutex.cpp.s
 
 base/CMakeFiles/base.dir/Condition.cpp.o: base/CMakeFiles/base.dir/flags.make
 base/CMakeFiles/base.dir/Condition.cpp.o: ../base/Condition.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object base/CMakeFiles/base.dir/Condition.cpp.o"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/Condition.cpp.o -c /home/cxf/Desktop/WebServer/base/Condition.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/httpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object base/CMakeFiles/base.dir/Condition.cpp.o"
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/Condition.cpp.o -c /home/cxf/Desktop/httpd/base/Condition.cpp
 
 base/CMakeFiles/base.dir/Condition.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/base.dir/Condition.cpp.i"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/base/Condition.cpp > CMakeFiles/base.dir/Condition.cpp.i
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/httpd/base/Condition.cpp > CMakeFiles/base.dir/Condition.cpp.i
 
 base/CMakeFiles/base.dir/Condition.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/base.dir/Condition.cpp.s"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/Condition.cpp -o CMakeFiles/base.dir/Condition.cpp.s
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/httpd/base/Condition.cpp -o CMakeFiles/base.dir/Condition.cpp.s
 
 base/CMakeFiles/base.dir/ConditionLatch.cpp.o: base/CMakeFiles/base.dir/flags.make
 base/CMakeFiles/base.dir/ConditionLatch.cpp.o: ../base/ConditionLatch.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object base/CMakeFiles/base.dir/ConditionLatch.cpp.o"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/ConditionLatch.cpp.o -c /home/cxf/Desktop/WebServer/base/ConditionLatch.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/httpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object base/CMakeFiles/base.dir/ConditionLatch.cpp.o"
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/ConditionLatch.cpp.o -c /home/cxf/Desktop/httpd/base/ConditionLatch.cpp
 
 base/CMakeFiles/base.dir/ConditionLatch.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/base.dir/ConditionLatch.cpp.i"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/base/ConditionLatch.cpp > CMakeFiles/base.dir/ConditionLatch.cpp.i
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/httpd/base/ConditionLatch.cpp > CMakeFiles/base.dir/ConditionLatch.cpp.i
 
 base/CMakeFiles/base.dir/ConditionLatch.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/base.dir/ConditionLatch.cpp.s"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/ConditionLatch.cpp -o CMakeFiles/base.dir/ConditionLatch.cpp.s
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/httpd/base/ConditionLatch.cpp -o CMakeFiles/base.dir/ConditionLatch.cpp.s
 
 base/CMakeFiles/base.dir/LogFile.cpp.o: base/CMakeFiles/base.dir/flags.make
 base/CMakeFiles/base.dir/LogFile.cpp.o: ../base/LogFile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object base/CMakeFiles/base.dir/LogFile.cpp.o"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/LogFile.cpp.o -c /home/cxf/Desktop/WebServer/base/LogFile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/httpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object base/CMakeFiles/base.dir/LogFile.cpp.o"
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/LogFile.cpp.o -c /home/cxf/Desktop/httpd/base/LogFile.cpp
 
 base/CMakeFiles/base.dir/LogFile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/base.dir/LogFile.cpp.i"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/base/LogFile.cpp > CMakeFiles/base.dir/LogFile.cpp.i
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/httpd/base/LogFile.cpp > CMakeFiles/base.dir/LogFile.cpp.i
 
 base/CMakeFiles/base.dir/LogFile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/base.dir/LogFile.cpp.s"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/LogFile.cpp -o CMakeFiles/base.dir/LogFile.cpp.s
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/httpd/base/LogFile.cpp -o CMakeFiles/base.dir/LogFile.cpp.s
 
 base/CMakeFiles/base.dir/Logging.cpp.o: base/CMakeFiles/base.dir/flags.make
 base/CMakeFiles/base.dir/Logging.cpp.o: ../base/Logging.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object base/CMakeFiles/base.dir/Logging.cpp.o"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/Logging.cpp.o -c /home/cxf/Desktop/WebServer/base/Logging.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/httpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object base/CMakeFiles/base.dir/Logging.cpp.o"
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/Logging.cpp.o -c /home/cxf/Desktop/httpd/base/Logging.cpp
 
 base/CMakeFiles/base.dir/Logging.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/base.dir/Logging.cpp.i"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/base/Logging.cpp > CMakeFiles/base.dir/Logging.cpp.i
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/httpd/base/Logging.cpp > CMakeFiles/base.dir/Logging.cpp.i
 
 base/CMakeFiles/base.dir/Logging.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/base.dir/Logging.cpp.s"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/Logging.cpp -o CMakeFiles/base.dir/Logging.cpp.s
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/httpd/base/Logging.cpp -o CMakeFiles/base.dir/Logging.cpp.s
 
 base/CMakeFiles/base.dir/LogStream.cpp.o: base/CMakeFiles/base.dir/flags.make
 base/CMakeFiles/base.dir/LogStream.cpp.o: ../base/LogStream.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object base/CMakeFiles/base.dir/LogStream.cpp.o"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/LogStream.cpp.o -c /home/cxf/Desktop/WebServer/base/LogStream.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/httpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object base/CMakeFiles/base.dir/LogStream.cpp.o"
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/LogStream.cpp.o -c /home/cxf/Desktop/httpd/base/LogStream.cpp
 
 base/CMakeFiles/base.dir/LogStream.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/base.dir/LogStream.cpp.i"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/base/LogStream.cpp > CMakeFiles/base.dir/LogStream.cpp.i
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/httpd/base/LogStream.cpp > CMakeFiles/base.dir/LogStream.cpp.i
 
 base/CMakeFiles/base.dir/LogStream.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/base.dir/LogStream.cpp.s"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/LogStream.cpp -o CMakeFiles/base.dir/LogStream.cpp.s
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/httpd/base/LogStream.cpp -o CMakeFiles/base.dir/LogStream.cpp.s
 
 base/CMakeFiles/base.dir/Thread.cpp.o: base/CMakeFiles/base.dir/flags.make
 base/CMakeFiles/base.dir/Thread.cpp.o: ../base/Thread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object base/CMakeFiles/base.dir/Thread.cpp.o"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/Thread.cpp.o -c /home/cxf/Desktop/WebServer/base/Thread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/httpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object base/CMakeFiles/base.dir/Thread.cpp.o"
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/Thread.cpp.o -c /home/cxf/Desktop/httpd/base/Thread.cpp
 
 base/CMakeFiles/base.dir/Thread.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/base.dir/Thread.cpp.i"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/base/Thread.cpp > CMakeFiles/base.dir/Thread.cpp.i
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/httpd/base/Thread.cpp > CMakeFiles/base.dir/Thread.cpp.i
 
 base/CMakeFiles/base.dir/Thread.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/base.dir/Thread.cpp.s"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/Thread.cpp -o CMakeFiles/base.dir/Thread.cpp.s
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/httpd/base/Thread.cpp -o CMakeFiles/base.dir/Thread.cpp.s
 
 base/CMakeFiles/base.dir/Threadpool.cpp.o: base/CMakeFiles/base.dir/flags.make
 base/CMakeFiles/base.dir/Threadpool.cpp.o: ../base/Threadpool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object base/CMakeFiles/base.dir/Threadpool.cpp.o"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/Threadpool.cpp.o -c /home/cxf/Desktop/WebServer/base/Threadpool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/httpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object base/CMakeFiles/base.dir/Threadpool.cpp.o"
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/Threadpool.cpp.o -c /home/cxf/Desktop/httpd/base/Threadpool.cpp
 
 base/CMakeFiles/base.dir/Threadpool.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/base.dir/Threadpool.cpp.i"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/base/Threadpool.cpp > CMakeFiles/base.dir/Threadpool.cpp.i
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/httpd/base/Threadpool.cpp > CMakeFiles/base.dir/Threadpool.cpp.i
 
 base/CMakeFiles/base.dir/Threadpool.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/base.dir/Threadpool.cpp.s"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/Threadpool.cpp -o CMakeFiles/base.dir/Threadpool.cpp.s
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/httpd/base/Threadpool.cpp -o CMakeFiles/base.dir/Threadpool.cpp.s
 
 base/CMakeFiles/base.dir/Timestamp.cpp.o: base/CMakeFiles/base.dir/flags.make
 base/CMakeFiles/base.dir/Timestamp.cpp.o: ../base/Timestamp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object base/CMakeFiles/base.dir/Timestamp.cpp.o"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/Timestamp.cpp.o -c /home/cxf/Desktop/WebServer/base/Timestamp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/httpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object base/CMakeFiles/base.dir/Timestamp.cpp.o"
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/Timestamp.cpp.o -c /home/cxf/Desktop/httpd/base/Timestamp.cpp
 
 base/CMakeFiles/base.dir/Timestamp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/base.dir/Timestamp.cpp.i"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/base/Timestamp.cpp > CMakeFiles/base.dir/Timestamp.cpp.i
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/httpd/base/Timestamp.cpp > CMakeFiles/base.dir/Timestamp.cpp.i
 
 base/CMakeFiles/base.dir/Timestamp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/base.dir/Timestamp.cpp.s"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/Timestamp.cpp -o CMakeFiles/base.dir/Timestamp.cpp.s
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/httpd/base/Timestamp.cpp -o CMakeFiles/base.dir/Timestamp.cpp.s
 
 base/CMakeFiles/base.dir/AppendFile.cpp.o: base/CMakeFiles/base.dir/flags.make
 base/CMakeFiles/base.dir/AppendFile.cpp.o: ../base/AppendFile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/WebServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object base/CMakeFiles/base.dir/AppendFile.cpp.o"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/AppendFile.cpp.o -c /home/cxf/Desktop/WebServer/base/AppendFile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cxf/Desktop/httpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object base/CMakeFiles/base.dir/AppendFile.cpp.o"
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/base.dir/AppendFile.cpp.o -c /home/cxf/Desktop/httpd/base/AppendFile.cpp
 
 base/CMakeFiles/base.dir/AppendFile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/base.dir/AppendFile.cpp.i"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/WebServer/base/AppendFile.cpp > CMakeFiles/base.dir/AppendFile.cpp.i
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cxf/Desktop/httpd/base/AppendFile.cpp > CMakeFiles/base.dir/AppendFile.cpp.i
 
 base/CMakeFiles/base.dir/AppendFile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/base.dir/AppendFile.cpp.s"
-	cd /home/cxf/Desktop/WebServer/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/WebServer/base/AppendFile.cpp -o CMakeFiles/base.dir/AppendFile.cpp.s
+	cd /home/cxf/Desktop/httpd/build/base && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cxf/Desktop/httpd/base/AppendFile.cpp -o CMakeFiles/base.dir/AppendFile.cpp.s
 
 # Object files for target base
 base_OBJECTS = \
@@ -234,9 +234,9 @@ lib/libbase.a: base/CMakeFiles/base.dir/Timestamp.cpp.o
 lib/libbase.a: base/CMakeFiles/base.dir/AppendFile.cpp.o
 lib/libbase.a: base/CMakeFiles/base.dir/build.make
 lib/libbase.a: base/CMakeFiles/base.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cxf/Desktop/WebServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library ../lib/libbase.a"
-	cd /home/cxf/Desktop/WebServer/build/base && $(CMAKE_COMMAND) -P CMakeFiles/base.dir/cmake_clean_target.cmake
-	cd /home/cxf/Desktop/WebServer/build/base && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/base.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cxf/Desktop/httpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library ../lib/libbase.a"
+	cd /home/cxf/Desktop/httpd/build/base && $(CMAKE_COMMAND) -P CMakeFiles/base.dir/cmake_clean_target.cmake
+	cd /home/cxf/Desktop/httpd/build/base && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/base.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 base/CMakeFiles/base.dir/build: lib/libbase.a
@@ -244,10 +244,10 @@ base/CMakeFiles/base.dir/build: lib/libbase.a
 .PHONY : base/CMakeFiles/base.dir/build
 
 base/CMakeFiles/base.dir/clean:
-	cd /home/cxf/Desktop/WebServer/build/base && $(CMAKE_COMMAND) -P CMakeFiles/base.dir/cmake_clean.cmake
+	cd /home/cxf/Desktop/httpd/build/base && $(CMAKE_COMMAND) -P CMakeFiles/base.dir/cmake_clean.cmake
 .PHONY : base/CMakeFiles/base.dir/clean
 
 base/CMakeFiles/base.dir/depend:
-	cd /home/cxf/Desktop/WebServer/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cxf/Desktop/WebServer /home/cxf/Desktop/WebServer/base /home/cxf/Desktop/WebServer/build /home/cxf/Desktop/WebServer/build/base /home/cxf/Desktop/WebServer/build/base/CMakeFiles/base.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cxf/Desktop/httpd/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cxf/Desktop/httpd /home/cxf/Desktop/httpd/base /home/cxf/Desktop/httpd/build /home/cxf/Desktop/httpd/build/base /home/cxf/Desktop/httpd/build/base/CMakeFiles/base.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : base/CMakeFiles/base.dir/depend
 

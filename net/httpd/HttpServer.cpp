@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-26 21:17:17
- * @LastEditTime: 2021-03-28 08:03:38
+ * @LastEditTime: 2021-03-28 10:25:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/httpd/HttpServer.cpp
@@ -18,16 +18,18 @@ HttpServer::HttpServer(EventLoop* loop,
              const std::string& name)
         :server_(loop, listenAddr, name)
 {
-    // TODO: why unable call directly???
     server_.setConnectionCallback(
         std::bind(&HttpServer::onConnection, this, std::placeholders::_1));
     server_.setMessageCallback(std::bind(&HttpServer::onMessage, this, _1, _2, _3));
 }
+
 void HttpServer::onConnection(const TcpConnectionPtr& conn) {
+    // TODO: forbid Nagle
+    conn->setTcpNoDelay(true);
     if (conn->connected()) {
-        LOG_INFO << "[new connection from [ipPort = %s] up\n]", conn->peerAddress().getIPort().c_str();
+        LOG_INFO << "new connection from [ipPort = " << conn->peerAddress().getIPort().c_str() << "] is up";
     } else {
-        LOG_INFO << "[conection  [ipPort = %s] down\n]", conn->peerAddress().getIPort().c_str();
+        LOG_INFO << "conection  [ipPort =" << conn->peerAddress().getIPort().c_str() << "] is down";
     }
 }
 
@@ -35,20 +37,22 @@ void HttpServer::onMessage(const TcpConnectionPtr& conn,
                             Buffer *inputBuffer,
                             Timestamp receiveTime) 
 {
-    printf("new message visist\n");
+    // TODO: comment LOG
+    // printf("new message visist\n");
     bool succeed = true;
     // FIXME:
-    HttpParse parse;
-    succeed = parse.parseRequest(inputBuffer);
+    std::shared_ptr<HttpParse> parse(new HttpParse());
+    // HttpParse *parse = new HttpParse();
+    succeed = parse->parseRequest(inputBuffer);
     // 可以通过request接口获取解析的请求
     if (!succeed) {
         conn->send("HTTP/1.1 400 Bad Request\r\n\r\n");
         conn->shutdown();
     }
-    if (parse.isComplete()) {
-        onRequest(conn, parse.request());
+    if (parse->isComplete()) {
+        onRequest(conn, parse->request());
         // FIXME: is OK?
-        parse.reset();
+        parse->reset();
     }
 }
 
@@ -61,11 +65,9 @@ void HttpServer::onRequest(const TcpConnectionPtr& conn,
         || request.version() == HttpRequest::kHttp10) 
     {
         response.setVersion(HttpResponse::kHttp10);
-        conn->setKeepAlive(false);
     } else {
         response.setVersion(HttpResponse::kHttp11);
-        conn->setKeepAlive(true);
-    }
+    } 
     // 由用户(回调函数)填充响应内容
     httpCallback_(request, &response);
     Buffer buf;

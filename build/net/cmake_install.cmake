@@ -1,8 +1,8 @@
-# Install script for directory: /home/cxf/Desktop/WebServer/net
+# Install script for directory: /home/cxf/Desktop/httpd/net
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cxf/Desktop/WebServer")
+  set(CMAKE_INSTALL_PREFIX "/home/cxf/Desktop/httpd")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,30 +43,30 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/cxf/Desktop/WebServer/build/lib/libnet.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/cxf/Desktop/httpd/build/lib/libnet.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/muduo/net" TYPE FILE FILES
-    "/home/cxf/Desktop/WebServer/net/EventLoop.h"
-    "/home/cxf/Desktop/WebServer/net/EventLoopThread.h"
-    "/home/cxf/Desktop/WebServer/net/EventLoopThreadPool.h"
-    "/home/cxf/Desktop/WebServer/net/Channel.h"
-    "/home/cxf/Desktop/WebServer/net/EPoll.h"
-    "/home/cxf/Desktop/WebServer/net/SocketOps.h"
-    "/home/cxf/Desktop/WebServer/net/Socket.h"
-    "/home/cxf/Desktop/WebServer/net/AddrStruct.h"
-    "/home/cxf/Desktop/WebServer/net/Acceptor.h"
-    "/home/cxf/Desktop/WebServer/net/TcpServer.h"
-    "/home/cxf/Desktop/WebServer/net/Buffer.h"
-    "/home/cxf/Desktop/WebServer/net/Connection.h"
+    "/home/cxf/Desktop/httpd/net/EventLoop.h"
+    "/home/cxf/Desktop/httpd/net/EventLoopThread.h"
+    "/home/cxf/Desktop/httpd/net/EventLoopThreadPool.h"
+    "/home/cxf/Desktop/httpd/net/Channel.h"
+    "/home/cxf/Desktop/httpd/net/EPoll.h"
+    "/home/cxf/Desktop/httpd/net/SocketOps.h"
+    "/home/cxf/Desktop/httpd/net/Socket.h"
+    "/home/cxf/Desktop/httpd/net/AddrStruct.h"
+    "/home/cxf/Desktop/httpd/net/Acceptor.h"
+    "/home/cxf/Desktop/httpd/net/TcpServer.h"
+    "/home/cxf/Desktop/httpd/net/Buffer.h"
+    "/home/cxf/Desktop/httpd/net/Connection.h"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/cxf/Desktop/WebServer/build/net/httpd/cmake_install.cmake")
-  include("/home/cxf/Desktop/WebServer/build/net/test/cmake_install.cmake")
+  include("/home/cxf/Desktop/httpd/build/net/httpd/cmake_install.cmake")
+  include("/home/cxf/Desktop/httpd/build/net/test/cmake_install.cmake")
 
 endif()
 

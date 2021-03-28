@@ -1,8 +1,8 @@
-# Install script for directory: /home/cxf/Desktop/WebServer/net/test
+# Install script for directory: /home/cxf/Desktop/httpd/net/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cxf/Desktop/WebServer")
+  set(CMAKE_INSTALL_PREFIX "/home/cxf/Desktop/httpd")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

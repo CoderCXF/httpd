@@ -67,10 +67,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cxf/Desktop/WebServer
+CMAKE_SOURCE_DIR = /home/cxf/Desktop/httpd
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cxf/Desktop/WebServer/build
+CMAKE_BINARY_DIR = /home/cxf/Desktop/httpd/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -156,14 +156,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/cxf/Desktop/WebServer/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/cxf/Desktop/WebServer/build/CMakeFiles /home/cxf/Desktop/WebServer/build/net/httpd//CMakeFiles/progress.marks
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/httpd/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cxf/Desktop/WebServer/build/CMakeFiles 0
+	cd /home/cxf/Desktop/httpd/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/cxf/Desktop/httpd/build/CMakeFiles /home/cxf/Desktop/httpd/build/net/httpd//CMakeFiles/progress.marks
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/httpd/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cxf/Desktop/httpd/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/httpd/clean
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/httpd/clean
 .PHONY : clean
 
 # The main clean target
@@ -173,22 +173,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/httpd/preinstall
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/httpd/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/httpd/preinstall
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/httpd/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/cxf/Desktop/WebServer/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/cxf/Desktop/httpd/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 net/httpd/CMakeFiles/httpserver_test.dir/rule:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/httpd/CMakeFiles/httpserver_test.dir/rule
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/httpd/CMakeFiles/httpserver_test.dir/rule
 .PHONY : net/httpd/CMakeFiles/httpserver_test.dir/rule
 
 # Convenience name for target.
@@ -198,12 +198,12 @@ httpserver_test: net/httpd/CMakeFiles/httpserver_test.dir/rule
 
 # fast build rule for target.
 httpserver_test/fast:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/httpserver_test.dir/build.make net/httpd/CMakeFiles/httpserver_test.dir/build
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/httpserver_test.dir/build.make net/httpd/CMakeFiles/httpserver_test.dir/build
 .PHONY : httpserver_test/fast
 
 # Convenience name for target.
 net/httpd/CMakeFiles/http.dir/rule:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/httpd/CMakeFiles/http.dir/rule
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/httpd/CMakeFiles/http.dir/rule
 .PHONY : net/httpd/CMakeFiles/http.dir/rule
 
 # Convenience name for target.
@@ -213,7 +213,7 @@ http: net/httpd/CMakeFiles/http.dir/rule
 
 # fast build rule for target.
 http/fast:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/build
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/build
 .PHONY : http/fast
 
 HttpParse.o: HttpParse.cpp.o
@@ -222,7 +222,7 @@ HttpParse.o: HttpParse.cpp.o
 
 # target to build an object file
 HttpParse.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/HttpParse.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/HttpParse.cpp.o
 .PHONY : HttpParse.cpp.o
 
 HttpParse.i: HttpParse.cpp.i
@@ -231,7 +231,7 @@ HttpParse.i: HttpParse.cpp.i
 
 # target to preprocess a source file
 HttpParse.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/HttpParse.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/HttpParse.cpp.i
 .PHONY : HttpParse.cpp.i
 
 HttpParse.s: HttpParse.cpp.s
@@ -240,7 +240,7 @@ HttpParse.s: HttpParse.cpp.s
 
 # target to generate assembly for a file
 HttpParse.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/HttpParse.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/HttpParse.cpp.s
 .PHONY : HttpParse.cpp.s
 
 HttpServer.o: HttpServer.cpp.o
@@ -249,7 +249,7 @@ HttpServer.o: HttpServer.cpp.o
 
 # target to build an object file
 HttpServer.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/HttpServer.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/HttpServer.cpp.o
 .PHONY : HttpServer.cpp.o
 
 HttpServer.i: HttpServer.cpp.i
@@ -258,7 +258,7 @@ HttpServer.i: HttpServer.cpp.i
 
 # target to preprocess a source file
 HttpServer.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/HttpServer.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/HttpServer.cpp.i
 .PHONY : HttpServer.cpp.i
 
 HttpServer.s: HttpServer.cpp.s
@@ -267,7 +267,7 @@ HttpServer.s: HttpServer.cpp.s
 
 # target to generate assembly for a file
 HttpServer.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/HttpServer.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/http.dir/build.make net/httpd/CMakeFiles/http.dir/HttpServer.cpp.s
 .PHONY : HttpServer.cpp.s
 
 test/HttpServer_test.o: test/HttpServer_test.cpp.o
@@ -276,7 +276,7 @@ test/HttpServer_test.o: test/HttpServer_test.cpp.o
 
 # target to build an object file
 test/HttpServer_test.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/httpserver_test.dir/build.make net/httpd/CMakeFiles/httpserver_test.dir/test/HttpServer_test.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/httpserver_test.dir/build.make net/httpd/CMakeFiles/httpserver_test.dir/test/HttpServer_test.cpp.o
 .PHONY : test/HttpServer_test.cpp.o
 
 test/HttpServer_test.i: test/HttpServer_test.cpp.i
@@ -285,7 +285,7 @@ test/HttpServer_test.i: test/HttpServer_test.cpp.i
 
 # target to preprocess a source file
 test/HttpServer_test.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/httpserver_test.dir/build.make net/httpd/CMakeFiles/httpserver_test.dir/test/HttpServer_test.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/httpserver_test.dir/build.make net/httpd/CMakeFiles/httpserver_test.dir/test/HttpServer_test.cpp.i
 .PHONY : test/HttpServer_test.cpp.i
 
 test/HttpServer_test.s: test/HttpServer_test.cpp.s
@@ -294,7 +294,7 @@ test/HttpServer_test.s: test/HttpServer_test.cpp.s
 
 # target to generate assembly for a file
 test/HttpServer_test.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/httpserver_test.dir/build.make net/httpd/CMakeFiles/httpserver_test.dir/test/HttpServer_test.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/httpd/CMakeFiles/httpserver_test.dir/build.make net/httpd/CMakeFiles/httpserver_test.dir/test/HttpServer_test.cpp.s
 .PHONY : test/HttpServer_test.cpp.s
 
 # Help Target
@@ -332,6 +332,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/cxf/Desktop/WebServer/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/cxf/Desktop/httpd/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

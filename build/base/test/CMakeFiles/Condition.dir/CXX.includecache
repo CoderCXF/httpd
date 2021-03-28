@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/cxf/Desktop/WebServer/base/Base.h
+/home/cxf/Desktop/httpd/base/Base.h
 stdio.h
 -
 iostream
@@ -18,15 +18,15 @@ error.h
 errno.h
 -
 
-/home/cxf/Desktop/WebServer/base/Condition.h
+/home/cxf/Desktop/httpd/base/Condition.h
 pthread.h
 -
 Base.h
-/home/cxf/Desktop/WebServer/base/Base.h
+/home/cxf/Desktop/httpd/base/Base.h
 Mutex.h
-/home/cxf/Desktop/WebServer/base/Mutex.h
+/home/cxf/Desktop/httpd/base/Mutex.h
 
-/home/cxf/Desktop/WebServer/base/Mutex.h
+/home/cxf/Desktop/httpd/base/Mutex.h
 assert.h
 -
 unistd.h
@@ -34,9 +34,9 @@ unistd.h
 pthread.h
 -
 
-/home/cxf/Desktop/WebServer/base/test/Condition_test.cpp
+/home/cxf/Desktop/httpd/base/test/Condition_test.cpp
 ../Condition.h
-/home/cxf/Desktop/WebServer/base/Condition.h
+/home/cxf/Desktop/httpd/base/Condition.h
 string.h
-/home/cxf/Desktop/WebServer/base/test/string.h
+/home/cxf/Desktop/httpd/base/test/string.h
 

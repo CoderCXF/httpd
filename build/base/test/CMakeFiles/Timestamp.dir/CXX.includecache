@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/cxf/Desktop/WebServer/base/Timestamp.h
+/home/cxf/Desktop/httpd/base/Timestamp.h
 string
 -
 iostream
 -
 
-/home/cxf/Desktop/WebServer/base/test/Timestamp_test.cpp
+/home/cxf/Desktop/httpd/base/test/Timestamp_test.cpp
 ../Timestamp.h
-/home/cxf/Desktop/WebServer/base/Timestamp.h
+/home/cxf/Desktop/httpd/base/Timestamp.h
 vector
 -
 stdio.h

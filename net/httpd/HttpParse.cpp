@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-27 08:25:06
- * @LastEditTime: 2021-03-27 20:51:37
+ * @LastEditTime: 2021-03-28 08:08:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/httpd/HttpParse.cpp
@@ -19,7 +19,6 @@ bool HttpParse::parseRequest(Buffer *buf) {
             // request line
             if (crlf) {
                 ok = parseRequestLine(buf->peek(), crlf);
-                LOG_DEBUG << "ok = " << ok;
                 if (ok) {
                     buf->retrieveUntil(crlf + 2);
                     state_ = ParseState::kExpectHeaders;

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/cxf/Desktop/WebServer/base/Base.h
+/home/cxf/Desktop/httpd/base/Base.h
 stdio.h
 -
 iostream
@@ -18,9 +18,9 @@ error.h
 errno.h
 -
 
-/home/cxf/Desktop/WebServer/base/Thread.h
+/home/cxf/Desktop/httpd/base/Thread.h
 Base.h
-/home/cxf/Desktop/WebServer/base/Base.h
+/home/cxf/Desktop/httpd/base/Base.h
 pthread.h
 -
 assert.h
@@ -34,7 +34,7 @@ sys/prctl.h
 sys/syscall.h
 -
 
-/home/cxf/Desktop/WebServer/base/test/Thread_test.cpp
+/home/cxf/Desktop/httpd/base/test/Thread_test.cpp
 ../Thread.h
-/home/cxf/Desktop/WebServer/base/Thread.h
+/home/cxf/Desktop/httpd/base/Thread.h
 

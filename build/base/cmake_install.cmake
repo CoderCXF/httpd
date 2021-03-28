@@ -1,8 +1,8 @@
-# Install script for directory: /home/cxf/Desktop/WebServer/base
+# Install script for directory: /home/cxf/Desktop/httpd/base
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cxf/Desktop/WebServer")
+  set(CMAKE_INSTALL_PREFIX "/home/cxf/Desktop/httpd")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,33 +43,33 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/cxf/Desktop/WebServer/build/lib/libbase.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/cxf/Desktop/httpd/build/lib/libbase.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/muduo/base" TYPE FILE FILES
-    "/home/cxf/Desktop/WebServer/base/AppendFile.h"
-    "/home/cxf/Desktop/WebServer/base/AsyncLog.h"
-    "/home/cxf/Desktop/WebServer/base/Base.h"
-    "/home/cxf/Desktop/WebServer/base/BlockQueue.h"
-    "/home/cxf/Desktop/WebServer/base/Condition.h"
-    "/home/cxf/Desktop/WebServer/base/ConditionLatch.h"
-    "/home/cxf/Desktop/WebServer/base/FixedBuffer.h"
-    "/home/cxf/Desktop/WebServer/base/LogFile.h"
-    "/home/cxf/Desktop/WebServer/base/LogStream.h"
-    "/home/cxf/Desktop/WebServer/base/Logging.h"
-    "/home/cxf/Desktop/WebServer/base/Mutex.h"
-    "/home/cxf/Desktop/WebServer/base/Singleton.h"
-    "/home/cxf/Desktop/WebServer/base/Thread.h"
-    "/home/cxf/Desktop/WebServer/base/Threadpool.h"
-    "/home/cxf/Desktop/WebServer/base/Timestamp.h"
-    "/home/cxf/Desktop/WebServer/base/rwn.h"
+    "/home/cxf/Desktop/httpd/base/AppendFile.h"
+    "/home/cxf/Desktop/httpd/base/AsyncLog.h"
+    "/home/cxf/Desktop/httpd/base/Base.h"
+    "/home/cxf/Desktop/httpd/base/BlockQueue.h"
+    "/home/cxf/Desktop/httpd/base/Condition.h"
+    "/home/cxf/Desktop/httpd/base/ConditionLatch.h"
+    "/home/cxf/Desktop/httpd/base/FixedBuffer.h"
+    "/home/cxf/Desktop/httpd/base/LogFile.h"
+    "/home/cxf/Desktop/httpd/base/LogStream.h"
+    "/home/cxf/Desktop/httpd/base/Logging.h"
+    "/home/cxf/Desktop/httpd/base/Mutex.h"
+    "/home/cxf/Desktop/httpd/base/Singleton.h"
+    "/home/cxf/Desktop/httpd/base/Thread.h"
+    "/home/cxf/Desktop/httpd/base/Threadpool.h"
+    "/home/cxf/Desktop/httpd/base/Timestamp.h"
+    "/home/cxf/Desktop/httpd/base/rwn.h"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/cxf/Desktop/WebServer/build/base/test/cmake_install.cmake")
+  include("/home/cxf/Desktop/httpd/build/base/test/cmake_install.cmake")
 
 endif()
 

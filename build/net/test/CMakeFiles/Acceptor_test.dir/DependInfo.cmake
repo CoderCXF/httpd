@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cxf/Desktop/WebServer/net/test/Acceptor_test.cpp" "/home/cxf/Desktop/WebServer/build/net/test/CMakeFiles/Acceptor_test.dir/Acceptor_test.cpp.o"
+  "/home/cxf/Desktop/httpd/net/test/Acceptor_test.cpp" "/home/cxf/Desktop/httpd/build/net/test/CMakeFiles/Acceptor_test.dir/Acceptor_test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,8 +15,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/cxf/Desktop/WebServer/build/net/CMakeFiles/net.dir/DependInfo.cmake"
-  "/home/cxf/Desktop/WebServer/build/base/CMakeFiles/base.dir/DependInfo.cmake"
+  "/home/cxf/Desktop/httpd/build/net/CMakeFiles/net.dir/DependInfo.cmake"
+  "/home/cxf/Desktop/httpd/build/base/CMakeFiles/base.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

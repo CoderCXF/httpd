@@ -67,10 +67,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cxf/Desktop/WebServer
+CMAKE_SOURCE_DIR = /home/cxf/Desktop/httpd
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cxf/Desktop/WebServer/build
+CMAKE_BINARY_DIR = /home/cxf/Desktop/httpd/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -156,14 +156,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/cxf/Desktop/WebServer/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/cxf/Desktop/WebServer/build/CMakeFiles /home/cxf/Desktop/WebServer/build/net//CMakeFiles/progress.marks
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cxf/Desktop/WebServer/build/CMakeFiles 0
+	cd /home/cxf/Desktop/httpd/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/cxf/Desktop/httpd/build/CMakeFiles /home/cxf/Desktop/httpd/build/net//CMakeFiles/progress.marks
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cxf/Desktop/httpd/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/clean
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/clean
 .PHONY : clean
 
 # The main clean target
@@ -173,22 +173,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/preinstall
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/preinstall
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/cxf/Desktop/WebServer/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/cxf/Desktop/httpd/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 net/CMakeFiles/net.dir/rule:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/CMakeFiles/net.dir/rule
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 net/CMakeFiles/net.dir/rule
 .PHONY : net/CMakeFiles/net.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ net: net/CMakeFiles/net.dir/rule
 
 # fast build rule for target.
 net/fast:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/build
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/build
 .PHONY : net/fast
 
 Acceptor.o: Acceptor.cpp.o
@@ -207,7 +207,7 @@ Acceptor.o: Acceptor.cpp.o
 
 # target to build an object file
 Acceptor.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Acceptor.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Acceptor.cpp.o
 .PHONY : Acceptor.cpp.o
 
 Acceptor.i: Acceptor.cpp.i
@@ -216,7 +216,7 @@ Acceptor.i: Acceptor.cpp.i
 
 # target to preprocess a source file
 Acceptor.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Acceptor.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Acceptor.cpp.i
 .PHONY : Acceptor.cpp.i
 
 Acceptor.s: Acceptor.cpp.s
@@ -225,7 +225,7 @@ Acceptor.s: Acceptor.cpp.s
 
 # target to generate assembly for a file
 Acceptor.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Acceptor.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Acceptor.cpp.s
 .PHONY : Acceptor.cpp.s
 
 AddrStruct.o: AddrStruct.cpp.o
@@ -234,7 +234,7 @@ AddrStruct.o: AddrStruct.cpp.o
 
 # target to build an object file
 AddrStruct.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/AddrStruct.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/AddrStruct.cpp.o
 .PHONY : AddrStruct.cpp.o
 
 AddrStruct.i: AddrStruct.cpp.i
@@ -243,7 +243,7 @@ AddrStruct.i: AddrStruct.cpp.i
 
 # target to preprocess a source file
 AddrStruct.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/AddrStruct.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/AddrStruct.cpp.i
 .PHONY : AddrStruct.cpp.i
 
 AddrStruct.s: AddrStruct.cpp.s
@@ -252,7 +252,7 @@ AddrStruct.s: AddrStruct.cpp.s
 
 # target to generate assembly for a file
 AddrStruct.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/AddrStruct.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/AddrStruct.cpp.s
 .PHONY : AddrStruct.cpp.s
 
 Buffer.o: Buffer.cpp.o
@@ -261,7 +261,7 @@ Buffer.o: Buffer.cpp.o
 
 # target to build an object file
 Buffer.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Buffer.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Buffer.cpp.o
 .PHONY : Buffer.cpp.o
 
 Buffer.i: Buffer.cpp.i
@@ -270,7 +270,7 @@ Buffer.i: Buffer.cpp.i
 
 # target to preprocess a source file
 Buffer.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Buffer.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Buffer.cpp.i
 .PHONY : Buffer.cpp.i
 
 Buffer.s: Buffer.cpp.s
@@ -279,7 +279,7 @@ Buffer.s: Buffer.cpp.s
 
 # target to generate assembly for a file
 Buffer.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Buffer.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Buffer.cpp.s
 .PHONY : Buffer.cpp.s
 
 Channel.o: Channel.cpp.o
@@ -288,7 +288,7 @@ Channel.o: Channel.cpp.o
 
 # target to build an object file
 Channel.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Channel.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Channel.cpp.o
 .PHONY : Channel.cpp.o
 
 Channel.i: Channel.cpp.i
@@ -297,7 +297,7 @@ Channel.i: Channel.cpp.i
 
 # target to preprocess a source file
 Channel.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Channel.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Channel.cpp.i
 .PHONY : Channel.cpp.i
 
 Channel.s: Channel.cpp.s
@@ -306,7 +306,7 @@ Channel.s: Channel.cpp.s
 
 # target to generate assembly for a file
 Channel.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Channel.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Channel.cpp.s
 .PHONY : Channel.cpp.s
 
 Connection.o: Connection.cpp.o
@@ -315,7 +315,7 @@ Connection.o: Connection.cpp.o
 
 # target to build an object file
 Connection.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Connection.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Connection.cpp.o
 .PHONY : Connection.cpp.o
 
 Connection.i: Connection.cpp.i
@@ -324,7 +324,7 @@ Connection.i: Connection.cpp.i
 
 # target to preprocess a source file
 Connection.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Connection.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Connection.cpp.i
 .PHONY : Connection.cpp.i
 
 Connection.s: Connection.cpp.s
@@ -333,7 +333,7 @@ Connection.s: Connection.cpp.s
 
 # target to generate assembly for a file
 Connection.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Connection.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Connection.cpp.s
 .PHONY : Connection.cpp.s
 
 EPoll.o: EPoll.cpp.o
@@ -342,7 +342,7 @@ EPoll.o: EPoll.cpp.o
 
 # target to build an object file
 EPoll.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EPoll.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EPoll.cpp.o
 .PHONY : EPoll.cpp.o
 
 EPoll.i: EPoll.cpp.i
@@ -351,7 +351,7 @@ EPoll.i: EPoll.cpp.i
 
 # target to preprocess a source file
 EPoll.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EPoll.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EPoll.cpp.i
 .PHONY : EPoll.cpp.i
 
 EPoll.s: EPoll.cpp.s
@@ -360,7 +360,7 @@ EPoll.s: EPoll.cpp.s
 
 # target to generate assembly for a file
 EPoll.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EPoll.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EPoll.cpp.s
 .PHONY : EPoll.cpp.s
 
 EventLoop.o: EventLoop.cpp.o
@@ -369,7 +369,7 @@ EventLoop.o: EventLoop.cpp.o
 
 # target to build an object file
 EventLoop.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoop.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoop.cpp.o
 .PHONY : EventLoop.cpp.o
 
 EventLoop.i: EventLoop.cpp.i
@@ -378,7 +378,7 @@ EventLoop.i: EventLoop.cpp.i
 
 # target to preprocess a source file
 EventLoop.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoop.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoop.cpp.i
 .PHONY : EventLoop.cpp.i
 
 EventLoop.s: EventLoop.cpp.s
@@ -387,7 +387,7 @@ EventLoop.s: EventLoop.cpp.s
 
 # target to generate assembly for a file
 EventLoop.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoop.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoop.cpp.s
 .PHONY : EventLoop.cpp.s
 
 EventLoopThread.o: EventLoopThread.cpp.o
@@ -396,7 +396,7 @@ EventLoopThread.o: EventLoopThread.cpp.o
 
 # target to build an object file
 EventLoopThread.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThread.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThread.cpp.o
 .PHONY : EventLoopThread.cpp.o
 
 EventLoopThread.i: EventLoopThread.cpp.i
@@ -405,7 +405,7 @@ EventLoopThread.i: EventLoopThread.cpp.i
 
 # target to preprocess a source file
 EventLoopThread.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThread.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThread.cpp.i
 .PHONY : EventLoopThread.cpp.i
 
 EventLoopThread.s: EventLoopThread.cpp.s
@@ -414,7 +414,7 @@ EventLoopThread.s: EventLoopThread.cpp.s
 
 # target to generate assembly for a file
 EventLoopThread.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThread.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThread.cpp.s
 .PHONY : EventLoopThread.cpp.s
 
 EventLoopThreadPool.o: EventLoopThreadPool.cpp.o
@@ -423,7 +423,7 @@ EventLoopThreadPool.o: EventLoopThreadPool.cpp.o
 
 # target to build an object file
 EventLoopThreadPool.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.o
 .PHONY : EventLoopThreadPool.cpp.o
 
 EventLoopThreadPool.i: EventLoopThreadPool.cpp.i
@@ -432,7 +432,7 @@ EventLoopThreadPool.i: EventLoopThreadPool.cpp.i
 
 # target to preprocess a source file
 EventLoopThreadPool.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.i
 .PHONY : EventLoopThreadPool.cpp.i
 
 EventLoopThreadPool.s: EventLoopThreadPool.cpp.s
@@ -441,7 +441,7 @@ EventLoopThreadPool.s: EventLoopThreadPool.cpp.s
 
 # target to generate assembly for a file
 EventLoopThreadPool.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/EventLoopThreadPool.cpp.s
 .PHONY : EventLoopThreadPool.cpp.s
 
 Socket.o: Socket.cpp.o
@@ -450,7 +450,7 @@ Socket.o: Socket.cpp.o
 
 # target to build an object file
 Socket.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Socket.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Socket.cpp.o
 .PHONY : Socket.cpp.o
 
 Socket.i: Socket.cpp.i
@@ -459,7 +459,7 @@ Socket.i: Socket.cpp.i
 
 # target to preprocess a source file
 Socket.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Socket.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Socket.cpp.i
 .PHONY : Socket.cpp.i
 
 Socket.s: Socket.cpp.s
@@ -468,7 +468,7 @@ Socket.s: Socket.cpp.s
 
 # target to generate assembly for a file
 Socket.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Socket.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/Socket.cpp.s
 .PHONY : Socket.cpp.s
 
 SocketOps.o: SocketOps.cpp.o
@@ -477,7 +477,7 @@ SocketOps.o: SocketOps.cpp.o
 
 # target to build an object file
 SocketOps.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/SocketOps.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/SocketOps.cpp.o
 .PHONY : SocketOps.cpp.o
 
 SocketOps.i: SocketOps.cpp.i
@@ -486,7 +486,7 @@ SocketOps.i: SocketOps.cpp.i
 
 # target to preprocess a source file
 SocketOps.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/SocketOps.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/SocketOps.cpp.i
 .PHONY : SocketOps.cpp.i
 
 SocketOps.s: SocketOps.cpp.s
@@ -495,7 +495,7 @@ SocketOps.s: SocketOps.cpp.s
 
 # target to generate assembly for a file
 SocketOps.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/SocketOps.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/SocketOps.cpp.s
 .PHONY : SocketOps.cpp.s
 
 TcpServer.o: TcpServer.cpp.o
@@ -504,7 +504,7 @@ TcpServer.o: TcpServer.cpp.o
 
 # target to build an object file
 TcpServer.cpp.o:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/TcpServer.cpp.o
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/TcpServer.cpp.o
 .PHONY : TcpServer.cpp.o
 
 TcpServer.i: TcpServer.cpp.i
@@ -513,7 +513,7 @@ TcpServer.i: TcpServer.cpp.i
 
 # target to preprocess a source file
 TcpServer.cpp.i:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/TcpServer.cpp.i
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/TcpServer.cpp.i
 .PHONY : TcpServer.cpp.i
 
 TcpServer.s: TcpServer.cpp.s
@@ -522,7 +522,7 @@ TcpServer.s: TcpServer.cpp.s
 
 # target to generate assembly for a file
 TcpServer.cpp.s:
-	cd /home/cxf/Desktop/WebServer/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/TcpServer.cpp.s
+	cd /home/cxf/Desktop/httpd/build && $(MAKE) $(MAKESILENT) -f net/CMakeFiles/net.dir/build.make net/CMakeFiles/net.dir/TcpServer.cpp.s
 .PHONY : TcpServer.cpp.s
 
 # Help Target
@@ -586,6 +586,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/cxf/Desktop/WebServer/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/cxf/Desktop/httpd/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
