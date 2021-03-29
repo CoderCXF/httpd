@@ -2,7 +2,7 @@
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
 <<<<<<< HEAD
- * @LastEditTime: 2021-03-29 19:01:05
+ * @LastEditTime: 2021-03-29 19:10:55
 =======
  * @LastEditTime: 2021-03-29 18:53:55
 >>>>>>> 170eb4e6b816f5e773ba877a7a7e17a4631b9399
@@ -167,7 +167,7 @@ void Connection::handleError()
 /// 由于有函数重载，所以需要显示绑定（指定函数返回值和形参列表）
 //
 void Connection::send(const char *data, int len)
-{
+{ 
         if (state_ == StateE::kconnected && loop_->isInLoopThread())
         {
                 sendInLoop(std::forward<std::string>(data));

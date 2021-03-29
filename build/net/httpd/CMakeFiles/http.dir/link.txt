@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../lib/libhttp.a CMakeFiles/http.dir/HttpParse.cpp.o CMakeFiles/http.dir/HttpServer.cpp.o
-/usr/bin/ranlib ../../lib/libhttp.a
