@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-27 09:45:53
- * @LastEditTime: 2021-03-28 15:27:32
+ * @LastEditTime: 2021-03-29 19:52:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/httpd/test/HttpServer_test.cpp
@@ -23,6 +23,7 @@ void onRequest(const HttpRequest& req, HttpResponse* resp)
 //   std::cout << "Headers " << req.methodString() << " " << req.path() << std::endl;
   if (!benchmark)
   {
+    // std::cout << req.version() << std::endl;
     const std::map<std::string, std::string>& headers = req.headers();
     for (const auto& header : headers)
     {

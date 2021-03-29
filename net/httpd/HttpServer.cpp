@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-26 21:17:17
- * @LastEditTime: 2021-03-28 11:28:09
+ * @LastEditTime: 2021-03-29 20:23:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/httpd/HttpServer.cpp
@@ -59,15 +59,23 @@ void HttpServer::onMessage(const TcpConnectionPtr& conn,
 void HttpServer::onRequest(const TcpConnectionPtr& conn, 
                            const HttpRequest &request) 
 {
-    HttpResponse response;
     std::string closeStr = request.getHead("Connection");
-    if (closeStr == "close" || closeStr != "Keep-Alive" 
-        || request.version() == HttpRequest::kHttp10) 
+    bool keep_alive;
+    // 有两种情况设置为短连接：
+    // 1. Connection字段为close(不管是HTTP1.0还是HTTP1.1,只要设置了close就关闭)
+    // 2. Connection字段不为Keep-Alive,而且请求是HTTP1.0（因为HTTP1.0默认是短连接，而且没有设置Keep-Alive）
+    if (closeStr == "close" || (closeStr != "Keep-Alive" && request.version() == HttpRequest::kHttp10)) 
     {
+        keep_alive = false;
+    } else {
+        keep_alive = true;
+    } 
+    HttpResponse response(keep_alive);
+    if (request.version() == HttpRequest::kHttp10) {
         response.setVersion(HttpResponse::kHttp10);
     } else {
         response.setVersion(HttpResponse::kHttp11);
-    } 
+    }
     // 由用户(回调函数)填充响应内容
     httpCallback_(request, &response);
     Buffer buf;

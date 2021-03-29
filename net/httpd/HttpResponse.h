@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-26 20:29:25
- * @LastEditTime: 2021-03-27 15:31:13
+ * @LastEditTime: 2021-03-29 20:48:48
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/httpd/HttpResponse.h
@@ -25,7 +25,7 @@ public:
     enum HttpVersion{
         kUnKnown, kHttp10, kHttp11
     };
-    HttpResponse() : version_(HttpVersion::kUnKnown), statusCode_(StatusCode::kUnKnownCode) 
+    HttpResponse(bool keep_alive) : version_(HttpVersion::kUnKnown), statusCode_(StatusCode::kUnKnownCode), keep_alive_(keep_alive)
     {
         
     }
@@ -65,14 +65,10 @@ public:
 
     void appendBuf(Buffer *output) {
         char buf[32];
-        // default http1.1
-        bool keep_alive = true;
         if (version_ == HttpVersion::kHttp10) {
             snprintf(buf, sizeof buf, "HTTP/1.0 ");
-            keep_alive = false;
         } else if (version_ == HttpVersion::kHttp11) {
             snprintf(buf, sizeof buf, "HTTP/1.1 ");
-            keep_alive = true;
         }
         output->append(buf);
         snprintf(buf, sizeof buf, "%d ", statusCode_);
@@ -86,7 +82,7 @@ public:
             output->append(head.second);
             output->append("\r\n");
         }
-        if (keep_alive) {
+        if (keep_alive_) {
             snprintf(buf, sizeof buf, "Content-Length: %ld\r\n", responseBody_.size());
             output->append(buf);
             output->append("Connection: Keep-Alive\r\n");
@@ -103,6 +99,7 @@ private:
     std::string statusMessage_;
     std::map<std::string, std::string> headers_;
     std::string responseBody_;
+    bool keep_alive_;
 };
 
 #endif
