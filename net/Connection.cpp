@@ -1,7 +1,11 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-29 18:58:41
+<<<<<<< HEAD
+ * @LastEditTime: 2021-03-29 19:01:05
+=======
+ * @LastEditTime: 2021-03-29 18:53:55
+>>>>>>> 170eb4e6b816f5e773ba877a7a7e17a4631b9399
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
