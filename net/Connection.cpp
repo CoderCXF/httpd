@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 14:34:41
- * @LastEditTime: 2021-03-28 20:35:52
+ * @LastEditTime: 2021-03-29 17:19:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Connection.cpp
@@ -46,7 +46,6 @@ void Connection::handleRead(Timestamp receiveTime)
         loop_->assertInLoopThread();
         int saveErrno = 0;
         ssize_t n = inputBuffer_.readFd(channel_->fd(), &saveErrno);
-        // messageCallback_(shared_from_this(), buf, n);
         if (n > 0)
         {
                 // messageCallback_(shared_from_this(), buf, sizeof buf);

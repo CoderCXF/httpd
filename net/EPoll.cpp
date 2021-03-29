@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-16 09:26:42
- * @LastEditTime: 2021-03-28 15:17:37
+ * @LastEditTime: 2021-03-29 17:21:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/EPoll.cpp
@@ -38,7 +38,7 @@ Timestamp EPoll::poll(int timeoutMs, ChannelList* activeChannels) {
   Timestamp now(Timestamp::now());
   if (numEvents > 0) {
     // TODO: comment LOG
-    LOG_TRACE << numEvents << " events happened";
+    // LOG_TRACE << numEvents << " events happened";
     fillActiveChannels(numEvents, activeChannels);
     // 扩容
     if (static_cast<size_t>(numEvents) == events_.size()) {
@@ -46,7 +46,7 @@ Timestamp EPoll::poll(int timeoutMs, ChannelList* activeChannels) {
     }
   } else if (numEvents == 0) {
     // TODO: comment LOG
-    LOG_TRACE << "nothing happend";
+    // LOG_TRACE << "nothing happend";
   } else {
     LOG_SYSERR << "EPOLL::poll";
   }
