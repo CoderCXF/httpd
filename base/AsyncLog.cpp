@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-16 11:52:08
- * @LastEditTime: 2021-01-25 14:04:44
+ * @LastEditTime: 2021-03-29 14:35:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/AsyncLog.cpp
@@ -77,7 +77,6 @@ void AsyncLog::writeLogFileThread() {
             for (auto &buffer : bufsToWrite)
             {
                 g_logfile_->append(buffer->data(), buffer->size());
-
             }
         } // ~MutexGuard
         if (!newBuffer1) {
