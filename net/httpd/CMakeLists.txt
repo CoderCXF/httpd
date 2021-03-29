@@ -16,6 +16,6 @@ set(HEADERS
 install(FILES ${HEADERS} DESTINATION include/muduo/net/http)
 
 
-add_executable(httpserver_test test/HttpServer_test.cpp)
-target_link_libraries(httpserver_test http)
+add_executable(httpserver test/HttpServer.cpp)
+target_link_libraries(httpserver http)
 
