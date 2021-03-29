@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-16 09:26:42
- * @LastEditTime: 2021-03-29 17:21:57
+ * @LastEditTime: 2021-03-29 17:26:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/EPoll.cpp
@@ -48,7 +48,7 @@ Timestamp EPoll::poll(int timeoutMs, ChannelList* activeChannels) {
     // TODO: comment LOG
     // LOG_TRACE << "nothing happend";
   } else {
-    LOG_SYSERR << "EPOLL::poll";
+    // LOG_SYSERR << "EPOLL::poll";
   }
   return now;
 }
