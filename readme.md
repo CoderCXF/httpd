@@ -1,18 +1,16 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-29 10:10:00
- * @LastEditTime: 2021-03-29 21:30:33
+ * @LastEditTime: 2021-03-30 11:44:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \httpd文档\readme.md
 -->
 # httpd
-| Part Ⅰ | Part Ⅱ | Part Ⅲ | Part Ⅳ | Part Ⅴ | Part Ⅵ |
-| :--------: | :---------: | :---------: | :---------: | :---------: | :---------: |
-| [Inroduce](#介绍) | [Build](#编译) | [Point](#技术要点) | [Log](#异步日志) |[Buffer](#应用层buffer) |[Test](#压力测试)
-
-<a name="介绍"></a>
-# 1. 介绍
+| Part Ⅰ | Part Ⅱ | Part Ⅲ | Part Ⅳ | Part Ⅴ | Part Ⅵ | Part VII |
+| :--------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: |
+| [Inroduce](#1.介绍) | [Build](#2.编译) | [Point](#3.技术要点) | [Log](#4.异步日志) |[Buffer](#5.应用层buffer) |[Test](#6.压力测试)| [FAQ](#7.FAQ) |
+# 1.介绍
 基于`C++11` + `STL` 实现的高性能 `HTTP` 服务器。在`Ubuntu16.04(gcc 5.4.0)` 以及 `Centos7(gcc 4.8.5)` 平台编译通过，目前不支持`Windows`系统。
 # 2.编译
 ```bash
@@ -20,7 +18,6 @@
 # cd httpd
 # sudo ./build.sh
 ```
-
 # 3.技术要点
 * 基于`Multiple reactors + threadpool`模型实现主框架，使用`epoll`默认的水平触发+非阻塞`IO`；
 * `Main Reactor` 所在线程只负责`accept`新连接请求，并以`round-robin/hash`方式分配给其他`IO`线程；
@@ -31,7 +28,7 @@
 * 使用智能指针和`RAII`机制管理系统资源；
 
 ## 实现框架
-![](https://user-gold-cdn.xitu.io/2020/3/25/17110c95048a2009?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](https://gitee.com/codercxf/Blog_image_hexo/raw/master/2021/20210330092713.png)
 
 # 4.异步日志
 在服务端编程中，日志是必不可少的。在实现中使用的是双缓冲的异步日志系统。
@@ -42,7 +39,7 @@
 ## 4.1 实现思路
 前端和后端各提供两个`buffer`，前端两个缓冲区一个为当前缓冲区`currentbuffer_`，另一个为预备缓冲区`nextbuffer_`，当前缓冲区写满的时候，就把它送入一个vector集合`buffers_`中，等待写入磁盘，并把预备缓冲`nextbuffer_`移为当前缓冲，然后开始追加日志到`nextbuffer_`并通知后端可以开始写出日志到磁盘。
 
-而在后端，同样准备好两块空`buffer`：`bufferA` 和 `bufferB`，当条件满足的时候就立即将当前缓冲区也添加到`buffers_`中准备写入，注意，这时候的当前缓冲区已经是预备缓冲区了（此时前端已经没有`buffer`了），然后立即将一个空`buffer`(`currentbuffer_ = bufferA`)移为当前缓冲区，工作线程开始往这个新的`currentbuffer_`中写。并且将另一个空的`bufferB`替换为 `nextbuffer_`，这样前端始终有一个空闲的预备缓冲区。然后后端开始写`buffers_`集合内部的所有buffer。
+后端，同样准备好两块空`buffer`：`bufferA` 和 `bufferB`，当条件满足的时候就立即将当前缓冲区也添加到`buffers_`中准备写入，注意，这时候的当前缓冲区已经是预备缓冲区了（此时前端已经没有`buffer`了），这时候立即将一个空`buffer`(`currentbuffer_ = bufferA`)移为当前缓冲区，工作线程开始往这个新的`currentbuffer_`中写。并且将另一个空的`bufferB`替换为 `nextbuffer_`，这样前端始终有一个空闲的预备缓冲区。然后后端开始写`buffers_`集合内部的所有`buffer`至磁盘。
 
 ## 4.2 实现图解
 ![](https://gitee.com/codercxf/Blog_image_hexo/raw/master/2021/20210329143345.png)
@@ -74,7 +71,7 @@
 
 **长连接：**
 ![](https://gitee.com/codercxf/Blog_image_hexo/raw/master/2021/20210329212202.png)
-
+# 7.FAQ
 
 
 
