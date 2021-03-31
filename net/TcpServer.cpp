@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-20 10:54:48
- * @LastEditTime: 2021-03-28 10:17:11
+ * @LastEditTime: 2021-03-31 15:42:56
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/TcpServer.cpp
@@ -99,9 +99,6 @@ void TcpServer::removeConnection(const TcpConnectionPtr& conn) {
 
 void TcpServer::removeConnectionInLoop(const TcpConnectionPtr& conn) {
     loop_->assertInLoopThread();
-    // TODO: comment LOG
-    // LOG_INFO << "TcpServer::removeChannel [" << name_ 
-    //          << "]-connection " << conn->name();
     // erase connection obj from list
     size_t n = connections_.erase(conn->name());
     (void)n;

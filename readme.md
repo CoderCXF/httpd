@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-29 10:10:00
- * @LastEditTime: 2021-03-31 11:47:08
+ * @LastEditTime: 2021-03-31 16:10:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \httpd文档\readme.md
@@ -29,7 +29,33 @@
 
 ## 实现框架
 ![](https://gitee.com/codercxf/Blog_image_hexo/raw/master/2021/20210330092713.png)
+## 3.1 接受新连接
 
+![](https://gitee.com/codercxf/Blog_image_hexo/raw/master/2021/20210331150030.png)
+1. 当一个新的连接请求到来的时候，首先会触发产生一个可读事件，epoll产生一个活跃的通道：`Acceptor::acceptChannel_`，调用 `Channel::handleEvent` 函数；
+2. 因为是读事件，所以又会调用通道注册的读事件回调函数：`Acceptor::handleRead()`；`在handleRead`中调用`accept`函数接收这个新连接，并且会调用一个`Acceptor::newConnection`回调函数；
+3. 而这个函数又是在`TcpServer`类中注册并实现的，所以就会回调 `TcpServer::newConnectionCallback`；
+   >那么这个函数是什么时候注册的呢？
+   其实是我们在编写程序的时候首先构建一个 `TcpServer` 对象，这时，我们在该类的构造函数中进行了注册：`acceptor_->setNewConnectionCallback`
+4. `在TcpServer::newConnectionCallback`函数中建立一个新的连接`conn`，并且分配给IO线程监听事件。并且回调了用户注册`connCallback`函数。
+5. 至此，新的连接建立完成。
+
+## 3.2 事件到来
+![](https://gitee.com/codercxf/Blog_image_hexo/raw/master/2021/20210331154942.png)
+1. 在接收新连接的时候，我们已经在IO线程中注册了新连接的读写异常事件的回调函数。所以当通道有读事件发生，就会调用`Channel::handleEvent`函数，因为是读事件，又会调用`Channel`注册的`readCallback_` 函数进行处理:
+2. 而这个函数又是什么时候注册的呢，其实是在建立一个新的连接对象到来的时候就已经注册了：
+![](https://gitee.com/codercxf/Blog_image_hexo/raw/master/2021/20210331152422.png)
+3. 这个时候就会调用 `Connection::handleRead` 函数，然后读数据至缓冲区，并且回调用户注册的消息到来函数`messageCallback` ：
+![](https://gitee.com/codercxf/Blog_image_hexo/raw/master/2021/20210331153434.png)
+
+## 3.3 连接断开
+![](https://gitee.com/codercxf/Blog_image_hexo/raw/master/2021/20210331155654.png)
+
+1. 连接断开属于可读事件，用户同样回调上面的`Connection::handleRead` 所示的 `Connection::handleRead函数` 读取数据，但是读取结果为0，表示对端关闭。于是调用 `handleClose` 函数；
+2. 在这个函数中，首先回调了用户注册的 `connectionCallback`函数（可以看到，这个函数在新建立连接以及断开连接的时候都会调用），然后调用了一个叫做 `closeCallback_`，这个函数不是用户注册的，而是等于(绑定) `TcpServer::removeConnection` 这个函数。
+![](https://gitee.com/codercxf/Blog_image_hexo/raw/master/2021/20210331154325.png)
+
+3. 在这个函数中又调用了`Connection::connectDestroy`函数，在这个函数中将此`channel`(连接)从监听树上移除。
 # 4.异步日志
 在服务端编程中，日志是必不可少的。在实现中使用的是双缓冲的异步日志系统。
 一条典型的日志记录如下：

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-03 10:39:25
- * @LastEditTime: 2021-03-28 10:10:43
+ * @LastEditTime: 2021-03-31 15:46:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Channel.cpp
@@ -80,24 +80,19 @@ void Channel::handleEvent(Timestamp receiveTime)
 void Channel::handleEventWithGuard(Timestamp receiveTime)
 {
   eventHandling_ = true;
-  // TODO: comment LOG
-  // LOG_TRACE << reventsToString();
+  LOG_TRACE << reventsToString();
   if ((revents_ & POLLHUP) && !(revents_ & POLLIN))
   {
     if (logHup_)
     {
-      // TODO: comment LOG
-
-      // LOG_WARN << "fd = " << fd_ << " Channel::handle_event() POLLHUP";
+      LOG_WARN << "fd = " << fd_ << " Channel::handle_event() POLLHUP";
     }
     if (closeCallback_) closeCallback_();
   }
 
   if (revents_ & POLLNVAL)
   {
-    // TODO: comment LOG
-    
-    // LOG_WARN << "fd = " << fd_ << " Channel::handle_event() POLLNVAL";
+    LOG_WARN << "fd = " << fd_ << " Channel::handle_event() POLLNVAL";
   }
 
   if (revents_ & (POLLERR | POLLNVAL))
