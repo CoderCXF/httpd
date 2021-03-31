@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-09 14:57:19
- * @LastEditTime: 2021-01-25 15:43:27
+ * @LastEditTime: 2021-03-31 10:17:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Mutex.h
@@ -17,7 +17,7 @@ class Mutex{
 public:
     Mutex();
     ~Mutex();
-    // Mutex(const Mutex &) = delete; //constructor function initilizer list
+    Mutex(const Mutex &) = delete; //constructor function initilizer list
     Mutex& operator=(const Mutex &) = delete;
 
     void lock();

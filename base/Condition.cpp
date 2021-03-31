@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-09 21:01:22
- * @LastEditTime: 2021-03-03 15:31:11
+ * @LastEditTime: 2021-03-31 10:20:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/condition.cpp
@@ -30,7 +30,7 @@ bool Condition::WaitForSeconds(double seconds) {
   abstime.tv_sec += static_cast<time_t>((abstime.tv_nsec + nanoseconds) / kNanoSecondsPerSecond);
   abstime.tv_nsec = static_cast<long>((abstime.tv_nsec + nanoseconds) % kNanoSecondsPerSecond);
 
-  Mutex lock(mutex_);
+  MutexGuard lock(mutex_);
   return ETIMEDOUT == pthread_cond_timedwait(&cond_, mutex_.getMutexInstance(), &abstime);
 }
 
