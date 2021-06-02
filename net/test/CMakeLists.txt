@@ -25,3 +25,6 @@ target_link_libraries(TcpServer_test04_pollout_shutdown net)
 
 add_executable(TcpServer_test_IGN_SIGPIPIE TcpServer_test_IGN_SIGPIPIE.cpp)
 target_link_libraries(TcpServer_test_IGN_SIGPIPIE net)
+
+add_executable(TimerQueue_test TimerQueue_test.cpp)
+target_link_libraries(TimerQueue_test net)

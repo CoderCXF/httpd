@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-03 10:39:25
- * @LastEditTime: 2021-03-31 15:46:31
+ * @LastEditTime: 2021-04-28 09:42:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Channel.cpp
@@ -28,6 +28,7 @@ Channel::Channel(EventLoop* loop, int fd__)
     eventHandling_(false),
     addedToLoop_(false)
 {
+  
 }
 
 Channel::~Channel()
@@ -49,7 +50,7 @@ void Channel::tie(const std::shared_ptr<void>& obj)
 // Channel::update->EventLoop::updateChannel->EPoll::updateChannel
 void Channel::update()
 {
-  addedToLoop_ = true;
+  addedToLoop_ = true;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
   loop_->updateChannel(this);
 }
 

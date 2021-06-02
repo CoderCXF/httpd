@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-12 14:32:20
- * @LastEditTime: 2021-01-26 10:58:13
+ * @LastEditTime: 2021-05-12 20:03:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/base/Threadpool.h
@@ -37,8 +37,8 @@ private:
     uint32_t maxQueueSize_;   // task queue
     bool running_;
     Mutex mutex_;
-    Condition notEmpty_; // taskqueue_
-    Condition notFull_;
+    Condition notEmpty_; // for taskqueue_
+    Condition notFull_; // for taskqueue_
     std::vector<std::unique_ptr<Thread>> threads_;
     std::deque<TaskFunc> task_queue_;
 };

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 19:47:37
- * @LastEditTime: 2021-03-28 20:36:58
+ * @LastEditTime: 2021-06-02 16:30:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Eventloop.cpp
@@ -26,12 +26,14 @@ EventLoop::EventLoop()
       callingPendingFunctors_(false),
       threadId_(CurrentThread::tid()),
       poller_(std::make_shared<EPoll>(this)), // create poller_ by call EPoll constructor(epoll_create)
+      timerQueue_(new TimerQueue(this)),
       wakeupFd_(createEventfd()),
       wakeupChannel_(new Channel(this, wakeupFd_)),
       currentActiveChannel_(NULL)
 {
-    // TODO:
+    // TODO: ignore SIGPIPE signal
     signal(SIGPIPE,SIG_IGN);  
+    createPipe(fd_);
     LOG_TRACE << "EventLoop " << this << " created in this thread " << threadId_;
     if (t_loopInThisThread) {
         LOG_FATAL << "Another EventLoop " << t_loopInThisThread
@@ -49,6 +51,12 @@ EventLoop::~EventLoop() {
     t_loopInThisThread = NULL;
 }
 
+void EventLoop::createPipe(int fd[2]) {
+  int ret = ::pipe(fd);
+  if (ret != 0) {
+    LOG_SYSFATAL << "EvetnLoop::createPipe";
+  }
+}
 void EventLoop::loop() {
     assert(!looping_);
     assertInLoopThread();
@@ -111,11 +119,14 @@ void EventLoop::runInLoop(Functor cb)
 
 void EventLoop::queueInLoop(Functor cb)
 {
+  // 将任务添加到队列中
   {
     MutexGuard lock(mutex_);
     pendingFunctors_.push_back(std::move(cb));
   }
-
+  // 调用queueInLoop的线程不是当前线程，需要唤醒
+  // 或者调用queueInLoop的线程是当前IO线程，并且此时正在调用pending functor,需要唤醒
+  // 只有当前IO线程的事件回调中queueInLoop才不需要唤醒
   if (!isInLoopThread() || callingPendingFunctors_)
   {
     wakeup();
@@ -124,12 +135,25 @@ void EventLoop::queueInLoop(Functor cb)
 
 void EventLoop::wakeup()
 {
+  // //只有固定的8字节（64位）的缓冲区
+  
   uint64_t one = 1;
   ssize_t n = sockets::write(wakeupFd_, &one, sizeof one);
   if (n != sizeof one)
   {
     LOG_ERROR << "EventLoop::wakeup() writes " << n << " bytes instead of 8";
   }
+  
+ // close read;
+//  close(fd_[0]);
+//  int flags = fcntl(fd_[0], F_GETFL, 0);
+//   flags |= O_NONBLOCK;
+//   fcntl(fd_[0], F_SETFL, flags);
+//  uint32_t buf = 1;
+//  ssize_t nbytes = sockets::write(fd_[1], &buf, sizeof buf);
+//  if (nbytes != sizeof buf) {
+//    LOG_ERROR << "EventLoop::wakeup";
+//  }
 }
 
 int EventLoop::createEventfd()
@@ -151,6 +175,16 @@ void EventLoop::handleRead()
   {
     LOG_ERROR << "EventLoop::handleRead() reads " << n << " bytes instead of 8";
   }
+  // close write
+  // close(fd_[1]);
+  // int flags = fcntl(fd_[1], F_GETFL, 0);
+  // flags |= O_NONBLOCK;
+  // fcntl(fd_[1], F_SETFL, flags);
+  // uint32_t buf = 1;
+  // ssize_t nbytes = sockets::read(fd_[0], &buf, sizeof buf);
+  // if (nbytes != sizeof buf) {
+  //   LOG_SYSFATAL << "EventLoop::handleRead";
+  // }
 }
 void EventLoop::doPendingFunctors()
 {
@@ -158,8 +192,8 @@ void EventLoop::doPendingFunctors()
   callingPendingFunctors_ = true;
 
   {
-  MutexGuard lock(mutex_);
-  functors.swap(pendingFunctors_);
+    MutexGuard lock(mutex_);
+    functors.swap(pendingFunctors_);
   }
 
   for (const Functor& functor : functors)
@@ -167,4 +201,27 @@ void EventLoop::doPendingFunctors()
     functor();
   }
   callingPendingFunctors_ = false;
+}
+
+
+TimerId EventLoop::runAt(Timestamp time, TimerCallback cb)
+{
+  return timerQueue_->addTimer(std::move(cb), time, 0.0);
+}
+
+TimerId EventLoop::runAfter(double delay, TimerCallback cb)
+{
+  Timestamp time(addTime(Timestamp::now(), delay));
+  return runAt(time, std::move(cb));
+}
+
+TimerId EventLoop::runEvery(double interval, TimerCallback cb)
+{
+  Timestamp time(addTime(Timestamp::now(), interval));
+  return timerQueue_->addTimer(std::move(cb), time, interval);
+}
+
+void EventLoop::cancel(TimerId timerId)
+{
+  return timerQueue_->cancel(timerId);
 }

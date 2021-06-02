@@ -18,6 +18,8 @@ set(net_SRCS
   TcpServer.cpp
   Buffer.cpp
   Connection.cpp
+  Timer.cpp
+  TimerQueue.cpp
   )
 
 
@@ -44,6 +46,7 @@ set(HEADERS
   TcpServer.h
   Buffer.h
   Connection.h
+  TimerId.h
   )
 install(FILES ${HEADERS} DESTINATION include/muduo/net)
 

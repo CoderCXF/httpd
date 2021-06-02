@@ -1,0 +1,227 @@
+[
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/base.dir/Mutex.cpp.o -c /home/cxf/Desktop/httpd/base/Mutex.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/Mutex.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/base.dir/Condition.cpp.o -c /home/cxf/Desktop/httpd/base/Condition.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/Condition.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/base.dir/ConditionLatch.cpp.o -c /home/cxf/Desktop/httpd/base/ConditionLatch.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/ConditionLatch.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/base.dir/LogFile.cpp.o -c /home/cxf/Desktop/httpd/base/LogFile.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/LogFile.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/base.dir/Logging.cpp.o -c /home/cxf/Desktop/httpd/base/Logging.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/Logging.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/base.dir/LogStream.cpp.o -c /home/cxf/Desktop/httpd/base/LogStream.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/LogStream.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/base.dir/Thread.cpp.o -c /home/cxf/Desktop/httpd/base/Thread.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/Thread.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/base.dir/Threadpool.cpp.o -c /home/cxf/Desktop/httpd/base/Threadpool.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/Threadpool.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/base.dir/Timestamp.cpp.o -c /home/cxf/Desktop/httpd/base/Timestamp.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/Timestamp.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/base.dir/AppendFile.cpp.o -c /home/cxf/Desktop/httpd/base/AppendFile.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/AppendFile.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/Thread.dir/Thread_test.cpp.o -c /home/cxf/Desktop/httpd/base/test/Thread_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/test/Thread_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/Threadpool.dir/Threadpool_test.cpp.o -c /home/cxf/Desktop/httpd/base/test/Threadpool_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/test/Threadpool_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/Timestamp.dir/Timestamp_test.cpp.o -c /home/cxf/Desktop/httpd/base/test/Timestamp_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/test/Timestamp_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/Condition.dir/Condition_test.cpp.o -c /home/cxf/Desktop/httpd/base/test/Condition_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/test/Condition_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/Mutex.dir/Mutex_test.cpp.o -c /home/cxf/Desktop/httpd/base/test/Mutex_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/test/Mutex_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/LogFile.dir/LogFile_test.cpp.o -c /home/cxf/Desktop/httpd/base/test/LogFile_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/test/LogFile_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/FixedBuffer.dir/FixedBuffer_test.cpp.o -c /home/cxf/Desktop/httpd/base/test/FixedBuffer_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/test/FixedBuffer_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/BlockQueue.dir/BlockQueue_test.cpp.o -c /home/cxf/Desktop/httpd/base/test/BlockQueue_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/test/BlockQueue_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/base/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/Logging.dir/Logging_test.cpp.o -c /home/cxf/Desktop/httpd/base/test/Logging_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/base/test/Logging_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/EventLoop.cpp.o -c /home/cxf/Desktop/httpd/net/EventLoop.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/EventLoop.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/EventLoopThread.cpp.o -c /home/cxf/Desktop/httpd/net/EventLoopThread.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/EventLoopThread.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/EventLoopThreadPool.cpp.o -c /home/cxf/Desktop/httpd/net/EventLoopThreadPool.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/EventLoopThreadPool.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/Channel.cpp.o -c /home/cxf/Desktop/httpd/net/Channel.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/Channel.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/EPoll.cpp.o -c /home/cxf/Desktop/httpd/net/EPoll.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/EPoll.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/SocketOps.cpp.o -c /home/cxf/Desktop/httpd/net/SocketOps.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/SocketOps.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/Socket.cpp.o -c /home/cxf/Desktop/httpd/net/Socket.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/Socket.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/AddrStruct.cpp.o -c /home/cxf/Desktop/httpd/net/AddrStruct.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/AddrStruct.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/Acceptor.cpp.o -c /home/cxf/Desktop/httpd/net/Acceptor.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/Acceptor.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/TcpServer.cpp.o -c /home/cxf/Desktop/httpd/net/TcpServer.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/TcpServer.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/Buffer.cpp.o -c /home/cxf/Desktop/httpd/net/Buffer.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/Buffer.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/Connection.cpp.o -c /home/cxf/Desktop/httpd/net/Connection.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/Connection.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/Timer.cpp.o -c /home/cxf/Desktop/httpd/net/Timer.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/Timer.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/net.dir/TimerQueue.cpp.o -c /home/cxf/Desktop/httpd/net/TimerQueue.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/TimerQueue.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net/httpd",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/http.dir/HttpParse.cpp.o -c /home/cxf/Desktop/httpd/net/httpd/HttpParse.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/httpd/HttpParse.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net/httpd",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/http.dir/HttpServer.cpp.o -c /home/cxf/Desktop/httpd/net/httpd/HttpServer.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/httpd/HttpServer.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net/httpd",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/httpserver.dir/test/HttpServer.cpp.o -c /home/cxf/Desktop/httpd/net/httpd/test/HttpServer.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/httpd/test/HttpServer.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/Acceptor_test.dir/Acceptor_test.cpp.o -c /home/cxf/Desktop/httpd/net/test/Acceptor_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/test/Acceptor_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/Socket_test.dir/Socket_test.cpp.o -c /home/cxf/Desktop/httpd/net/test/Socket_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/test/Socket_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/Reactor02_test.dir/Reactor02_test.cpp.o -c /home/cxf/Desktop/httpd/net/test/Reactor02_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/test/Reactor02_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/TcpServer_test03_Buffer_send.dir/TcpServer_test03_Buffer_send.cpp.o -c /home/cxf/Desktop/httpd/net/test/TcpServer_test03_Buffer_send.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/test/TcpServer_test03_Buffer_send.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/EventLoop_test.dir/EventLoop_test.cpp.o -c /home/cxf/Desktop/httpd/net/test/EventLoop_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/test/EventLoop_test.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/TcpServer_test02_EventLoopThreadPool.dir/TcpServer_test02_EventLoopThreadPool.cpp.o -c /home/cxf/Desktop/httpd/net/test/TcpServer_test02_EventLoopThreadPool.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/test/TcpServer_test02_EventLoopThreadPool.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/TcpServer_test_IGN_SIGPIPIE.dir/TcpServer_test_IGN_SIGPIPIE.cpp.o -c /home/cxf/Desktop/httpd/net/test/TcpServer_test_IGN_SIGPIPIE.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/test/TcpServer_test_IGN_SIGPIPIE.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/TcpServer_test04_pollout_shutdown.dir/TcpServer_test04_pollout_shutdown.cpp.o -c /home/cxf/Desktop/httpd/net/test/TcpServer_test04_pollout_shutdown.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/test/TcpServer_test04_pollout_shutdown.cpp"
+},
+{
+  "directory": "/home/cxf/Desktop/httpd/build/net/test",
+  "command": "/usr/bin/c++  -I/home/cxf/Desktop/httpd -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wno-unused-parameter -Woverloaded-virtual -Wpointer-arith -Wwrite-strings -march=native -std=c++11 -rdynamic -O0 -o CMakeFiles/TimerQueue_test.dir/TimerQueue_test.cpp.o -c /home/cxf/Desktop/httpd/net/test/TimerQueue_test.cpp",
+  "file": "/home/cxf/Desktop/httpd/net/test/TimerQueue_test.cpp"
+}
+]

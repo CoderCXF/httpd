@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 19:47:27
- * @LastEditTime: 2021-03-24 15:02:34
+ * @LastEditTime: 2021-06-02 16:31:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /WebServer/net/Eventloop.h
@@ -15,10 +15,13 @@
 #include <vector>
 #include <memory>
 #include <assert.h>
+#include <fcntl.h>
 
 #include "../base/Mutex.h"
 #include "../base/Thread.h"
 #include "../base/Timestamp.h"
+#include "TimerId.h"
+#include "TimerQueue.h"
 
 class Channel;
 class EPoll;
@@ -29,11 +32,36 @@ class EPoll;
 class EventLoop{
 public:
   typedef std::function<void()> Functor;
+  typedef std::function<void()> TimerCallback;
   EventLoop();
   ~EventLoop();
   void loop();
   void runInLoop(Functor cb);
   void queueInLoop(Functor cb);
+
+    // timers
+
+  ///
+  /// Runs callback at 'time'.
+  /// Safe to call from other threads.
+  ///
+  TimerId runAt(Timestamp time, TimerCallback cb);
+  ///
+  /// Runs callback after @c delay seconds.
+  /// Safe to call from other threads.
+  ///
+  TimerId runAfter(double delay, TimerCallback cb);
+  ///
+  /// Runs callback every @c interval seconds.
+  /// Safe to call from other threads.
+  ///
+  TimerId runEvery(double interval, TimerCallback cb);
+  ///
+  /// Cancels the timer.
+  /// Safe to call from other threads.
+  ///
+  void cancel(TimerId timerId);
+  
   void wakeup();
   int createEventfd();
   
@@ -55,6 +83,7 @@ private:
   void abortNotInLoopThread();
   void handleRead();
   void doPendingFunctors();
+  void createPipe(int fd[2]);
   
   bool looping_;
   bool quit_;
@@ -62,9 +91,11 @@ private:
   bool callingPendingFunctors_; /* atomic */
   const pid_t threadId_; // thread is that create loop thread
   std::shared_ptr<EPoll> poller_;
+  std::unique_ptr<TimerQueue> timerQueue_;
   int wakeupFd_;
   std::unique_ptr<Channel> wakeupChannel_;
   Channel* currentActiveChannel_;
+  int fd_[2];
   ChannelList activeChannels_;
   Timestamp pollReturnTime_;
 
